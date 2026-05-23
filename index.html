@@ -7,332 +7,343 @@
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --gold: #C9A84C;
-    --gold-light: #F0D080;
-    --gold-dark: #8B6914;
-    --black: #0A0A0A;
-    --black-mid: #141414;
-    --black-soft: #1E1E1E;
-    --black-card: #181818;
-    --white: #F5F0E8;
-    --white-dim: #C8C0B0;
+    --gold: #C9A84C; --gold-light: #F0D080; --gold-dark: #8B6914;
+    --black: #0A0A0A; --black-mid: #141414; --black-soft: #1E1E1E; --black-card: #181818;
+    --white: #F5F0E8; --white-dim: #C8C0B0;
   }
-
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   body { background: var(--black); color: var(--white); font-family: 'Lato', sans-serif; overflow-x: hidden; }
 
-  /* ── PARTICLES ── */
   #particles { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; overflow: hidden; }
   .particle { position: absolute; width: 2px; height: 2px; background: var(--gold); border-radius: 50%; opacity: 0; animation: float-up linear infinite; }
-  @keyframes float-up {
-    0%   { opacity: 0; transform: translateY(0) scale(0); }
-    10%  { opacity: 0.6; }
-    90%  { opacity: 0.2; }
-    100% { opacity: 0; transform: translateY(-100vh) scale(1.5); }
+  @keyframes float-up { 0% { opacity:0;transform:translateY(0) scale(0);} 10%{opacity:0.6;} 90%{opacity:0.2;} 100%{opacity:0;transform:translateY(-100vh) scale(1.5);} }
+
+  nav { position:fixed;top:0;width:100%;z-index:100;background:linear-gradient(180deg,rgba(10,10,10,0.98) 0%,rgba(10,10,10,0.7) 100%);backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,168,76,0.25);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:70px; }
+  .nav-logo { display:flex;align-items:center;gap:0.75rem; }
+  .nav-badge { width:44px;height:44px;background:radial-gradient(circle at 35% 35%,#F0D080,#C9A84C 50%,#8B6914);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Cinzel Decorative',serif;font-size:0.55rem;color:var(--black);font-weight:900;text-align:center;line-height:1.1;border:2px solid var(--gold-light);box-shadow:0 0 18px rgba(201,168,76,0.5);padding:4px;letter-spacing:0.02em; }
+  .nav-title { font-family:'Cinzel',serif;font-size:0.85rem;font-weight:700;color:var(--gold-light);letter-spacing:0.08em;line-height:1.3; }
+  .nav-title span { display:block;font-size:0.65rem;font-weight:400;color:var(--gold);letter-spacing:0.15em; }
+  .nav-links { display:flex;gap:1.5rem;list-style:none; }
+  .nav-links a { font-family:'Cinzel',serif;font-size:0.7rem;letter-spacing:0.12em;color:var(--white-dim);text-decoration:none;text-transform:uppercase;transition:color 0.3s;position:relative; }
+  .nav-links a::after { content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--gold);transition:width 0.3s; }
+  .nav-links a:hover { color:var(--gold-light); }
+  .nav-links a:hover::after { width:100%; }
+
+  .hero { position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;overflow:hidden;padding:6rem 2rem 4rem; }
+  .hero-photo-bg { position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,10,0.55) 0%,rgba(10,10,10,0.85) 60%,rgba(10,10,10,1) 100%),url('https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1600&q=80') center/cover no-repeat;z-index:0;filter:sepia(0.4) brightness(0.5); }
+  .hero-photo-bg::before { content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 50%,rgba(201,168,76,0.08) 0%,transparent 70%); }
+  .hero-emblem { position:relative;z-index:2;width:160px;height:160px;margin-bottom:2.5rem;animation:emblem-glow 3s ease-in-out infinite alternate; }
+  @keyframes emblem-glow { from{filter:drop-shadow(0 0 15px rgba(201,168,76,0.5));} to{filter:drop-shadow(0 0 40px rgba(201,168,76,0.9));} }
+  .hero-tagline { position:relative;z-index:2;font-family:'Cinzel',serif;font-size:0.75rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem;animation:fade-in 1s ease 0.2s both; }
+  .hero h1 { position:relative;z-index:2;font-family:'Cinzel Decorative',serif;font-size:clamp(2.2rem,6vw,4.5rem);font-weight:900;background:linear-gradient(135deg,#F0D080 0%,#C9A84C 40%,#F0D080 70%,#8B6914 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.1;margin-bottom:0.8rem;animation:fade-in 1s ease 0.4s both; }
+  .hero h2 { position:relative;z-index:2;font-family:'Cinzel',serif;font-size:clamp(0.9rem,2vw,1.2rem);font-weight:400;color:var(--white-dim);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:1.5rem;animation:fade-in 1s ease 0.6s both; }
+  .hero-motto { position:relative;z-index:2;font-family:'Cinzel',serif;font-style:italic;font-size:1rem;color:var(--gold-light);margin-bottom:3rem;animation:fade-in 1s ease 0.8s both; }
+  .hero-divider { position:relative;z-index:2;display:flex;align-items:center;gap:1rem;margin-bottom:3.5rem;animation:fade-in 1s ease 1s both; }
+  .hero-divider span { color:var(--gold);font-size:1.2rem; }
+  .hero-divider::before,.hero-divider::after { content:'';flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);width:120px; }
+  .hero-buttons { position:relative;z-index:2;display:flex;gap:1.2rem;flex-wrap:wrap;justify-content:center;animation:fade-in 1s ease 1.2s both; }
+  .btn-gold { background:linear-gradient(135deg,#C9A84C,#F0D080,#C9A84C);color:var(--black);font-family:'Cinzel',serif;font-size:0.75rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;padding:0.9rem 2.2rem;border:none;cursor:pointer;text-decoration:none;display:inline-block;transition:all 0.3s;box-shadow:0 4px 20px rgba(201,168,76,0.4);clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%); }
+  .btn-gold:hover { background:linear-gradient(135deg,#F0D080,#C9A84C,#F0D080);box-shadow:0 6px 35px rgba(201,168,76,0.7);transform:translateY(-2px); }
+  .btn-outline { background:transparent;color:var(--gold-light);font-family:'Cinzel',serif;font-size:0.75rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;padding:0.85rem 2.2rem;border:1px solid var(--gold);cursor:pointer;text-decoration:none;display:inline-block;transition:all 0.3s;clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%); }
+  .btn-outline:hover { background:rgba(201,168,76,0.12);box-shadow:0 4px 25px rgba(201,168,76,0.3);transform:translateY(-2px); }
+  .scroll-indicator { position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:0.4rem;animation:bounce 2s ease-in-out infinite;opacity:0.7; }
+  .scroll-indicator span { font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.25em;color:var(--gold);text-transform:uppercase; }
+  .scroll-arrow { width:20px;height:20px;border-right:2px solid var(--gold);border-bottom:2px solid var(--gold);transform:rotate(45deg); }
+  @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0);} 50%{transform:translateX(-50%) translateY(8px);} }
+  @keyframes fade-in { from{opacity:0;transform:translateY(30px);} to{opacity:1;transform:translateY(0);} }
+
+  .section-label { font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.4em;color:var(--gold);text-transform:uppercase;text-align:center;margin-bottom:0.8rem; }
+  .section-title { font-family:'Cinzel Decorative',serif;font-size:clamp(1.6rem,4vw,2.8rem);font-weight:700;text-align:center;background:linear-gradient(135deg,#F0D080,#C9A84C);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:3rem; }
+  .gold-rule { width:60px;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light));margin-bottom:1.5rem; }
+
+  .school-photo-section { position:relative;z-index:1;padding:5rem 2rem;background:var(--black-mid);overflow:hidden; }
+  .school-photo-section::before { content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent); }
+  .photo-frame-wrapper { max-width:1000px;margin:0 auto;position:relative; }
+  .photo-frame { position:relative;border:2px solid var(--gold-dark);padding:12px;background:var(--black-soft); }
+  .photo-frame::before { content:'';position:absolute;top:-8px;left:-8px;right:-8px;bottom:-8px;border:1px solid rgba(201,168,76,0.3); }
+  .photo-corner { position:absolute;width:20px;height:20px; }
+  .photo-corner.tl { top:4px;left:4px;border-top:2px solid var(--gold);border-left:2px solid var(--gold); }
+  .photo-corner.tr { top:4px;right:4px;border-top:2px solid var(--gold);border-right:2px solid var(--gold); }
+  .photo-corner.bl { bottom:4px;left:4px;border-bottom:2px solid var(--gold);border-left:2px solid var(--gold); }
+  .photo-corner.br { bottom:4px;right:4px;border-bottom:2px solid var(--gold);border-right:2px solid var(--gold); }
+
+  .stats-bar { position:relative;z-index:1;background:linear-gradient(135deg,#0D0D0D 0%,#1A1500 50%,#0D0D0D 100%);border-top:1px solid rgba(201,168,76,0.4);border-bottom:1px solid rgba(201,168,76,0.4);padding:3rem 2rem;display:flex;justify-content:center;gap:0;flex-wrap:wrap; }
+  .stat-item { flex:1;min-width:160px;max-width:240px;text-align:center;padding:1rem 2rem;border-right:1px solid rgba(201,168,76,0.2); }
+  .stat-item:last-child { border-right:none; }
+  .stat-number { font-family:'Cinzel Decorative',serif;font-size:2.8rem;font-weight:900;background:linear-gradient(135deg,#F0D080,#C9A84C);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;display:block;margin-bottom:0.4rem; }
+  .stat-label { font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--white-dim); }
+
+  .about-section { position:relative;z-index:1;padding:6rem 2rem;max-width:1200px;margin:0 auto; }
+  .about-grid { display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center; }
+  .about-text p { font-size:1rem;line-height:1.9;color:var(--white-dim);margin-bottom:1.2rem; }
+  .about-text p strong { color:var(--gold-light);font-weight:700; }
+  .about-card-grid { display:grid;grid-template-columns:1fr 1fr;gap:1rem; }
+  .about-card { background:var(--black-card);border:1px solid rgba(201,168,76,0.2);padding:1.5rem;position:relative;overflow:hidden;transition:all 0.3s; }
+  .about-card::before { content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:linear-gradient(180deg,var(--gold),var(--gold-dark)); }
+  .about-card:hover { border-color:rgba(201,168,76,0.5);transform:translateY(-3px);box-shadow:0 12px 30px rgba(0,0,0,0.4); }
+  .about-card-icon { font-size:1.8rem;margin-bottom:0.7rem; }
+  .about-card h4 { font-family:'Cinzel',serif;font-size:0.75rem;color:var(--gold-light);letter-spacing:0.1em;margin-bottom:0.4rem; }
+  .about-card p { font-size:0.8rem;color:var(--white-dim);line-height:1.5; }
+
+  .objectives-section { position:relative;z-index:1;background:var(--black-mid);padding:6rem 2rem;overflow:hidden; }
+  .objectives-section::before,.objectives-section::after { content:'';position:absolute;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent); }
+  .objectives-section::before { top:0; } .objectives-section::after { bottom:0; }
+  .objectives-inner { max-width:1200px;margin:0 auto; }
+  .objectives-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:1rem; }
+  .obj-card { background:var(--black-card);border:1px solid rgba(201,168,76,0.15);padding:2rem 1.5rem;position:relative;overflow:hidden;transition:all 0.4s; }
+  .obj-card::after { content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);transform:scaleX(0);transition:transform 0.4s; }
+  .obj-card:hover::after { transform:scaleX(1); }
+  .obj-card:hover { border-color:rgba(201,168,76,0.4);transform:translateY(-5px);box-shadow:0 20px 40px rgba(0,0,0,0.5); }
+  .obj-card-icon { font-size:2.2rem;margin-bottom:1rem; }
+  .obj-card h3 { font-family:'Cinzel',serif;font-size:0.85rem;color:var(--gold-light);letter-spacing:0.1em;margin-bottom:0.8rem;text-transform:uppercase; }
+  .obj-card p { font-size:0.85rem;color:var(--white-dim);line-height:1.7; }
+
+  .membership-section { position:relative;z-index:1;padding:6rem 2rem;max-width:1200px;margin:0 auto; }
+  .membership-grid { display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:1rem; }
+  .membership-block h3 { font-family:'Cinzel',serif;font-size:0.9rem;color:var(--gold-light);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1.2rem;padding-bottom:0.6rem;border-bottom:1px solid rgba(201,168,76,0.3); }
+  .fee-card { background:var(--black-card);border:1px solid rgba(201,168,76,0.2);padding:1.5rem;margin-bottom:1rem;display:flex;align-items:flex-start;gap:1rem; }
+  .fee-icon { font-size:1.5rem;min-width:36px; }
+  .fee-amount { font-family:'Cinzel Decorative',serif;font-size:1.5rem;color:var(--gold-light);margin-bottom:0.2rem; }
+  .fee-desc { font-size:0.82rem;color:var(--white-dim);line-height:1.5; }
+  .lifetime-badge { background:linear-gradient(135deg,rgba(201,168,76,0.15),rgba(201,168,76,0.05));border:1px solid var(--gold);padding:1.5rem;margin-top:1.5rem; }
+  .lifetime-badge h4 { font-family:'Cinzel',serif;font-size:0.8rem;color:var(--gold);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:1rem; }
+  .lifetime-criteria { list-style:none; }
+  .lifetime-criteria li { font-size:0.82rem;color:var(--white-dim);padding:0.35rem 0;padding-left:1.2rem;position:relative; }
+  .lifetime-criteria li::before { content:'✦';position:absolute;left:0;color:var(--gold);font-size:0.6rem;top:0.45rem; }
+  .bereavement-card { background:var(--black-card);border:1px solid rgba(201,168,76,0.2);border-left:3px solid var(--gold);padding:1.5rem; }
+  .bereavement-card h4 { font-family:'Cinzel',serif;font-size:0.8rem;color:var(--gold-light);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.8rem; }
+  .bereavement-card p { font-size:0.82rem;color:var(--white-dim);line-height:1.6;margin-bottom:0.5rem; }
+
+  .governance-section { position:relative;z-index:1;background:var(--black-mid);padding:6rem 2rem;overflow:hidden; }
+  .governance-section::before { content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent); }
+  .governance-inner { max-width:1200px;margin:0 auto; }
+  .governance-split { display:grid;grid-template-columns:1fr 1fr;gap:3rem; }
+  .gov-block { background:var(--black-card);border:1px solid rgba(201,168,76,0.15);padding:2rem; }
+  .gov-block h3 { font-family:'Cinzel',serif;font-size:0.85rem;color:var(--gold-light);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1.2rem;padding-bottom:0.6rem;border-bottom:1px solid rgba(201,168,76,0.3); }
+  .role-list { list-style:none; }
+  .role-item { display:flex;align-items:flex-start;gap:0.8rem;padding:0.75rem 0;border-bottom:1px solid rgba(201,168,76,0.08); }
+  .role-item:last-child { border-bottom:none; }
+  .role-title { font-family:'Cinzel',serif;font-size:0.75rem;color:var(--gold);letter-spacing:0.08em;min-width:150px; }
+  .role-desc { font-size:0.8rem;color:var(--white-dim);line-height:1.5; }
+  .trustees-info { background:linear-gradient(135deg,rgba(201,168,76,0.08),transparent);border:1px solid rgba(201,168,76,0.25);padding:1.5rem;margin-bottom:1.5rem; }
+  .trustees-info p { font-size:0.85rem;color:var(--white-dim);line-height:1.7; }
+  .trustees-info p strong { color:var(--gold-light); }
+  .term-badge { display:inline-block;background:rgba(201,168,76,0.1);border:1px solid var(--gold-dark);padding:0.4rem 1rem;font-family:'Cinzel',serif;font-size:0.7rem;color:var(--gold);letter-spacing:0.1em;margin-top:1rem; }
+
+  .meetings-section { position:relative;z-index:1;padding:6rem 2rem;max-width:1200px;margin:0 auto; }
+  .meetings-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem; }
+  .meeting-card { background:var(--black-card);border:1px solid rgba(201,168,76,0.15);padding:2rem;text-align:center;transition:all 0.3s;position:relative; }
+  .meeting-card:hover { border-color:rgba(201,168,76,0.4);transform:translateY(-4px);box-shadow:0 16px 35px rgba(0,0,0,0.5); }
+  .meeting-icon { font-size:2.2rem;margin-bottom:1rem; }
+  .meeting-card h3 { font-family:'Cinzel',serif;font-size:0.8rem;color:var(--gold-light);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.8rem; }
+  .meeting-card p { font-size:0.82rem;color:var(--white-dim);line-height:1.7; }
+  .meeting-detail { font-family:'Cinzel',serif;font-size:0.65rem;color:var(--gold);letter-spacing:0.15em;text-transform:uppercase;margin-top:0.8rem;padding-top:0.8rem;border-top:1px solid rgba(201,168,76,0.2); }
+  .quorum-bar { background:linear-gradient(135deg,rgba(201,168,76,0.12),rgba(201,168,76,0.04));border:1px solid rgba(201,168,76,0.3);padding:1.5rem 2rem;margin-top:2rem;display:flex;align-items:center;gap:2rem;flex-wrap:wrap; }
+  .quorum-bar-item { text-align:center;flex:1;min-width:140px; }
+  .quorum-number { font-family:'Cinzel Decorative',serif;font-size:1.8rem;background:linear-gradient(135deg,#F0D080,#C9A84C);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text; }
+  .quorum-label { font-family:'Cinzel',serif;font-size:0.65rem;color:var(--white-dim);letter-spacing:0.1em;text-transform:uppercase;margin-top:0.2rem; }
+
+  .finance-section { position:relative;z-index:1;background:var(--black-mid);padding:6rem 2rem;overflow:hidden; }
+  .finance-section::before,.finance-section::after { content:'';position:absolute;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent); }
+  .finance-section::before { top:0; } .finance-section::after { bottom:0; }
+  .finance-inner { max-width:1200px;margin:0 auto; }
+  .finance-grid { display:grid;grid-template-columns:1.2fr 1fr;gap:3rem;margin-top:1rem; }
+  .finance-rules { display:flex;flex-direction:column;gap:1rem; }
+  .finance-rule { background:var(--black-card);border:1px solid rgba(201,168,76,0.15);padding:1.2rem 1.5rem;display:flex;align-items:flex-start;gap:1rem; }
+  .finance-rule-num { font-family:'Cinzel Decorative',serif;font-size:1.2rem;color:rgba(201,168,76,0.4);min-width:32px; }
+  .finance-rule-text h4 { font-family:'Cinzel',serif;font-size:0.75rem;color:var(--gold-light);letter-spacing:0.08em;margin-bottom:0.3rem; }
+  .finance-rule-text p { font-size:0.8rem;color:var(--white-dim);line-height:1.5; }
+  .finance-aside { display:flex;flex-direction:column;gap:1.5rem; }
+  .fy-card { background:linear-gradient(135deg,rgba(201,168,76,0.1),transparent);border:1px solid var(--gold-dark);padding:1.5rem;text-align:center; }
+  .fy-card .fy-label { font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.3em;color:var(--gold);text-transform:uppercase;margin-bottom:0.5rem; }
+  .fy-card .fy-date { font-family:'Cinzel Decorative',serif;font-size:1.5rem;color:var(--gold-light); }
+  .sig-card { background:var(--black-card);border:1px solid rgba(201,168,76,0.2);padding:1.5rem; }
+  .sig-card h4 { font-family:'Cinzel',serif;font-size:0.75rem;color:var(--gold-light);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1rem; }
+  .sig-list { list-style:none; }
+  .sig-list li { font-size:0.82rem;color:var(--white-dim);padding:0.4rem 0;padding-left:1.2rem;position:relative; }
+  .sig-list li::before { content:'✦';position:absolute;left:0;color:var(--gold);font-size:0.55rem;top:0.5rem; }
+
+  .conduct-section { position:relative;z-index:1;padding:6rem 2rem;max-width:1200px;margin:0 auto; }
+  .conduct-grid { display:grid;grid-template-columns:1fr 1fr;gap:3rem; }
+  .misconduct-list { list-style:none;margin-top:1rem; }
+  .misconduct-list li { background:var(--black-card);border:1px solid rgba(201,168,76,0.12);border-left:3px solid rgba(201,168,76,0.4);padding:0.9rem 1.2rem;margin-bottom:0.6rem;font-size:0.82rem;color:var(--white-dim);line-height:1.5; }
+  .discipline-steps { display:flex;flex-direction:column;gap:0.8rem;margin-top:1rem; }
+  .discipline-step { display:flex;align-items:flex-start;gap:1rem;background:var(--black-card);border:1px solid rgba(201,168,76,0.12);padding:1rem 1.2rem; }
+  .step-badge { font-family:'Cinzel',serif;font-size:0.65rem;color:var(--gold);letter-spacing:0.1em;text-transform:uppercase;min-width:90px;padding-top:0.1rem; }
+  .step-desc { font-size:0.82rem;color:var(--white-dim);line-height:1.5; }
+  .appeal-note { background:linear-gradient(135deg,rgba(201,168,76,0.08),transparent);border:1px solid rgba(201,168,76,0.3);padding:1.2rem 1.5rem;margin-top:1.5rem;font-size:0.85rem;color:var(--white-dim);line-height:1.7; }
+  .appeal-note strong { color:var(--gold-light); }
+
+  .social-section { position:relative;z-index:1;background:var(--black-mid);padding:5rem 2rem;overflow:hidden; }
+  .social-section::before { content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent); }
+  .social-inner { max-width:1200px;margin:0 auto; }
+  .social-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:2rem; }
+  .social-rule { background:var(--black-card);border:1px solid rgba(201,168,76,0.12);padding:1.5rem;text-align:center; }
+  .social-rule-icon { font-size:1.8rem;margin-bottom:0.8rem; }
+  .social-rule h4 { font-family:'Cinzel',serif;font-size:0.75rem;color:var(--gold-light);letter-spacing:0.1em;margin-bottom:0.6rem; }
+  .social-rule p { font-size:0.8rem;color:var(--white-dim);line-height:1.6; }
+
+  .admin-section { position:relative;z-index:1;padding:6rem 2rem;max-width:1100px;margin:0 auto; }
+  .admin-grid { display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem; }
+  .admin-card { background:var(--black-card);border:1px solid rgba(201,168,76,0.15);padding:1.8rem 1.2rem;text-align:center;transition:all 0.3s; }
+  .admin-card:hover { border-color:rgba(201,168,76,0.4);transform:translateY(-3px); }
+  .admin-card-icon { font-size:2rem;margin-bottom:0.8rem; }
+  .admin-card h4 { font-family:'Cinzel',serif;font-size:0.75rem;color:var(--gold-light);letter-spacing:0.08em;margin-bottom:0.5rem; }
+  .admin-card p { font-size:0.78rem;color:var(--white-dim);line-height:1.5; }
+
+  .leadership-section { position:relative;z-index:1;background:var(--black-mid);padding:6rem 2rem;overflow:hidden; }
+  .leadership-section::before { content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent); }
+  .leadership-inner { max-width:1200px;margin:0 auto; }
+  .leadership-photo-frame { position:relative;border:2px solid var(--gold-dark);padding:10px;background:var(--black-soft);margin-bottom:2.5rem;overflow:hidden; }
+  .leadership-photo-frame::before { content:'';position:absolute;top:-7px;left:-7px;right:-7px;bottom:-7px;border:1px solid rgba(201,168,76,0.25);z-index:0; }
+  .bearers-grid { display:grid;grid-template-columns:repeat(4,1fr);gap:1rem; }
+  .bearer-card { background:var(--black-card);border:1px solid rgba(201,168,76,0.18);padding:1.2rem;text-align:center;transition:all 0.3s; }
+  .bearer-card:hover { border-color:rgba(201,168,76,0.5);transform:translateY(-3px);box-shadow:0 10px 28px rgba(0,0,0,0.5); }
+  .bearer-card--gold { border-color:rgba(201,168,76,0.45);background:linear-gradient(135deg,rgba(201,168,76,0.1),var(--black-card)); }
+  .bearer-role { font-family:'Cinzel',serif;font-size:0.62rem;letter-spacing:0.12em;color:var(--gold);text-transform:uppercase;margin-bottom:0.5rem;line-height:1.4; }
+  .bearer-name { font-family:'Cinzel Decorative',serif;font-size:0.82rem;color:var(--white);line-height:1.3; }
+
+  .committee-section { position:relative;z-index:1;padding:6rem 2rem;overflow:hidden; }
+  .committee-section::before,.committee-section::after { content:'';position:absolute;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent); }
+  .committee-section::before { top:0; } .committee-section::after { bottom:0; }
+  .committee-grid { display:grid;grid-template-columns:repeat(4,1fr);gap:1rem; }
+  .committee-card { background:var(--black-card);border:1px solid rgba(201,168,76,0.12);padding:1.1rem;transition:all 0.3s;position:relative;overflow:hidden; }
+  .committee-card::before { content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:linear-gradient(180deg,var(--gold),transparent); }
+  .committee-card:hover { border-color:rgba(201,168,76,0.4);transform:translateY(-3px); }
+  .committee-role { font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.1em;color:var(--gold);text-transform:uppercase;margin-bottom:0.4rem;line-height:1.4; }
+  .committee-name { font-family:'Cinzel',serif;font-size:0.8rem;color:var(--white);font-weight:600;padding-left:0.6rem; }
+
+  .events-section { position:relative;z-index:1;background:var(--black-mid);padding:6rem 2rem;overflow:hidden; }
+  .events-section::before { content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent); }
+  .events-inner { max-width:1200px;margin:0 auto; }
+  .events-lead { max-width:800px;margin:0 auto 3rem;text-align:center;font-size:1rem;color:var(--white-dim);line-height:1.9; }
+  .gallery-label { text-align:center;margin-bottom:1.5rem; }
+  .events-gallery { display:grid;grid-template-columns:1.6fr 1fr 1fr;grid-template-rows:280px 280px;gap:1rem;margin-bottom:2.5rem; }
+  .gallery-item { position:relative;overflow:hidden;border:1px solid rgba(201,168,76,0.18); }
+  .gallery-item--wide { grid-row:1 / span 2; }
+  .gallery-item img { width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.85);transition:filter 0.4s,transform 0.5s; }
+  .gallery-item:hover img { filter:brightness(1.05);transform:scale(1.04); }
+  .gallery-caption { position:absolute;bottom:0;left:0;right:0;padding:0.6rem 0.9rem;background:linear-gradient(0deg,rgba(10,8,0,0.92),transparent);font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.1em;color:var(--gold-light);text-transform:uppercase; }
+  .performers-strip { background:linear-gradient(135deg,rgba(201,168,76,0.12),rgba(201,168,76,0.04));border:1px solid rgba(201,168,76,0.35);padding:2rem;text-align:center;margin-top:2rem; }
+  .performers-label { font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.35em;color:var(--gold);text-transform:uppercase;margin-bottom:1.2rem; }
+  .performers-list { display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:0.8rem 1.2rem; }
+  .performer-tag { font-family:'Cinzel Decorative',serif;font-size:0.95rem;color:var(--white); }
+  .performer-sep { color:var(--gold);font-size:0.7rem; }
+
+  /* ── PROGRESS REPORT ── */
+  .progress-section { position:relative;z-index:1;padding:6rem 2rem;max-width:1200px;margin:0 auto; }
+  .progress-grid { display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1rem; }
+  .progress-card { background:var(--black-card);border:1px solid rgba(201,168,76,0.15);padding:1.8rem;position:relative;overflow:hidden;transition:all 0.3s; }
+  .progress-card::before { content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--gold),transparent); }
+  .progress-card:hover { border-color:rgba(201,168,76,0.4);transform:translateY(-4px);box-shadow:0 16px 35px rgba(0,0,0,0.5); }
+  .progress-card h4 { font-family:'Cinzel',serif;font-size:0.8rem;color:var(--gold-light);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.8rem; }
+  .progress-card p { font-size:0.82rem;color:var(--white-dim);line-height:1.7; }
+  .progress-status { display:inline-block;font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;padding:0.25rem 0.75rem;border:1px solid;margin-bottom:0.8rem; }
+  .status-active { color:#6fcf97;border-color:#6fcf97;background:rgba(111,207,151,0.08); }
+  .status-pending { color:var(--gold);border-color:var(--gold-dark);background:rgba(201,168,76,0.08); }
+  .status-achieved { color:#56ccf2;border-color:#56ccf2;background:rgba(86,204,242,0.08); }
+
+  /* ── COMMITTEE PLANS ── */
+  .plans-section { position:relative;z-index:1;background:var(--black-mid);padding:6rem 2rem;overflow:hidden; }
+  .plans-section::before,.plans-section::after { content:'';position:absolute;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent); }
+  .plans-section::before { top:0; } .plans-section::after { bottom:0; }
+  .plans-inner { max-width:1200px;margin:0 auto; }
+  .plans-accordion { display:flex;flex-direction:column;gap:1rem;margin-top:1rem; }
+  .plan-item { background:var(--black-card);border:1px solid rgba(201,168,76,0.15);overflow:hidden; }
+  .plan-header { display:flex;align-items:center;gap:1.2rem;padding:1.2rem 1.5rem;cursor:pointer;transition:background 0.3s; }
+  .plan-header:hover { background:rgba(201,168,76,0.05); }
+  .plan-icon { font-size:1.6rem;min-width:36px;text-align:center; }
+  .plan-title { font-family:'Cinzel',serif;font-size:0.82rem;color:var(--gold-light);letter-spacing:0.1em;text-transform:uppercase;flex:1; }
+  .plan-chevron { color:var(--gold);font-size:0.9rem;transition:transform 0.3s; }
+  .plan-body { padding:0 1.5rem 1.5rem 1.5rem;display:none; }
+  .plan-body.open { display:block; }
+  .plan-horizon { display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:0.5rem; }
+  .horizon-card { background:var(--black-soft);border:1px solid rgba(201,168,76,0.1);padding:1rem; }
+  .horizon-label { font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.6rem; }
+  .horizon-card ul { list-style:none;padding:0; }
+  .horizon-card ul li { font-size:0.78rem;color:var(--white-dim);padding:0.25rem 0 0.25rem 1rem;position:relative;line-height:1.5; }
+  .horizon-card ul li::before { content:'✦';position:absolute;left:0;color:var(--gold);font-size:0.5rem;top:0.4rem; }
+  .plan-list { list-style:none;padding:0; }
+  .plan-list li { font-size:0.82rem;color:var(--white-dim);padding:0.4rem 0 0.4rem 1.2rem;position:relative;line-height:1.6;border-bottom:1px solid rgba(201,168,76,0.06); }
+  .plan-list li:last-child { border-bottom:none; }
+  .plan-list li::before { content:'✦';position:absolute;left:0;color:var(--gold);font-size:0.5rem;top:0.55rem; }
+
+  /* ── CHOIR ── */
+  .choir-section { position:relative;z-index:1;padding:6rem 2rem;max-width:1100px;margin:0 auto; }
+  .choir-inner { display:grid;grid-template-columns:1fr 1.4fr;gap:3rem;align-items:start; }
+  .choir-emblem { background:linear-gradient(135deg,rgba(201,168,76,0.12),rgba(201,168,76,0.04));border:1px solid rgba(201,168,76,0.35);padding:2.5rem;text-align:center; }
+  .choir-emblem-icon { font-size:4rem;margin-bottom:1rem; }
+  .choir-emblem h3 { font-family:'Cinzel Decorative',serif;font-size:1.1rem;background:linear-gradient(135deg,#F0D080,#C9A84C);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:0.5rem; }
+  .choir-emblem p { font-family:'Cinzel',serif;font-size:0.72rem;color:var(--gold);letter-spacing:0.15em; }
+  .choir-conductor { background:var(--black-card);border:1px solid rgba(201,168,76,0.2);border-left:3px solid var(--gold);padding:1.2rem 1.5rem;margin-top:1.5rem; }
+  .choir-conductor span { font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.2em;color:var(--gold);text-transform:uppercase;display:block;margin-bottom:0.3rem; }
+  .choir-conductor strong { font-family:'Cinzel Decorative',serif;font-size:0.95rem;color:var(--white); }
+  .choir-details { display:flex;flex-direction:column;gap:1rem; }
+  .choir-detail-card { background:var(--black-card);border:1px solid rgba(201,168,76,0.12);padding:1.2rem 1.5rem; }
+  .choir-detail-card h4 { font-family:'Cinzel',serif;font-size:0.75rem;color:var(--gold-light);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.6rem; }
+  .choir-detail-card p { font-size:0.82rem;color:var(--white-dim);line-height:1.7; }
+  .competition-tags { display:flex;gap:0.8rem;flex-wrap:wrap;margin-top:0.8rem; }
+  .comp-tag { font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.1em;color:var(--gold);border:1px solid var(--gold-dark);padding:0.3rem 0.8rem;background:rgba(201,168,76,0.06); }
+
+  /* ── ELECTIONS ── */
+  .elections-section { position:relative;z-index:1;background:var(--black-mid);padding:6rem 2rem;overflow:hidden; }
+  .elections-section::before { content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent); }
+  .elections-inner { max-width:1200px;margin:0 auto; }
+  .elections-split { display:grid;grid-template-columns:1fr 1fr;gap:3rem; }
+  .positions-grid { display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;margin-top:1rem; }
+  .position-card { background:var(--black-card);border:1px solid rgba(201,168,76,0.15);padding:1rem 1.2rem;display:flex;align-items:center;gap:0.8rem; }
+  .position-num { font-family:'Cinzel Decorative',serif;font-size:1.2rem;color:rgba(201,168,76,0.35);min-width:28px; }
+  .position-name { font-family:'Cinzel',serif;font-size:0.75rem;color:var(--white-dim);letter-spacing:0.06em; }
+  .elections-committee h3 { font-family:'Cinzel',serif;font-size:0.85rem;color:var(--gold-light);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1rem;padding-bottom:0.6rem;border-bottom:1px solid rgba(201,168,76,0.3); }
+  .ec-member { display:flex;align-items:center;gap:0.8rem;padding:0.6rem 0;border-bottom:1px solid rgba(201,168,76,0.07); }
+  .ec-member:last-child { border-bottom:none; }
+  .ec-dot { width:6px;height:6px;background:var(--gold);border-radius:50%;flex-shrink:0; }
+  .ec-name { font-size:0.82rem;color:var(--white-dim); }
+  .elections-note { background:linear-gradient(135deg,rgba(201,168,76,0.1),transparent);border:1px solid rgba(201,168,76,0.3);padding:1.2rem 1.5rem;margin-top:1.5rem;font-size:0.82rem;color:var(--white-dim);line-height:1.7; }
+  .elections-note strong { color:var(--gold-light); }
+  .secretariat-card { background:var(--black-card);border:1px solid rgba(201,168,76,0.2);border-top:3px solid var(--gold);padding:1.5rem;margin-bottom:1.5rem; }
+  .secretariat-card h4 { font-family:'Cinzel',serif;font-size:0.78rem;color:var(--gold-light);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.8rem; }
+
+  .adoption-section { position:relative;z-index:1;background:linear-gradient(135deg,#0D0D0D 0%,#1A1200 50%,#0D0D0D 100%);border-top:1px solid rgba(201,168,76,0.3);border-bottom:1px solid rgba(201,168,76,0.3);padding:5rem 2rem;text-align:center;overflow:hidden; }
+  .adoption-section::before { content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(201,168,76,0.08) 0%,transparent 70%);pointer-events:none; }
+  .adoption-section h2 { font-family:'Cinzel Decorative',serif;font-size:clamp(1.5rem,4vw,2.8rem);background:linear-gradient(135deg,#F0D080,#C9A84C);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:1rem;position:relative; }
+  .adoption-section p { font-size:1rem;color:var(--white-dim);max-width:600px;margin:0 auto 2.5rem;line-height:1.8; }
+  .adoption-date { display:inline-block;font-family:'Cinzel Decorative',serif;font-size:1.8rem;background:linear-gradient(135deg,#F0D080,#C9A84C);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin:1rem 0; }
+  .contact-grid { display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;margin-top:2rem; }
+  .contact-item { font-family:'Cinzel',serif;font-size:0.75rem;color:var(--gold-light);letter-spacing:0.1em;text-align:center; }
+  .contact-item span { display:block;font-size:0.65rem;color:var(--gold-dark);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:0.3rem; }
+
+  footer { position:relative;z-index:1;background:#080808;border-top:1px solid rgba(201,168,76,0.2);padding:2.5rem 2rem;text-align:center; }
+  .footer-logo-text { font-family:'Cinzel Decorative',serif;font-size:1.2rem;color:var(--gold);margin-bottom:0.5rem; }
+  .footer-motto { font-family:'Cinzel',serif;font-style:italic;color:var(--gold-dark);font-size:0.8rem;margin-bottom:1rem; }
+  .footer-copy { font-size:0.72rem;color:rgba(200,192,176,0.4);font-family:'Lato',sans-serif;letter-spacing:0.08em; }
+  .footer-divider { width:60px;height:1px;background:linear-gradient(90deg,transparent,var(--gold-dark),transparent);margin:1rem auto; }
+  .footer-reg { font-size:0.68rem;color:rgba(200,192,176,0.3);font-family:'Lato',sans-serif;letter-spacing:0.06em;margin-top:0.5rem; }
+
+  @media (max-width:900px) {
+    .about-grid,.governance-split,.finance-grid,.conduct-grid,.membership-grid,.progress-grid,.choir-inner,.elections-split { grid-template-columns:1fr;gap:2rem; }
+    .objectives-grid,.meetings-grid,.social-grid,.plan-horizon { grid-template-columns:1fr 1fr; }
+    .admin-grid { grid-template-columns:1fr 1fr; }
+    .nav-links { display:none; }
+    .bearers-grid,.committee-grid { grid-template-columns:1fr 1fr; }
+    .events-gallery { grid-template-columns:1fr 1fr;grid-template-rows:auto; }
+    .gallery-item--wide { grid-row:auto; }
+    .positions-grid { grid-template-columns:1fr; }
   }
-
-  /* ── NAV ── */
-  nav {
-    position: fixed; top: 0; width: 100%; z-index: 100;
-    background: linear-gradient(180deg, rgba(10,10,10,0.98) 0%, rgba(10,10,10,0.7) 100%);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(201,168,76,0.25);
-    padding: 0 2rem;
-    display: flex; align-items: center; justify-content: space-between; height: 70px;
-  }
-  .nav-logo { display: flex; align-items: center; gap: 0.75rem; }
-  .nav-badge {
-    width: 44px; height: 44px;
-    background: radial-gradient(circle at 35% 35%, #F0D080, #C9A84C 50%, #8B6914);
-    border-radius: 50%; display: flex; align-items: center; justify-content: center;
-    font-family: 'Cinzel Decorative', serif; font-size: 0.55rem; color: var(--black); font-weight: 900;
-    text-align: center; line-height: 1.1; border: 2px solid var(--gold-light);
-    box-shadow: 0 0 18px rgba(201,168,76,0.5); padding: 4px; letter-spacing: 0.02em;
-  }
-  .nav-title { font-family: 'Cinzel', serif; font-size: 0.85rem; font-weight: 700; color: var(--gold-light); letter-spacing: 0.08em; line-height: 1.3; }
-  .nav-title span { display: block; font-size: 0.65rem; font-weight: 400; color: var(--gold); letter-spacing: 0.15em; }
-  .nav-links { display: flex; gap: 1.5rem; list-style: none; }
-  .nav-links a {
-    font-family: 'Cinzel', serif; font-size: 0.7rem; letter-spacing: 0.12em; color: var(--white-dim);
-    text-decoration: none; text-transform: uppercase; transition: color 0.3s; position: relative;
-  }
-  .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(--gold); transition: width 0.3s; }
-  .nav-links a:hover { color: var(--gold-light); }
-  .nav-links a:hover::after { width: 100%; }
-
-  /* ── HERO ── */
-  .hero {
-    position: relative; min-height: 100vh; display: flex; flex-direction: column;
-    align-items: center; justify-content: center; text-align: center; overflow: hidden; padding: 6rem 2rem 4rem;
-  }
-  .hero-photo-bg {
-    position: absolute; inset: 0;
-    background: linear-gradient(180deg, rgba(10,10,10,0.55) 0%, rgba(10,10,10,0.85) 60%, rgba(10,10,10,1) 100%),
-      url('https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1600&q=80') center/cover no-repeat;
-    z-index: 0; filter: sepia(0.4) brightness(0.5);
-  }
-  .hero-photo-bg::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(201,168,76,0.08) 0%, transparent 70%); }
-  .hero-emblem { position: relative; z-index: 2; width: 160px; height: 160px; margin-bottom: 2.5rem; animation: emblem-glow 3s ease-in-out infinite alternate; }
-  @keyframes emblem-glow { from { filter: drop-shadow(0 0 15px rgba(201,168,76,0.5)); } to { filter: drop-shadow(0 0 40px rgba(201,168,76,0.9)); } }
-  .hero-tagline { position: relative; z-index: 2; font-family: 'Cinzel', serif; font-size: 0.75rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem; animation: fade-in 1s ease 0.2s both; }
-  .hero h1 { position: relative; z-index: 2; font-family: 'Cinzel Decorative', serif; font-size: clamp(2.2rem, 6vw, 4.5rem); font-weight: 900; background: linear-gradient(135deg, #F0D080 0%, #C9A84C 40%, #F0D080 70%, #8B6914 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1.1; margin-bottom: 0.8rem; animation: fade-in 1s ease 0.4s both; }
-  .hero h2 { position: relative; z-index: 2; font-family: 'Cinzel', serif; font-size: clamp(0.9rem, 2vw, 1.2rem); font-weight: 400; color: var(--white-dim); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1.5rem; animation: fade-in 1s ease 0.6s both; }
-  .hero-motto { position: relative; z-index: 2; font-family: 'Cinzel', serif; font-style: italic; font-size: 1rem; color: var(--gold-light); margin-bottom: 3rem; animation: fade-in 1s ease 0.8s both; }
-  .hero-divider { position: relative; z-index: 2; display: flex; align-items: center; gap: 1rem; margin-bottom: 3.5rem; animation: fade-in 1s ease 1s both; }
-  .hero-divider span { color: var(--gold); font-size: 1.2rem; }
-  .hero-divider::before, .hero-divider::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); width: 120px; }
-  .hero-buttons { position: relative; z-index: 2; display: flex; gap: 1.2rem; flex-wrap: wrap; justify-content: center; animation: fade-in 1s ease 1.2s both; }
-  .btn-gold { background: linear-gradient(135deg, #C9A84C, #F0D080, #C9A84C); color: var(--black); font-family: 'Cinzel', serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.9rem 2.2rem; border: none; cursor: pointer; text-decoration: none; display: inline-block; transition: all 0.3s; box-shadow: 0 4px 20px rgba(201,168,76,0.4); clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%); }
-  .btn-gold:hover { background: linear-gradient(135deg, #F0D080, #C9A84C, #F0D080); box-shadow: 0 6px 35px rgba(201,168,76,0.7); transform: translateY(-2px); }
-  .btn-outline { background: transparent; color: var(--gold-light); font-family: 'Cinzel', serif; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.85rem 2.2rem; border: 1px solid var(--gold); cursor: pointer; text-decoration: none; display: inline-block; transition: all 0.3s; clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%); }
-  .btn-outline:hover { background: rgba(201,168,76,0.12); box-shadow: 0 4px 25px rgba(201,168,76,0.3); transform: translateY(-2px); }
-  .scroll-indicator { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 0.4rem; animation: bounce 2s ease-in-out infinite; opacity: 0.7; }
-  .scroll-indicator span { font-family: 'Cinzel', serif; font-size: 0.6rem; letter-spacing: 0.25em; color: var(--gold); text-transform: uppercase; }
-  .scroll-arrow { width: 20px; height: 20px; border-right: 2px solid var(--gold); border-bottom: 2px solid var(--gold); transform: rotate(45deg); }
-  @keyframes bounce { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(8px); } }
-  @keyframes fade-in { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-
-  /* ── SHARED SECTION STYLES ── */
-  .section-label { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.4em; color: var(--gold); text-transform: uppercase; text-align: center; margin-bottom: 0.8rem; }
-  .section-title { font-family: 'Cinzel Decorative', serif; font-size: clamp(1.6rem, 4vw, 2.8rem); font-weight: 700; text-align: center; background: linear-gradient(135deg, #F0D080, #C9A84C); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 3rem; }
-  .gold-rule { width: 60px; height: 3px; background: linear-gradient(90deg, var(--gold), var(--gold-light)); margin-bottom: 1.5rem; }
-
-  /* ── SCHOOL PHOTO SECTION ── */
-  .school-photo-section { position: relative; z-index: 1; padding: 5rem 2rem; background: var(--black-mid); overflow: hidden; }
-  .school-photo-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
-  .photo-frame-wrapper { max-width: 1000px; margin: 0 auto; position: relative; }
-  .photo-frame { position: relative; border: 2px solid var(--gold-dark); padding: 12px; background: var(--black-soft); }
-  .photo-frame::before { content: ''; position: absolute; top: -8px; left: -8px; right: -8px; bottom: -8px; border: 1px solid rgba(201,168,76,0.3); }
-  .photo-corner { position: absolute; width: 20px; height: 20px; }
-  .photo-corner.tl { top: 4px; left: 4px; border-top: 2px solid var(--gold); border-left: 2px solid var(--gold); }
-  .photo-corner.tr { top: 4px; right: 4px; border-top: 2px solid var(--gold); border-right: 2px solid var(--gold); }
-  .photo-corner.bl { bottom: 4px; left: 4px; border-bottom: 2px solid var(--gold); border-left: 2px solid var(--gold); }
-  .photo-corner.br { bottom: 4px; right: 4px; border-bottom: 2px solid var(--gold); border-right: 2px solid var(--gold); }
-
-  /* ── STATS BAR ── */
-  .stats-bar { position: relative; z-index: 1; background: linear-gradient(135deg, #0D0D0D 0%, #1A1500 50%, #0D0D0D 100%); border-top: 1px solid rgba(201,168,76,0.4); border-bottom: 1px solid rgba(201,168,76,0.4); padding: 3rem 2rem; display: flex; justify-content: center; gap: 0; flex-wrap: wrap; }
-  .stat-item { flex: 1; min-width: 160px; max-width: 240px; text-align: center; padding: 1rem 2rem; border-right: 1px solid rgba(201,168,76,0.2); }
-  .stat-item:last-child { border-right: none; }
-  .stat-number { font-family: 'Cinzel Decorative', serif; font-size: 2.8rem; font-weight: 900; background: linear-gradient(135deg, #F0D080, #C9A84C); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1; display: block; margin-bottom: 0.4rem; }
-  .stat-label { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white-dim); }
-
-  /* ── ABOUT SECTION ── */
-  .about-section { position: relative; z-index: 1; padding: 6rem 2rem; max-width: 1200px; margin: 0 auto; }
-  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
-  .about-text p { font-size: 1rem; line-height: 1.9; color: var(--white-dim); margin-bottom: 1.2rem; }
-  .about-text p strong { color: var(--gold-light); font-weight: 700; }
-  .about-card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-  .about-card { background: var(--black-card); border: 1px solid rgba(201,168,76,0.2); padding: 1.5rem; position: relative; overflow: hidden; transition: all 0.3s; }
-  .about-card::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 100%; background: linear-gradient(180deg, var(--gold), var(--gold-dark)); }
-  .about-card:hover { border-color: rgba(201,168,76,0.5); transform: translateY(-3px); box-shadow: 0 12px 30px rgba(0,0,0,0.4); }
-  .about-card-icon { font-size: 1.8rem; margin-bottom: 0.7rem; }
-  .about-card h4 { font-family: 'Cinzel', serif; font-size: 0.75rem; color: var(--gold-light); letter-spacing: 0.1em; margin-bottom: 0.4rem; }
-  .about-card p { font-size: 0.8rem; color: var(--white-dim); line-height: 1.5; }
-
-  /* ── OBJECTIVES SECTION ── */
-  .objectives-section { position: relative; z-index: 1; background: var(--black-mid); padding: 6rem 2rem; overflow: hidden; }
-  .objectives-section::before, .objectives-section::after { content: ''; position: absolute; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
-  .objectives-section::before { top: 0; }
-  .objectives-section::after { bottom: 0; }
-  .objectives-inner { max-width: 1200px; margin: 0 auto; }
-  .objectives-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 1rem; }
-  .obj-card { background: var(--black-card); border: 1px solid rgba(201,168,76,0.15); padding: 2rem 1.5rem; position: relative; overflow: hidden; transition: all 0.4s; }
-  .obj-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); transform: scaleX(0); transition: transform 0.4s; }
-  .obj-card:hover::after { transform: scaleX(1); }
-  .obj-card:hover { border-color: rgba(201,168,76,0.4); transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
-  .obj-card-icon { font-size: 2.2rem; margin-bottom: 1rem; }
-  .obj-card h3 { font-family: 'Cinzel', serif; font-size: 0.85rem; color: var(--gold-light); letter-spacing: 0.1em; margin-bottom: 0.8rem; text-transform: uppercase; }
-  .obj-card p { font-size: 0.85rem; color: var(--white-dim); line-height: 1.7; }
-
-  /* ── MEMBERSHIP SECTION ── */
-  .membership-section { position: relative; z-index: 1; padding: 6rem 2rem; max-width: 1200px; margin: 0 auto; }
-  .membership-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 1rem; }
-  .membership-block h3 { font-family: 'Cinzel', serif; font-size: 0.9rem; color: var(--gold-light); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1.2rem; padding-bottom: 0.6rem; border-bottom: 1px solid rgba(201,168,76,0.3); }
-  .fee-card { background: var(--black-card); border: 1px solid rgba(201,168,76,0.2); padding: 1.5rem; margin-bottom: 1rem; display: flex; align-items: flex-start; gap: 1rem; }
-  .fee-icon { font-size: 1.5rem; min-width: 36px; }
-  .fee-amount { font-family: 'Cinzel Decorative', serif; font-size: 1.5rem; color: var(--gold-light); margin-bottom: 0.2rem; }
-  .fee-desc { font-size: 0.82rem; color: var(--white-dim); line-height: 1.5; }
-  .lifetime-badge { background: linear-gradient(135deg, rgba(201,168,76,0.15), rgba(201,168,76,0.05)); border: 1px solid var(--gold); padding: 1.5rem; margin-top: 1.5rem; }
-  .lifetime-badge h4 { font-family: 'Cinzel', serif; font-size: 0.8rem; color: var(--gold); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1rem; }
-  .lifetime-criteria { list-style: none; }
-  .lifetime-criteria li { font-size: 0.82rem; color: var(--white-dim); padding: 0.35rem 0; padding-left: 1.2rem; position: relative; }
-  .lifetime-criteria li::before { content: '✦'; position: absolute; left: 0; color: var(--gold); font-size: 0.6rem; top: 0.45rem; }
-  .bereavement-card { background: var(--black-card); border: 1px solid rgba(201,168,76,0.2); border-left: 3px solid var(--gold); padding: 1.5rem; }
-  .bereavement-card h4 { font-family: 'Cinzel', serif; font-size: 0.8rem; color: var(--gold-light); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.8rem; }
-  .bereavement-card p { font-size: 0.82rem; color: var(--white-dim); line-height: 1.6; margin-bottom: 0.5rem; }
-
-  /* ── GOVERNANCE SECTION ── */
-  .governance-section { position: relative; z-index: 1; background: var(--black-mid); padding: 6rem 2rem; overflow: hidden; }
-  .governance-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
-  .governance-inner { max-width: 1200px; margin: 0 auto; }
-  .governance-split { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
-  .gov-block { background: var(--black-card); border: 1px solid rgba(201,168,76,0.15); padding: 2rem; }
-  .gov-block h3 { font-family: 'Cinzel', serif; font-size: 0.85rem; color: var(--gold-light); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1.2rem; padding-bottom: 0.6rem; border-bottom: 1px solid rgba(201,168,76,0.3); }
-  .role-list { list-style: none; }
-  .role-item { display: flex; align-items: flex-start; gap: 0.8rem; padding: 0.75rem 0; border-bottom: 1px solid rgba(201,168,76,0.08); }
-  .role-item:last-child { border-bottom: none; }
-  .role-title { font-family: 'Cinzel', serif; font-size: 0.75rem; color: var(--gold); letter-spacing: 0.08em; min-width: 150px; }
-  .role-desc { font-size: 0.8rem; color: var(--white-dim); line-height: 1.5; }
-  .trustees-info { background: linear-gradient(135deg, rgba(201,168,76,0.08), transparent); border: 1px solid rgba(201,168,76,0.25); padding: 1.5rem; margin-bottom: 1.5rem; }
-  .trustees-info p { font-size: 0.85rem; color: var(--white-dim); line-height: 1.7; }
-  .trustees-info p strong { color: var(--gold-light); }
-  .term-badge { display: inline-block; background: rgba(201,168,76,0.1); border: 1px solid var(--gold-dark); padding: 0.4rem 1rem; font-family: 'Cinzel', serif; font-size: 0.7rem; color: var(--gold); letter-spacing: 0.1em; margin-top: 1rem; }
-
-  /* ── MEETINGS SECTION ── */
-  .meetings-section { position: relative; z-index: 1; padding: 6rem 2rem; max-width: 1200px; margin: 0 auto; }
-  .meetings-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-  .meeting-card { background: var(--black-card); border: 1px solid rgba(201,168,76,0.15); padding: 2rem; text-align: center; transition: all 0.3s; position: relative; }
-  .meeting-card:hover { border-color: rgba(201,168,76,0.4); transform: translateY(-4px); box-shadow: 0 16px 35px rgba(0,0,0,0.5); }
-  .meeting-icon { font-size: 2.2rem; margin-bottom: 1rem; }
-  .meeting-card h3 { font-family: 'Cinzel', serif; font-size: 0.8rem; color: var(--gold-light); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.8rem; }
-  .meeting-card p { font-size: 0.82rem; color: var(--white-dim); line-height: 1.7; }
-  .meeting-detail { font-family: 'Cinzel', serif; font-size: 0.65rem; color: var(--gold); letter-spacing: 0.15em; text-transform: uppercase; margin-top: 0.8rem; padding-top: 0.8rem; border-top: 1px solid rgba(201,168,76,0.2); }
-  .quorum-bar { background: linear-gradient(135deg, rgba(201,168,76,0.12), rgba(201,168,76,0.04)); border: 1px solid rgba(201,168,76,0.3); padding: 1.5rem 2rem; margin-top: 2rem; display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
-  .quorum-bar-item { text-align: center; flex: 1; min-width: 140px; }
-  .quorum-number { font-family: 'Cinzel Decorative', serif; font-size: 1.8rem; background: linear-gradient(135deg, #F0D080, #C9A84C); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-  .quorum-label { font-family: 'Cinzel', serif; font-size: 0.65rem; color: var(--white-dim); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 0.2rem; }
-
-  /* ── FINANCE SECTION ── */
-  .finance-section { position: relative; z-index: 1; background: var(--black-mid); padding: 6rem 2rem; overflow: hidden; }
-  .finance-section::before, .finance-section::after { content: ''; position: absolute; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
-  .finance-section::before { top: 0; }
-  .finance-section::after { bottom: 0; }
-  .finance-inner { max-width: 1200px; margin: 0 auto; }
-  .finance-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 3rem; margin-top: 1rem; }
-  .finance-rules { display: flex; flex-direction: column; gap: 1rem; }
-  .finance-rule { background: var(--black-card); border: 1px solid rgba(201,168,76,0.15); padding: 1.2rem 1.5rem; display: flex; align-items: flex-start; gap: 1rem; }
-  .finance-rule-num { font-family: 'Cinzel Decorative', serif; font-size: 1.2rem; color: rgba(201,168,76,0.4); min-width: 32px; }
-  .finance-rule-text h4 { font-family: 'Cinzel', serif; font-size: 0.75rem; color: var(--gold-light); letter-spacing: 0.08em; margin-bottom: 0.3rem; }
-  .finance-rule-text p { font-size: 0.8rem; color: var(--white-dim); line-height: 1.5; }
-  .finance-aside { display: flex; flex-direction: column; gap: 1.5rem; }
-  .fy-card { background: linear-gradient(135deg, rgba(201,168,76,0.1), transparent); border: 1px solid var(--gold-dark); padding: 1.5rem; text-align: center; }
-  .fy-card .fy-label { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.3em; color: var(--gold); text-transform: uppercase; margin-bottom: 0.5rem; }
-  .fy-card .fy-date { font-family: 'Cinzel Decorative', serif; font-size: 1.5rem; color: var(--gold-light); }
-  .sig-card { background: var(--black-card); border: 1px solid rgba(201,168,76,0.2); padding: 1.5rem; }
-  .sig-card h4 { font-family: 'Cinzel', serif; font-size: 0.75rem; color: var(--gold-light); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1rem; }
-  .sig-list { list-style: none; }
-  .sig-list li { font-size: 0.82rem; color: var(--white-dim); padding: 0.4rem 0; padding-left: 1.2rem; position: relative; }
-  .sig-list li::before { content: '✦'; position: absolute; left: 0; color: var(--gold); font-size: 0.55rem; top: 0.5rem; }
-
-  /* ── CONDUCT SECTION ── */
-  .conduct-section { position: relative; z-index: 1; padding: 6rem 2rem; max-width: 1200px; margin: 0 auto; }
-  .conduct-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
-  .misconduct-list { list-style: none; margin-top: 1rem; }
-  .misconduct-list li { background: var(--black-card); border: 1px solid rgba(201,168,76,0.12); border-left: 3px solid rgba(201,168,76,0.4); padding: 0.9rem 1.2rem; margin-bottom: 0.6rem; font-size: 0.82rem; color: var(--white-dim); line-height: 1.5; }
-  .discipline-steps { display: flex; flex-direction: column; gap: 0.8rem; margin-top: 1rem; }
-  .discipline-step { display: flex; align-items: flex-start; gap: 1rem; background: var(--black-card); border: 1px solid rgba(201,168,76,0.12); padding: 1rem 1.2rem; }
-  .step-badge { font-family: 'Cinzel', serif; font-size: 0.65rem; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; min-width: 90px; padding-top: 0.1rem; }
-  .step-desc { font-size: 0.82rem; color: var(--white-dim); line-height: 1.5; }
-  .appeal-note { background: linear-gradient(135deg, rgba(201,168,76,0.08), transparent); border: 1px solid rgba(201,168,76,0.3); padding: 1.2rem 1.5rem; margin-top: 1.5rem; font-size: 0.85rem; color: var(--white-dim); line-height: 1.7; }
-  .appeal-note strong { color: var(--gold-light); }
-
-  /* ── SOCIAL MEDIA SECTION ── */
-  .social-section { position: relative; z-index: 1; background: var(--black-mid); padding: 5rem 2rem; overflow: hidden; }
-  .social-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
-  .social-inner { max-width: 1200px; margin: 0 auto; }
-  .social-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; margin-top: 2rem; }
-  .social-rule { background: var(--black-card); border: 1px solid rgba(201,168,76,0.12); padding: 1.5rem; text-align: center; }
-  .social-rule-icon { font-size: 1.8rem; margin-bottom: 0.8rem; }
-  .social-rule h4 { font-family: 'Cinzel', serif; font-size: 0.75rem; color: var(--gold-light); letter-spacing: 0.1em; margin-bottom: 0.6rem; }
-  .social-rule p { font-size: 0.8rem; color: var(--white-dim); line-height: 1.6; }
-
-  /* ── CONSTITUTION ADMIN ── */
-  .admin-section { position: relative; z-index: 1; padding: 6rem 2rem; max-width: 1100px; margin: 0 auto; }
-  .admin-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; }
-  .admin-card { background: var(--black-card); border: 1px solid rgba(201,168,76,0.15); padding: 1.8rem 1.2rem; text-align: center; transition: all 0.3s; }
-  .admin-card:hover { border-color: rgba(201,168,76,0.4); transform: translateY(-3px); }
-  .admin-card-icon { font-size: 2rem; margin-bottom: 0.8rem; }
-  .admin-card h4 { font-family: 'Cinzel', serif; font-size: 0.75rem; color: var(--gold-light); letter-spacing: 0.08em; margin-bottom: 0.5rem; }
-  .admin-card p { font-size: 0.78rem; color: var(--white-dim); line-height: 1.5; }
-
-  /* ── LEADERSHIP SECTION ── */
-  .leadership-section { position: relative; z-index: 1; background: var(--black-mid); padding: 6rem 2rem; overflow: hidden; }
-  .leadership-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
-  .leadership-inner { max-width: 1200px; margin: 0 auto; }
-  .leadership-photo-frame { position: relative; border: 2px solid var(--gold-dark); padding: 10px; background: var(--black-soft); margin-bottom: 2.5rem; overflow: hidden; }
-  .leadership-photo-frame::before { content: ''; position: absolute; top: -7px; left: -7px; right: -7px; bottom: -7px; border: 1px solid rgba(201,168,76,0.25); z-index: 0; }
-  .bearers-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
-  .bearer-card { background: var(--black-card); border: 1px solid rgba(201,168,76,0.18); padding: 1.2rem; text-align: center; transition: all 0.3s; }
-  .bearer-card:hover { border-color: rgba(201,168,76,0.5); transform: translateY(-3px); box-shadow: 0 10px 28px rgba(0,0,0,0.5); }
-  .bearer-card--gold { border-color: rgba(201,168,76,0.45); background: linear-gradient(135deg, rgba(201,168,76,0.1), var(--black-card)); }
-  .bearer-role { font-family: 'Cinzel', serif; font-size: 0.62rem; letter-spacing: 0.12em; color: var(--gold); text-transform: uppercase; margin-bottom: 0.5rem; line-height: 1.4; }
-  .bearer-name { font-family: 'Cinzel Decorative', serif; font-size: 0.82rem; color: var(--white); line-height: 1.3; }
-
-  /* ── COMMITTEE SECTION ── */
-  .committee-section { position: relative; z-index: 1; padding: 6rem 2rem; overflow: hidden; }
-  .committee-section::before, .committee-section::after { content: ''; position: absolute; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
-  .committee-section::before { top: 0; }
-  .committee-section::after { bottom: 0; }
-  .committee-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
-  .committee-card { background: var(--black-card); border: 1px solid rgba(201,168,76,0.12); padding: 1.1rem; transition: all 0.3s; position: relative; overflow: hidden; }
-  .committee-card::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 100%; background: linear-gradient(180deg, var(--gold), transparent); }
-  .committee-card:hover { border-color: rgba(201,168,76,0.4); transform: translateY(-3px); }
-  .committee-role { font-family: 'Cinzel', serif; font-size: 0.6rem; letter-spacing: 0.1em; color: var(--gold); text-transform: uppercase; margin-bottom: 0.4rem; line-height: 1.4; }
-  .committee-name { font-family: 'Cinzel', serif; font-size: 0.8rem; color: var(--white); font-weight: 600; padding-left: 0.6rem; }
-
-  /* ── EVENTS SECTION ── */
-  .events-section { position: relative; z-index: 1; background: var(--black-mid); padding: 6rem 2rem; overflow: hidden; }
-  .events-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
-  .events-inner { max-width: 1200px; margin: 0 auto; }
-  .events-lead { max-width: 800px; margin: 0 auto 3rem; text-align: center; font-size: 1rem; color: var(--white-dim); line-height: 1.9; }
-  .gallery-label { text-align: center; margin-bottom: 1.5rem; }
-  .events-gallery { display: grid; grid-template-columns: 1.6fr 1fr 1fr; grid-template-rows: 280px 280px; gap: 1rem; margin-bottom: 2.5rem; }
-  .gallery-item { position: relative; overflow: hidden; border: 1px solid rgba(201,168,76,0.18); }
-  .gallery-item--wide { grid-row: 1 / span 2; }
-  .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; filter: brightness(0.85); transition: filter 0.4s, transform 0.5s; }
-  .gallery-item:hover img { filter: brightness(1.05); transform: scale(1.04); }
-  .gallery-caption { position: absolute; bottom: 0; left: 0; right: 0; padding: 0.6rem 0.9rem; background: linear-gradient(0deg, rgba(10,8,0,0.92), transparent); font-family: 'Cinzel', serif; font-size: 0.6rem; letter-spacing: 0.1em; color: var(--gold-light); text-transform: uppercase; }
-  .performers-strip { background: linear-gradient(135deg, rgba(201,168,76,0.12), rgba(201,168,76,0.04)); border: 1px solid rgba(201,168,76,0.35); padding: 2rem; text-align: center; margin-top: 2rem; }
-  .performers-label { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.35em; color: var(--gold); text-transform: uppercase; margin-bottom: 1.2rem; }
-  .performers-list { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 0.8rem 1.2rem; }
-  .performer-tag { font-family: 'Cinzel Decorative', serif; font-size: 0.95rem; color: var(--white); }
-  .performer-sep { color: var(--gold); font-size: 0.7rem; }
-
-  /* ── ADOPTION BANNER ── */
-  .adoption-section { position: relative; z-index: 1; background: linear-gradient(135deg, #0D0D0D 0%, #1A1200 50%, #0D0D0D 100%); border-top: 1px solid rgba(201,168,76,0.3); border-bottom: 1px solid rgba(201,168,76,0.3); padding: 5rem 2rem; text-align: center; overflow: hidden; }
-  .adoption-section::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 600px; height: 600px; background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%); pointer-events: none; }
-  .adoption-section h2 { font-family: 'Cinzel Decorative', serif; font-size: clamp(1.5rem, 4vw, 2.8rem); background: linear-gradient(135deg, #F0D080, #C9A84C); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 1rem; position: relative; }
-  .adoption-section p { font-size: 1rem; color: var(--white-dim); max-width: 600px; margin: 0 auto 2.5rem; line-height: 1.8; }
-  .adoption-date { display: inline-block; font-family: 'Cinzel Decorative', serif; font-size: 1.8rem; background: linear-gradient(135deg, #F0D080, #C9A84C); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin: 1rem 0; }
-  .contact-grid { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-top: 2rem; }
-  .contact-item { font-family: 'Cinzel', serif; font-size: 0.75rem; color: var(--gold-light); letter-spacing: 0.1em; text-align: center; }
-  .contact-item span { display: block; font-size: 0.65rem; color: var(--gold-dark); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 0.3rem; }
-
-  /* ── FOOTER ── */
-  footer { position: relative; z-index: 1; background: #080808; border-top: 1px solid rgba(201,168,76,0.2); padding: 2.5rem 2rem; text-align: center; }
-  .footer-logo-text { font-family: 'Cinzel Decorative', serif; font-size: 1.2rem; color: var(--gold); margin-bottom: 0.5rem; }
-  .footer-motto { font-family: 'Cinzel', serif; font-style: italic; color: var(--gold-dark); font-size: 0.8rem; margin-bottom: 1rem; }
-  .footer-copy { font-size: 0.72rem; color: rgba(200,192,176,0.4); font-family: 'Lato', sans-serif; letter-spacing: 0.08em; }
-  .footer-divider { width: 60px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold-dark), transparent); margin: 1rem auto; }
-  .footer-reg { font-size: 0.68rem; color: rgba(200,192,176,0.3); font-family: 'Lato', sans-serif; letter-spacing: 0.06em; margin-top: 0.5rem; }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width: 900px) {
-    .about-grid, .governance-split, .finance-grid, .conduct-grid, .membership-grid { grid-template-columns: 1fr; gap: 2rem; }
-    .objectives-grid, .meetings-grid, .impact-cards, .social-grid { grid-template-columns: 1fr 1fr; }
-    .admin-grid { grid-template-columns: 1fr 1fr; }
-    .nav-links { display: none; }
-    .bearers-grid, .committee-grid { grid-template-columns: 1fr 1fr; }
-    .events-gallery { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
-    .gallery-item--wide { grid-row: auto; }
-  }
-  @media (max-width: 600px) {
-    .objectives-grid, .meetings-grid, .social-grid, .admin-grid, .about-card-grid { grid-template-columns: 1fr; }
-    .stats-bar { flex-direction: column; align-items: center; }
-    .stat-item { border-right: none; border-bottom: 1px solid rgba(201,168,76,0.2); }
-    .quorum-bar { flex-direction: column; }
-    .bearers-grid, .committee-grid { grid-template-columns: 1fr; }
-    .events-gallery { grid-template-columns: 1fr; }
+  @media (max-width:600px) {
+    .objectives-grid,.meetings-grid,.social-grid,.admin-grid,.about-card-grid,.plan-horizon { grid-template-columns:1fr; }
+    .stats-bar { flex-direction:column;align-items:center; }
+    .stat-item { border-right:none;border-bottom:1px solid rgba(201,168,76,0.2); }
+    .quorum-bar { flex-direction:column; }
+    .bearers-grid,.committee-grid { grid-template-columns:1fr; }
+    .events-gallery { grid-template-columns:1fr; }
   }
 </style>
 </head>
 <body>
-
-<!-- Particles -->
 <div id="particles"></div>
 
-<!-- NAV -->
 <nav>
   <div class="nav-logo">
     <div class="nav-badge">VELA<br>LANGA<br>SSS</div>
@@ -345,24 +356,18 @@
     <li><a href="#governance">Governance</a></li>
     <li><a href="#leadership">Leadership</a></li>
     <li><a href="#events">Events</a></li>
-    <li><a href="#constitution">Constitution</a></li>
+    <li><a href="#progress">Progress</a></li>
+    <li><a href="#plans">Plans</a></li>
+    <li><a href="#elections">Elections</a></li>
   </ul>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-photo-bg"></div>
   <svg class="hero-emblem" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
     <defs>
-      <radialGradient id="goldGrad" cx="40%" cy="35%">
-        <stop offset="0%" stop-color="#F0D080"/>
-        <stop offset="50%" stop-color="#C9A84C"/>
-        <stop offset="100%" stop-color="#6B4F0A"/>
-      </radialGradient>
-      <radialGradient id="innerGrad" cx="40%" cy="35%">
-        <stop offset="0%" stop-color="#1E1800"/>
-        <stop offset="100%" stop-color="#0A0800"/>
-      </radialGradient>
+      <radialGradient id="goldGrad" cx="40%" cy="35%"><stop offset="0%" stop-color="#F0D080"/><stop offset="50%" stop-color="#C9A84C"/><stop offset="100%" stop-color="#6B4F0A"/></radialGradient>
+      <radialGradient id="innerGrad" cx="40%" cy="35%"><stop offset="0%" stop-color="#1E1800"/><stop offset="100%" stop-color="#0A0800"/></radialGradient>
     </defs>
     <circle cx="100" cy="100" r="98" fill="url(#goldGrad)"/>
     <circle cx="100" cy="100" r="92" fill="#0A0A0A"/>
@@ -394,12 +399,9 @@
   <div class="hero-divider"><span>✦</span></div>
   <div class="hero-buttons">
     <a href="#membership" class="btn-gold">Join the Alumni</a>
-    <a href="#constitution" class="btn-outline">View Constitution</a>
+    <a href="#progress" class="btn-outline">Latest Updates</a>
   </div>
-  <div class="scroll-indicator">
-    <span>Scroll</span>
-    <div class="scroll-arrow"></div>
-  </div>
+  <div class="scroll-indicator"><span>Scroll</span><div class="scroll-arrow"></div></div>
 </section>
 
 <!-- SCHOOL ILLUSTRATION -->
@@ -408,18 +410,11 @@
   <h2 class="section-title">Vela Langa Senior Secondary School</h2>
   <div class="photo-frame-wrapper">
     <div class="photo-frame">
-      <div class="photo-corner tl"></div>
-      <div class="photo-corner tr"></div>
-      <div class="photo-corner bl"></div>
-      <div class="photo-corner br"></div>
+      <div class="photo-corner tl"></div><div class="photo-corner tr"></div><div class="photo-corner bl"></div><div class="photo-corner br"></div>
       <div style="width:100%;height:420px;background:linear-gradient(160deg,#1A1200 0%,#0D0900 40%,#1A1000 100%);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
         <div style="position:absolute;inset:0;background:linear-gradient(180deg,#0D1A2B 0%,#1A2E1A 55%,#2A1A00 100%);"></div>
         <svg viewBox="0 0 900 420" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%;">
-          <circle cx="100" cy="40" r="1.5" fill="#F0D080" opacity="0.6"/>
-          <circle cx="250" cy="20" r="1" fill="#F0D080" opacity="0.5"/>
-          <circle cx="600" cy="30" r="1.5" fill="#F0D080" opacity="0.7"/>
-          <circle cx="780" cy="15" r="1" fill="#F0D080" opacity="0.4"/>
-          <circle cx="450" cy="10" r="2" fill="#F0D080" opacity="0.8"/>
+          <circle cx="100" cy="40" r="1.5" fill="#F0D080" opacity="0.6"/><circle cx="250" cy="20" r="1" fill="#F0D080" opacity="0.5"/><circle cx="600" cy="30" r="1.5" fill="#F0D080" opacity="0.7"/><circle cx="780" cy="15" r="1" fill="#F0D080" opacity="0.4"/><circle cx="450" cy="10" r="2" fill="#F0D080" opacity="0.8"/>
           <path d="M0 280 L120 160 L220 240 L300 130 L420 250 L500 170 L620 260 L700 140 L820 230 L900 180 L900 420 L0 420Z" fill="#0D1A0A" opacity="0.8"/>
           <path d="M0 310 L80 200 L160 260 L280 180 L380 270 L460 200 L560 280 L660 190 L760 260 L860 200 L900 230 L900 420 L0 420Z" fill="#0A150A" opacity="0.9"/>
           <rect x="0" y="340" width="900" height="80" fill="#1A1200"/>
@@ -448,7 +443,7 @@
           <rect x="180" y="200" width="540" height="145" fill="url(#buildingGlow)" opacity="0.15"/>
           <line x1="0" y1="355" x2="900" y2="355" stroke="#2A2000" stroke-width="2"/>
         </svg>
-        <div style="position:absolute;bottom:0;left:0;right:0;padding:1rem 1.5rem;background:linear-gradient(0deg, rgba(10,8,0,0.95), transparent);text-align:left;">
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:1rem 1.5rem;background:linear-gradient(0deg,rgba(10,8,0,0.95),transparent);text-align:left;">
           <div style="font-family:'Cinzel',serif;font-size:0.7rem;letter-spacing:0.2em;color:#C9A84C;text-transform:uppercase;">Private Bag X 304</div>
           <div style="font-family:'Cinzel',serif;font-size:1rem;color:#F0D080;font-weight:600;">Vela Langa Senior Secondary School</div>
           <div style="font-family:'Lato',sans-serif;font-size:0.78rem;color:#C8C0B0;">Lower Didimana Village · Whittlesea 5360 · Formerly Ciskei Homeland · Eastern Cape</div>
@@ -460,61 +455,30 @@
 
 <!-- STATS BAR -->
 <div class="stats-bar">
-  <div class="stat-item">
-    <span class="stat-number" data-target="2025">2025</span>
-    <span class="stat-label">Year Founded</span>
-  </div>
-  <div class="stat-item">
-    <span class="stat-number" data-target="16">16</span>
-    <span class="stat-label">Constitutional Clauses</span>
-  </div>
-  <div class="stat-item">
-    <span class="stat-number" data-target="7">7</span>
-    <span class="stat-label">Max Board of Trustees</span>
-  </div>
-  <div class="stat-item">
-    <span class="stat-number" data-target="2">2</span>
-    <span class="stat-label">Year Executive Term</span>
-  </div>
-  <div class="stat-item">
-    <span class="stat-number" data-target="50">50%</span>
-    <span class="stat-label">Quorum Requirement</span>
-  </div>
+  <div class="stat-item"><span class="stat-number" data-target="2025">2025</span><span class="stat-label">Year Founded</span></div>
+  <div class="stat-item"><span class="stat-number" data-target="16">16</span><span class="stat-label">Constitutional Clauses</span></div>
+  <div class="stat-item"><span class="stat-number" data-target="8">8</span><span class="stat-label">Active Committees</span></div>
+  <div class="stat-item"><span class="stat-number" data-target="2">2</span><span class="stat-label">Year Executive Term</span></div>
+  <div class="stat-item"><span class="stat-number" data-target="50">50%</span><span class="stat-label">Quorum Requirement</span></div>
 </div>
 
-<!-- ABOUT / PREAMBLE -->
+<!-- ABOUT -->
 <section class="about-section">
   <p class="section-label">Who We Are</p>
   <h2 class="section-title">Our Association</h2>
   <div class="about-grid">
     <div class="about-text">
       <div class="gold-rule"></div>
-      <p>The <strong>Vela Langa SSS Alumni Club</strong> is a Non-Profit Company (NPC) incorporated in terms of the Companies Act 71 of 2008, registered with the Companies and Intellectual Property Commission (CIPC) of South Africa.</p>
+      <p>The <strong>Vela Langa SSS Alumni Club</strong> is a Non-Profit Company (NPC) incorporated in terms of the Companies Act 71 of 2008, registered with the CIPC of South Africa.</p>
       <p>Situated at <strong>Lower Didimana Village near Whittlesea</strong> — historically part of the former Ciskei homeland — we are united by our shared experiences and commitment to our alma mater, Vela Langa Senior Secondary School.</p>
       <p>We resolve to reopen and revitalize the school premises, develop skills development programs to empower community members, foster a sense of community and social responsibility, and <strong>promote selfless and shared solidarity.</strong></p>
       <p>The Association is exempt from income tax in terms of <strong>section 10(1)(cN) of the Income Tax Act</strong>, and operates as a fully constituted non-profit entity.</p>
     </div>
     <div class="about-card-grid">
-      <div class="about-card">
-        <div class="about-card-icon">🎓</div>
-        <h4>Alumni Network</h4>
-        <p>Open to all alumni of Vela Langa SSS and community members who support the organisation's objectives.</p>
-      </div>
-      <div class="about-card">
-        <div class="about-card-icon">🏘️</div>
-        <h4>Community Focus</h4>
-        <p>Curbing poverty and combating crime within the surrounding Didimana and Whittlesea communities.</p>
-      </div>
-      <div class="about-card">
-        <div class="about-card-icon">🏛️</div>
-        <h4>NPC Status</h4>
-        <p>Registered Non-Profit Company with full governance structures, a Board of Trustees, and Executive Committee.</p>
-      </div>
-      <div class="about-card">
-        <div class="about-card-icon">🤝</div>
-        <h4>Solidarity</h4>
-        <p>Promoting peaceful coexistence and resolving conflicts through dialogue, understanding, and reconciliation.</p>
-      </div>
+      <div class="about-card"><div class="about-card-icon">🎓</div><h4>Alumni Network</h4><p>Open to all alumni of Vela Langa SSS and community members who support the organisation's objectives.</p></div>
+      <div class="about-card"><div class="about-card-icon">🏘️</div><h4>Community Focus</h4><p>Curbing poverty and combating crime within the surrounding Didimana and Whittlesea communities.</p></div>
+      <div class="about-card"><div class="about-card-icon">🏛️</div><h4>NPC Status</h4><p>Registered Non-Profit Company with full governance structures, a Board of Trustees, and Executive Committee.</p></div>
+      <div class="about-card"><div class="about-card-icon">🤝</div><h4>Solidarity</h4><p>Promoting peaceful coexistence and resolving conflicts through dialogue, understanding, and reconciliation.</p></div>
     </div>
   </div>
 </section>
@@ -525,36 +489,12 @@
     <p class="section-label">What We Stand For</p>
     <h2 class="section-title">Our Objectives</h2>
     <div class="objectives-grid">
-      <div class="obj-card">
-        <div class="obj-card-icon">🏫</div>
-        <h3>Revive the School</h3>
-        <p>Reopen and manage the Vela Langa SSS premises for the benefit of the broader community, restoring its role as a centre of learning and opportunity.</p>
-      </div>
-      <div class="obj-card">
-        <div class="obj-card-icon">📚</div>
-        <h3>Skills Development</h3>
-        <p>Develop and implement skills development programmes for the community, promoting self-reliance, employment readiness, and economic empowerment.</p>
-      </div>
-      <div class="obj-card">
-        <div class="obj-card-icon">🛡️</div>
-        <h3>Curb Crime &amp; Poverty</h3>
-        <p>Actively combat crime and poverty within the surrounding community through structured programmes and meaningful community engagement.</p>
-      </div>
-      <div class="obj-card">
-        <div class="obj-card-icon">🏗️</div>
-        <h3>Infrastructure Reform</h3>
-        <p>Promote and implement infrastructural development reforms as part of our Economic Strategic Blueprint through the Subcommittee on Infrastructure.</p>
-      </div>
-      <div class="obj-card">
-        <div class="obj-card-icon">🌍</div>
-        <h3>Social Responsibility</h3>
-        <p>Promote community development and social responsibility, fostering harmony, unity, and cooperation among diverse groups including farmers, churches, youth formations, and senior citizens.</p>
-      </div>
-      <div class="obj-card">
-        <div class="obj-card-icon">🔒</div>
-        <h3>Protect Integrity</h3>
-        <p>Combat and report all elements that seek to sabotage the objectives of the Vela Langa SSS Alumni Club from within and outside the Association.</p>
-      </div>
+      <div class="obj-card"><div class="obj-card-icon">🏫</div><h3>Revive the School</h3><p>Reopen and manage the Vela Langa SSS premises for the benefit of the broader community, restoring its role as a centre of learning and opportunity.</p></div>
+      <div class="obj-card"><div class="obj-card-icon">📚</div><h3>Skills Development</h3><p>Develop and implement skills development programmes for the community, promoting self-reliance, employment readiness, and economic empowerment.</p></div>
+      <div class="obj-card"><div class="obj-card-icon">🛡️</div><h3>Curb Crime &amp; Poverty</h3><p>Actively combat crime and poverty within the surrounding community through structured programmes and meaningful community engagement.</p></div>
+      <div class="obj-card"><div class="obj-card-icon">🏗️</div><h3>Infrastructure Reform</h3><p>Promote and implement infrastructural development reforms as part of our Economic Strategic Blueprint through the Subcommittee on Infrastructure.</p></div>
+      <div class="obj-card"><div class="obj-card-icon">🌍</div><h3>Social Responsibility</h3><p>Promote community development and social responsibility, fostering harmony, unity, and cooperation among diverse groups including farmers, churches, youth formations, and senior citizens.</p></div>
+      <div class="obj-card"><div class="obj-card-icon">🔒</div><h3>Protect Integrity</h3><p>Combat and report all elements that seek to sabotage the objectives of the Vela Langa SSS Alumni Club from within and outside the Association.</p></div>
     </div>
   </div>
 </section>
@@ -567,27 +507,9 @@
     <div>
       <div class="membership-block">
         <h3>Membership Fees</h3>
-        <div class="fee-card">
-          <div class="fee-icon">📋</div>
-          <div>
-            <div class="fee-amount">R 50.00</div>
-            <div class="fee-desc">Once-off registration fee towards the formal registration of the Alumni Club.</div>
-          </div>
-        </div>
-        <div class="fee-card">
-          <div class="fee-icon">📅</div>
-          <div>
-            <div class="fee-amount">R 100.00</div>
-            <div class="fee-desc">Annual affiliation fee (minimum) covering operational expenses such as administrative costs, events and communication.</div>
-          </div>
-        </div>
-        <div class="fee-card">
-          <div class="fee-icon">🕊️</div>
-          <div>
-            <div class="fee-amount">R 50.00</div>
-            <div class="fee-desc">Bereavement contribution (Umkhonto) towards funeral expenses in the event of death of a member, their spouse or children.</div>
-          </div>
-        </div>
+        <div class="fee-card"><div class="fee-icon">📋</div><div><div class="fee-amount">R 50.00</div><div class="fee-desc">Once-off registration fee towards the formal registration of the Alumni Club.</div></div></div>
+        <div class="fee-card"><div class="fee-icon">📅</div><div><div class="fee-amount">R 100.00</div><div class="fee-desc">Annual affiliation fee (minimum) covering operational expenses such as administrative costs, events and communication.</div></div></div>
+        <div class="fee-card"><div class="fee-icon">🕊️</div><div><div class="fee-amount">R 50.00</div><div class="fee-desc">Bereavement contribution (Umkhonto) towards funeral expenses in the event of death of a member, their spouse or children.</div></div></div>
       </div>
       <div class="bereavement-card" style="margin-top:1.5rem;">
         <h4>⚫ Bereavement Support (Section 11)</h4>
@@ -598,18 +520,8 @@
     <div>
       <div class="membership-block">
         <h3>Who Can Join</h3>
-        <div class="fee-card" style="border-left: 3px solid var(--gold);">
-          <div class="fee-icon">🎓</div>
-          <div>
-            <div class="fee-desc" style="font-size:0.9rem;"><strong style="color:var(--gold-light);">Alumni</strong> of Vela Langa Senior Secondary School.</div>
-          </div>
-        </div>
-        <div class="fee-card" style="border-left: 3px solid var(--gold);">
-          <div class="fee-icon">🏘️</div>
-          <div>
-            <div class="fee-desc" style="font-size:0.9rem;"><strong style="color:var(--gold-light);">Community Members</strong> who support the organisation's objectives.</div>
-          </div>
-        </div>
+        <div class="fee-card" style="border-left:3px solid var(--gold);"><div class="fee-icon">🎓</div><div><div class="fee-desc" style="font-size:0.9rem;"><strong style="color:var(--gold-light);">Alumni</strong> of Vela Langa Senior Secondary School.</div></div></div>
+        <div class="fee-card" style="border-left:3px solid var(--gold);"><div class="fee-icon">🏘️</div><div><div class="fee-desc" style="font-size:0.9rem;"><strong style="color:var(--gold-light);">Community Members</strong> who support the organisation's objectives.</div></div></div>
       </div>
       <div class="lifetime-badge">
         <h4>⭐ Lifetime Membership</h4>
@@ -620,7 +532,7 @@
           <li>Significant donations or contributions to the club</li>
           <li>Notable contributions that benefit the institution</li>
         </ul>
-        <p style="font-size:0.78rem;color:var(--white-dim);margin-top:1rem;">Lifetime members enjoy <strong style="color:var(--gold-light);">voting rights</strong>, recognition on the website and publications, and are <strong style="color:var(--gold-light);">exempt from annual dues</strong>. Nominations are made by the committee/board of directors.</p>
+        <p style="font-size:0.78rem;color:var(--white-dim);margin-top:1rem;">Lifetime members enjoy <strong style="color:var(--gold-light);">voting rights</strong>, recognition on the website and publications, and are <strong style="color:var(--gold-light);">exempt from annual dues</strong>.</p>
       </div>
     </div>
   </div>
@@ -640,26 +552,11 @@
         <div class="gov-block">
           <h3>Executive Committee Roles</h3>
           <ul class="role-list">
-            <li class="role-item">
-              <span class="role-title">Chairperson</span>
-              <span class="role-desc">Represents the Alumni Club, signs all papers, directs the Executive Committee, and presides over all meetings.</span>
-            </li>
-            <li class="role-item">
-              <span class="role-title">Deputy Chairperson</span>
-              <span class="role-desc">Assists the Chairperson and acts under their authority when required.</span>
-            </li>
-            <li class="role-item">
-              <span class="role-title">Two Secretaries</span>
-              <span class="role-desc">Attend to all secretarial work, keep membership files in safe custody, and record minutes of all meetings.</span>
-            </li>
-            <li class="role-item">
-              <span class="role-title">Treasurer</span>
-              <span class="role-desc">Takes charge of all financial matters. Must sign jointly with the Chairperson and Deputy Chairperson to operate bank accounts.</span>
-            </li>
-            <li class="role-item">
-              <span class="role-title">Subcommittee Heads</span>
-              <span class="role-desc">Representative heads of subcommittees are in charge of activities and assigned duties.</span>
-            </li>
+            <li class="role-item"><span class="role-title">Chairperson</span><span class="role-desc">Represents the Alumni Club, signs all papers, directs the Executive Committee, and presides over all meetings.</span></li>
+            <li class="role-item"><span class="role-title">Deputy Chairperson</span><span class="role-desc">Assists the Chairperson and acts under their authority when required.</span></li>
+            <li class="role-item"><span class="role-title">Two Secretaries</span><span class="role-desc">Attend to all secretarial work, keep membership files in safe custody, and record minutes of all meetings.</span></li>
+            <li class="role-item"><span class="role-title">Treasurer</span><span class="role-desc">Takes charge of all financial matters. Must sign jointly with the Chairperson and Deputy Chairperson to operate bank accounts.</span></li>
+            <li class="role-item"><span class="role-title">Subcommittee Heads</span><span class="role-desc">Representative heads of subcommittees are in charge of activities and assigned duties.</span></li>
           </ul>
           <div class="term-badge">✦ Executive Term: 2 Years · Voluntary (Gratis) · Subject to Re-election</div>
         </div>
@@ -689,51 +586,21 @@
   </div>
 </section>
 
-<!-- MEETINGS & ELECTIONS -->
+<!-- MEETINGS -->
 <section class="meetings-section" id="meetings">
   <p class="section-label">Democratic Process</p>
   <h2 class="section-title">Meetings &amp; Elections</h2>
   <div class="meetings-grid">
-    <div class="meeting-card">
-      <div class="meeting-icon">📅</div>
-      <h3>Annual General Meeting</h3>
-      <p>Held in June or August every year. Business includes adopting the Annual Report and Treasurer's report, electing the Executive Committee, and amending the Constitution if required.</p>
-      <div class="meeting-detail">Elections every 2 years at the AGM</div>
-    </div>
-    <div class="meeting-card">
-      <div class="meeting-icon">⚡</div>
-      <h3>Extraordinary General Meeting</h3>
-      <p>Called by the Executive Committee or by petition of not less than one-twentieth of total members. Discussions are confined to the stated agenda only.</p>
-      <div class="meeting-detail">Open to all members · Agenda-bound</div>
-    </div>
-    <div class="meeting-card">
-      <div class="meeting-icon">🗓️</div>
-      <h3>Committee Meetings</h3>
-      <p>Held at the request of the Chairperson or any two Executive Committee members. Main business is to discuss and decide general policies, plans, and matters relating to the club.</p>
-      <div class="meeting-detail">Quorum: over ⅓ of Executive Committee</div>
-    </div>
+    <div class="meeting-card"><div class="meeting-icon">📅</div><h3>Annual General Meeting</h3><p>Held in June or August every year. Business includes adopting the Annual Report and Treasurer's report, electing the Executive Committee, and amending the Constitution if required.</p><div class="meeting-detail">Elections every 2 years at the AGM</div></div>
+    <div class="meeting-card"><div class="meeting-icon">⚡</div><h3>Extraordinary General Meeting</h3><p>Called by the Executive Committee or by petition of not less than one-twentieth of total members. Discussions are confined to the stated agenda only.</p><div class="meeting-detail">Open to all members · Agenda-bound</div></div>
+    <div class="meeting-card"><div class="meeting-icon">🗓️</div><h3>Committee Meetings</h3><p>Held at the request of the Chairperson or any two Executive Committee members. Main business is to discuss and decide general policies, plans, and matters relating to the club.</p><div class="meeting-detail">Quorum: over ⅓ of Executive Committee</div></div>
   </div>
   <div class="quorum-bar">
-    <div class="quorum-bar-item">
-      <div class="quorum-number">50%</div>
-      <div class="quorum-label">Quorum for General Meeting</div>
-    </div>
-    <div class="quorum-bar-item">
-      <div class="quorum-number">45 min</div>
-      <div class="quorum-label">Grace period for quorum</div>
-    </div>
-    <div class="quorum-bar-item">
-      <div class="quorum-number">Simple<br>Majority</div>
-      <div class="quorum-label">Required to pass resolutions</div>
-    </div>
-    <div class="quorum-bar-item">
-      <div class="quorum-number">⅔</div>
-      <div class="quorum-label">Majority to amend constitution</div>
-    </div>
-    <div class="quorum-bar-item">
-      <div class="quorum-number">14 Days</div>
-      <div class="quorum-label">Notice for constitution changes</div>
-    </div>
+    <div class="quorum-bar-item"><div class="quorum-number">50%</div><div class="quorum-label">Quorum for General Meeting</div></div>
+    <div class="quorum-bar-item"><div class="quorum-number">45 min</div><div class="quorum-label">Grace period for quorum</div></div>
+    <div class="quorum-bar-item"><div class="quorum-number">Simple<br>Majority</div><div class="quorum-label">Required to pass resolutions</div></div>
+    <div class="quorum-bar-item"><div class="quorum-number">⅔</div><div class="quorum-label">Majority to amend constitution</div></div>
+    <div class="quorum-bar-item"><div class="quorum-number">14 Days</div><div class="quorum-label">Notice for constitution changes</div></div>
   </div>
 </section>
 
@@ -744,80 +611,23 @@
     <h2 class="section-title">Finance &amp; Assets</h2>
     <div class="finance-grid">
       <div class="finance-rules">
-        <div class="finance-rule">
-          <div class="finance-rule-num">1.</div>
-          <div class="finance-rule-text">
-            <h4>Accurate Records</h4>
-            <p>The Alumni Association shall maintain accurate financial records of all income, expenditure, and assets.</p>
-          </div>
-        </div>
-        <div class="finance-rule">
-          <div class="finance-rule-num">2.</div>
-          <div class="finance-rule-text">
-            <h4>Dedicated Bank Account</h4>
-            <p>A bank account shall be opened under the Alumni Club name with minimum three signatories (including the Treasurer).</p>
-          </div>
-        </div>
-        <div class="finance-rule">
-          <div class="finance-rule-num">3.</div>
-          <div class="finance-rule-text">
-            <h4>Financial Transparency</h4>
-            <p>Bank statements shall be made available to any Executive Committee member at any time requested.</p>
-          </div>
-        </div>
-        <div class="finance-rule">
-          <div class="finance-rule-num">4.</div>
-          <div class="finance-rule-text">
-            <h4>No Private Benefit</h4>
-            <p>The Alumni Club may not distribute any money or property to members or the Board of Trustees except for reasonable compensation for work performed.</p>
-          </div>
-        </div>
-        <div class="finance-rule">
-          <div class="finance-rule-num">5.</div>
-          <div class="finance-rule-text">
-            <h4>No Personal Rights</h4>
-            <p>Neither the Board, Executive, nor members have personal rights over the Alumni Club's assets.</p>
-          </div>
-        </div>
-        <div class="finance-rule">
-          <div class="finance-rule-num">6.</div>
-          <div class="finance-rule-text">
-            <h4>Donations Policy</h4>
-            <p>Donations are accepted or rejected at the Executive Committee's discretion, must be unconditional, and are non-refundable once accepted.</p>
-          </div>
-        </div>
+        <div class="finance-rule"><div class="finance-rule-num">1.</div><div class="finance-rule-text"><h4>Accurate Records</h4><p>The Alumni Association shall maintain accurate financial records of all income, expenditure, and assets.</p></div></div>
+        <div class="finance-rule"><div class="finance-rule-num">2.</div><div class="finance-rule-text"><h4>Dedicated Bank Account</h4><p>A bank account shall be opened under the Alumni Club name with minimum three signatories (including the Treasurer).</p></div></div>
+        <div class="finance-rule"><div class="finance-rule-num">3.</div><div class="finance-rule-text"><h4>Financial Transparency</h4><p>Bank statements shall be made available to any Executive Committee member at any time requested.</p></div></div>
+        <div class="finance-rule"><div class="finance-rule-num">4.</div><div class="finance-rule-text"><h4>No Private Benefit</h4><p>The Alumni Club may not distribute any money or property to members or the Board of Trustees except for reasonable compensation for work performed.</p></div></div>
+        <div class="finance-rule"><div class="finance-rule-num">5.</div><div class="finance-rule-text"><h4>No Personal Rights</h4><p>Neither the Board, Executive, nor members have personal rights over the Alumni Club's assets.</p></div></div>
+        <div class="finance-rule"><div class="finance-rule-num">6.</div><div class="finance-rule-text"><h4>Donations Policy</h4><p>Donations are accepted or rejected at the Executive Committee's discretion, must be unconditional, and are non-refundable once accepted.</p></div></div>
       </div>
       <div class="finance-aside">
-        <div class="fy-card">
-          <div class="fy-label">Financial Year End</div>
-          <div class="fy-date">28 February</div>
-          <p style="font-size:0.78rem;color:var(--white-dim);margin-top:0.5rem;">Each year. The Board reviews and approves the annual budget.</p>
-        </div>
-        <div class="sig-card">
-          <h4>Bank Signatories</h4>
-          <ul class="sig-list">
-            <li>Treasurer (Finance member)</li>
-            <li>Chairperson</li>
-            <li>Deputy Chairperson</li>
-            <li>Elected Subcommittee member</li>
-          </ul>
-          <p style="font-size:0.75rem;color:var(--white-dim);margin-top:0.8rem;">Minimum 3 signatories required. Joint signing required for all transactions.</p>
-        </div>
-        <div class="sig-card">
-          <h4>Expenditure Approval Tiers</h4>
-          <ul class="sig-list">
-            <li>Chairperson + Deputy — minor amounts (TBD)</li>
-            <li>Executive Committee — mid-range amounts (TBD)</li>
-            <li>General Meeting — amounts exceeding threshold (TBD)</li>
-          </ul>
-          <p style="font-size:0.75rem;color:var(--white-dim);margin-top:0.8rem;">Specific rand thresholds to be determined and inserted by the Association.</p>
-        </div>
+        <div class="fy-card"><div class="fy-label">Financial Year End</div><div class="fy-date">28 February</div><p style="font-size:0.78rem;color:var(--white-dim);margin-top:0.5rem;">Each year. The Board reviews and approves the annual budget.</p></div>
+        <div class="sig-card"><h4>Bank Signatories</h4><ul class="sig-list"><li>Treasurer (Finance member)</li><li>Chairperson</li><li>Deputy Chairperson</li><li>Elected Subcommittee member</li></ul><p style="font-size:0.75rem;color:var(--white-dim);margin-top:0.8rem;">Minimum 3 signatories required. Joint signing required for all transactions.</p></div>
+        <div class="sig-card"><h4>Fundraising Target 2026</h4><ul class="sig-list"><li>Annual Event Target: R 2 million (mid-December)</li><li>WSU Building Fund: ~R 2.4 million (long-term)</li><li>Price Giving ceremony aligned with annual event</li></ul><p style="font-size:0.75rem;color:var(--white-dim);margin-top:0.8rem;">Fundraising Committee to report monthly to M&amp;E Committee on progress vs. goals.</p></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CONDUCT & DISCIPLINE -->
+<!-- CONDUCT -->
 <section class="conduct-section" id="conduct">
   <p class="section-label">Upholding Standards</p>
   <h2 class="section-title">Member Conduct &amp; Discipline</h2>
@@ -831,163 +641,71 @@
         <li>Misuse of club funds, resources, or property</li>
         <li>Any act that compromises the integrity, reputation, or interests of the Alumni Club</li>
       </ul>
-      <div class="appeal-note">
-        <strong>Right to Appeal:</strong> Every member has the right to appeal any disciplinary action. The appeal is heard by a separately appointed committee of members not involved in the original investigation. <strong>The decision of the Appeal Committee is final and binding.</strong>
-      </div>
+      <div class="appeal-note"><strong>Right to Appeal:</strong> Every member has the right to appeal any disciplinary action. The decision of the Appeal Committee is final and binding.</div>
     </div>
     <div>
       <h3 style="font-family:'Cinzel',serif;font-size:0.85rem;color:var(--gold-light);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1rem;padding-bottom:0.6rem;border-bottom:1px solid rgba(201,168,76,0.3);">Disciplinary Process</h3>
       <div class="discipline-steps">
-        <div class="discipline-step">
-          <span class="step-badge">1. Investigation</span>
-          <span class="step-desc">Upon receipt of a complaint, the Executive will conduct a fair and impartial investigation. The member must be informed and given the opportunity to respond.</span>
-        </div>
-        <div class="discipline-step">
-          <span class="step-badge">2. Warning</span>
-          <span class="step-desc">A written warning outlining the misconduct and the expected corrective action to be taken.</span>
-        </div>
-        <div class="discipline-step">
-          <span class="step-badge">3. Suspension</span>
-          <span class="step-desc">Temporary suspension of membership privileges for a specified period.</span>
-        </div>
-        <div class="discipline-step">
-          <span class="step-badge">4. Expulsion</span>
-          <span class="step-desc">Permanent removal of membership and all associated privileges.</span>
-        </div>
-        <div class="discipline-step">
-          <span class="step-badge">5. Restitution</span>
-          <span class="step-desc">Requirement to pay restitution or compensation for damages or losses incurred by the club.</span>
-        </div>
+        <div class="discipline-step"><span class="step-badge">1. Investigation</span><span class="step-desc">Upon receipt of a complaint, the Executive will conduct a fair and impartial investigation. The member must be informed and given the opportunity to respond.</span></div>
+        <div class="discipline-step"><span class="step-badge">2. Warning</span><span class="step-desc">A written warning outlining the misconduct and the expected corrective action to be taken.</span></div>
+        <div class="discipline-step"><span class="step-badge">3. Suspension</span><span class="step-desc">Temporary suspension of membership privileges for a specified period.</span></div>
+        <div class="discipline-step"><span class="step-badge">4. Expulsion</span><span class="step-desc">Permanent removal of membership and all associated privileges.</span></div>
+        <div class="discipline-step"><span class="step-badge">5. Restitution</span><span class="step-desc">Requirement to pay restitution or compensation for damages or losses incurred by the club.</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- SOCIAL MEDIA POLICY -->
+<!-- SOCIAL MEDIA -->
 <section class="social-section">
   <div class="social-inner">
     <p class="section-label">Digital Conduct</p>
     <h2 class="section-title">Social Media Policy</h2>
     <div class="social-grid">
-      <div class="social-rule">
-        <div class="social-rule-icon">🤝</div>
-        <h4>Respectful Engagement</h4>
-        <p>Members are expected to engage respectfully and professionally on all social media platforms. No spam, self-promotional, or discriminatory content.</p>
-      </div>
-      <div class="social-rule">
-        <div class="social-rule-icon">🔐</div>
-        <h4>WhatsApp Confidentiality</h4>
-        <p>The VSSSA Alumni WhatsApp group is for members only. Members must maintain confidentiality and not disclose or forward content to non-members without consent.</p>
-      </div>
-      <div class="social-rule">
-        <div class="social-rule-icon">🚫</div>
-        <h4>No Forwarding</h4>
-        <p>Members shall not forward messages, content, or discussions from the WhatsApp group to any individuals or groups outside the Alumni without explicit permission.</p>
-      </div>
-      <div class="social-rule">
-        <div class="social-rule-icon">📋</div>
-        <h4>Moderation</h4>
-        <p>The club reserves the right to monitor and moderate its social media accounts and remove content that does not comply with these guidelines.</p>
-      </div>
-      <div class="social-rule">
-        <div class="social-rule-icon">⚠️</div>
-        <h4>Consequences</h4>
-        <p>Failure to comply with the social media policy may result in removal from the WhatsApp group and/or other disciplinary actions by the Executive Committee.</p>
-      </div>
-      <div class="social-rule">
-        <div class="social-rule-icon">🌐</div>
-        <h4>Intellectual Property</h4>
-        <p>Members may not use the club's logos, content, or IP for personal gain or commercial purposes without prior written consent from the Association.</p>
-      </div>
+      <div class="social-rule"><div class="social-rule-icon">🤝</div><h4>Respectful Engagement</h4><p>Members are expected to engage respectfully and professionally on all social media platforms. No spam, self-promotional, or discriminatory content.</p></div>
+      <div class="social-rule"><div class="social-rule-icon">🔐</div><h4>WhatsApp Confidentiality</h4><p>The VSSSA Alumni WhatsApp group is for members only. Members must maintain confidentiality and not disclose or forward content to non-members without consent.</p></div>
+      <div class="social-rule"><div class="social-rule-icon">🚫</div><h4>No Forwarding</h4><p>Members shall not forward messages, content, or discussions from the WhatsApp group to any individuals or groups outside the Alumni without explicit permission.</p></div>
+      <div class="social-rule"><div class="social-rule-icon">📋</div><h4>Moderation</h4><p>The club reserves the right to monitor and moderate its social media accounts and remove content that does not comply with these guidelines.</p></div>
+      <div class="social-rule"><div class="social-rule-icon">⚠️</div><h4>Consequences</h4><p>Failure to comply with the social media policy may result in removal from the WhatsApp group and/or other disciplinary actions by the Executive Committee.</p></div>
+      <div class="social-rule"><div class="social-rule-icon">🌐</div><h4>Intellectual Property</h4><p>Members may not use the club's logos, content, or IP for personal gain or commercial purposes without prior written consent from the Association.</p></div>
     </div>
   </div>
 </section>
 
-<!-- CONSTITUTION ADMINISTRATION -->
+<!-- CONSTITUTION -->
 <section class="admin-section" id="constitution">
   <p class="section-label">Legal Framework</p>
   <h2 class="section-title">Constitutional Provisions</h2>
   <div class="admin-grid">
-    <div class="admin-card">
-      <div class="admin-card-icon">📝</div>
-      <h4>Amendments</h4>
-      <p>Requires a two-thirds majority vote at the AGM. Proposed changes must be circulated to members at least 14 days before the vote.</p>
-    </div>
-    <div class="admin-card">
-      <div class="admin-card-icon">🔚</div>
-      <h4>Dissolution</h4>
-      <p>The organisation may be dissolved by special resolution. Upon dissolution, all assets shall be transferred to a similar organisation decided by general meeting.</p>
-    </div>
-    <div class="admin-card">
-      <div class="admin-card-icon">🛡️</div>
-      <h4>Indemnities</h4>
-      <p>The organisation shall indemnify its directors, officers, and employees against any claims arising from duties performed in their official capacity.</p>
-    </div>
-    <div class="admin-card">
-      <div class="admin-card-icon">📣</div>
-      <h4>Resignations</h4>
-      <p>Executive Committee members must give one month's written notice and provide sufficient grounds. Resignation requires consent from the Executive Committee.</p>
-    </div>
+    <div class="admin-card"><div class="admin-card-icon">📝</div><h4>Amendments</h4><p>Requires a two-thirds majority vote at the AGM. Proposed changes must be circulated to members at least 14 days before the vote.</p></div>
+    <div class="admin-card"><div class="admin-card-icon">🔚</div><h4>Dissolution</h4><p>The organisation may be dissolved by special resolution. Upon dissolution, all assets shall be transferred to a similar organisation decided by general meeting.</p></div>
+    <div class="admin-card"><div class="admin-card-icon">🛡️</div><h4>Indemnities</h4><p>The organisation shall indemnify its directors, officers, and employees against any claims arising from duties performed in their official capacity.</p></div>
+    <div class="admin-card"><div class="admin-card-icon">📣</div><h4>Resignations</h4><p>Executive Committee members must give one month's written notice and provide sufficient grounds. Resignation requires consent from the Executive Committee.</p></div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════════════ -->
-<!--  OFFICE BEARERS                                       -->
-<!-- ══════════════════════════════════════════════════════ -->
+<!-- LEADERSHIP -->
 <section class="leadership-section" id="leadership">
   <div class="leadership-inner">
     <p class="section-label">Executive Leadership</p>
     <h2 class="section-title">Office Bearers</h2>
-    <div class="leadership-photo-frame">
-      <div class="photo-corner tl"></div><div class="photo-corner tr"></div>
-      <div class="photo-corner bl"></div><div class="photo-corner br"></div>
-      <img src="c:\Users\sisek\OneDrive - Richfield Graduate Institute of Technology\office bearers.jpeg" alt="Vela Langa SSS Alumni Office Bearers" style="width:100%;display:block;position:relative;z-index:1;">
-    </div>
     <div class="bearers-grid">
-      <div class="bearer-card">
-        <div class="bearer-role">Chairperson</div>
-        <div class="bearer-name">Mphumzi Mdekazi</div>
-      </div>
-      <div class="bearer-card">
-        <div class="bearer-role">Deputy Chairperson / Legal Subcommittee</div>
-        <div class="bearer-name">Ntombekaya Mtelekiso</div>
-      </div>
-      <div class="bearer-card">
-        <div class="bearer-role">Secretary / Deputy Chair, Disciplinary</div>
-        <div class="bearer-name">Lebo Maduna</div>
-      </div>
-      <div class="bearer-card">
-        <div class="bearer-role">1st Deputy Secretary / Monitoring &amp; Evaluation</div>
-        <div class="bearer-name">Nobahle Mjamba</div>
-      </div>
-      <div class="bearer-card">
-        <div class="bearer-role">2nd Deputy Secretary / Economic Development</div>
-        <div class="bearer-name">Dr Thembinkosi Twalo</div>
-      </div>
-      <div class="bearer-card">
-        <div class="bearer-role">Spokesperson / Marketing &amp; Events</div>
-        <div class="bearer-name">Nontembeko "NTESH" Nomala</div>
-      </div>
-      <div class="bearer-card bearer-card--gold">
-        <div class="bearer-role">Treasurer</div>
-        <div class="bearer-name">Monde Mvana</div>
-      </div>
+      <div class="bearer-card"><div class="bearer-role">Chairperson</div><div class="bearer-name">Mphumzi Mdekazi</div></div>
+      <div class="bearer-card"><div class="bearer-role">Deputy Chairperson / Legal Subcommittee</div><div class="bearer-name">Ntombekaya Mtelekiso</div></div>
+      <div class="bearer-card"><div class="bearer-role">Secretary / Deputy Chair, Disciplinary</div><div class="bearer-name">Lebo Maduna</div></div>
+      <div class="bearer-card"><div class="bearer-role">1st Deputy Secretary / Monitoring &amp; Evaluation</div><div class="bearer-name">Nobahle Mjamba</div></div>
+      <div class="bearer-card"><div class="bearer-role">2nd Deputy Secretary / Economic Development</div><div class="bearer-name">Dr Thembinkosi Twalo</div></div>
+      <div class="bearer-card"><div class="bearer-role">Spokesperson / Marketing &amp; Events</div><div class="bearer-name">Nontembeko "NTESH" Nomala</div></div>
+      <div class="bearer-card bearer-card--gold"><div class="bearer-role">Treasurer</div><div class="bearer-name">Monde Mvana</div></div>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════════════ -->
-<!--  COMMITTEE LEADERS                                    -->
-<!-- ══════════════════════════════════════════════════════ -->
+<!-- COMMITTEE LEADERS -->
 <section class="committee-section">
   <div class="leadership-inner">
     <p class="section-label">Subcommittee Structure</p>
     <h2 class="section-title">Committee Leaders</h2>
-    <div class="leadership-photo-frame">
-      <div class="photo-corner tl"></div><div class="photo-corner tr"></div>
-      <div class="photo-corner bl"></div><div class="photo-corner br"></div>
-      <img src="c:\Users\sisek\OneDrive - Richfield Graduate Institute of Technology\commitee leaders.jpeg" alt="Vela Langa SSS Alumni Committee Leaders" style="width:100%;display:block;position:relative;z-index:1;">
-    </div>
     <div class="committee-grid">
       <div class="committee-card"><div class="committee-role">Security &amp; Infrastructure (Chair)</div><div class="committee-name">Simon Viwe Jongile</div></div>
       <div class="committee-card"><div class="committee-role">Security &amp; Infrastructure (Deputy)</div><div class="committee-name">Nokwanda "Squash" Twalo</div></div>
@@ -1007,104 +725,25 @@
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════════════ -->
-<!--  LAUNCH EVENT & GALA DINNER                          -->
-<!-- ══════════════════════════════════════════════════════ -->
+<!-- EVENTS -->
 <section class="events-section" id="events">
   <div class="events-inner">
     <p class="section-label">Inaugural Celebration</p>
     <h2 class="section-title">Launch &amp; Gala Dinner</h2>
     <p class="events-lead">The Vela Langa SSS Alumni Association launched in spectacular fashion on <strong style="color:var(--gold-light)">18 December 2025</strong> with a black-tie Gala Dinner — celebrating unity, heritage, and the rise of a proud alumni community. The evening brought together alumni from across the Eastern Cape and beyond, with world-class entertainment and heartfelt fellowship.</p>
-
-    <!-- Gala poster -->
-    <div style="max-width:520px;margin:0 auto 3.5rem;">
-      <div class="photo-frame">
-        <div class="photo-corner tl"></div><div class="photo-corner tr"></div>
-        <div class="photo-corner bl"></div><div class="photo-corner br"></div>
-        <img src="5.jpeg" alt="2025 Vela Langa Gala Dinner Poster" style="width:100%;display:block;">
-        <div style="text-align:center;padding:0.9rem 0 0.6rem;background:var(--black-soft);">
-          <span style="font-family:'Cinzel',serif;font-size:0.68rem;letter-spacing:0.25em;color:var(--gold);text-transform:uppercase;">18 December 2025 · Inaugural Gala Dinner</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Event photos gallery -->
-    <div class="gallery-label">
-      <span style="font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.35em;color:var(--gold);text-transform:uppercase;">Event Highlights</span>
-    </div>
-    <div class="events-gallery">
-      <div class="gallery-item gallery-item--wide">
-        <img src="1.jpeg" alt="Launch Event — Address from the podium">
-        <div class="gallery-caption">Address from the podium at the launch event</div>
-      </div>
-      <div class="gallery-item">
-        <img src="2.jpeg" alt="Alumni at the Gala Dinner">
-        <div class="gallery-caption">Alumni gathering at the Gala</div>
-      </div>
-      <div class="gallery-item">
-        <img src="3.jpeg" alt="Fellowship at the Gala">
-        <div class="gallery-caption">Fellowship and reunion</div>
-      </div>
-      <div class="gallery-item">
-        <img src="4.jpeg" alt="Members celebrating at the launch">
-        <div class="gallery-caption">Celebrating our inaugural night</div>
-      </div>
-    </div>
-
-    <!-- Performers -->
     <div class="performers-strip">
       <div class="performers-label">Featured Performers</div>
       <div class="performers-list">
-        <span class="performer-tag">Nathi</span>
-        <span class="performer-sep">✦</span>
-        <span class="performer-tag">Veliswa Skeyi</span>
-        <span class="performer-sep">✦</span>
-        <span class="performer-tag">Qwabe Twins</span>
-        <span class="performer-sep">✦</span>
-        <span class="performer-tag">Sive Majozi</span>
-        <span class="performer-sep">✦</span>
-        <span class="performer-tag">Shenge</span>
-        <span class="performer-sep">✦</span>
+        <span class="performer-tag">Nathi</span><span class="performer-sep">✦</span>
+        <span class="performer-tag">Veliswa Skeyi</span><span class="performer-sep">✦</span>
+        <span class="performer-tag">Qwabe Twins</span><span class="performer-sep">✦</span>
+        <span class="performer-tag">Sive Majozi</span><span class="performer-sep">✦</span>
+        <span class="performer-tag">Shenge</span><span class="performer-sep">✦</span>
         <span class="performer-tag">Putco Mafani</span>
       </div>
     </div>
   </div>
 </section>
-
-<!-- ADOPTION SECTION -->
-<section class="adoption-section">
-  <h2>Constitution Adopted</h2>
-  <p>This Constitution was formally adopted by the founding members of the Vela Langa SSS Alumni Club on:</p>
-  <div class="adoption-date">25 October 2025</div>
-  <p style="margin-top:1rem;">Registered as a Non-Profit Company with CIPC of South Africa · Private Bag X 304, Whittlesea 5360</p>
-  <div class="contact-grid">
-    <div class="contact-item">
-      <span>Address</span>
-      Private Bag X 304, Whittlesea, 5360
-    </div>
-    <div class="contact-item">
-      <span>Location</span>
-      Lower Didimana Village, Eastern Cape
-    </div>
-    <div class="contact-item">
-      <span>Entity Type</span>
-      Non-Profit Company (NPC)
-    </div>
-    <div class="contact-item">
-      <span>Motto</span>
-      Rise &amp; Shine
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-logo-text">Vela Langa SSS Alumni Association</div>
-  <div class="footer-motto">"Rise &amp; Shine — Siyaphila ngesidima"</div>
-  <div class="footer-divider"></div>
-  <p class="footer-copy">© 2025 Vela Langa SSS Alumni Club · Non-Profit Company · Eastern Cape, South Africa</p>
-  <p class="footer-reg">Incorporated in terms of the Companies Act 71 of 2008 · Tax Exempt under s10(1)(cN) of the Income Tax Act · Constitution adopted 25 October 2025</p>
-</footer>
 
 <!-- ══════════════════════════════════════════════════════ -->
 <!-- PROGRESS REPORT — March 2026                         -->
@@ -1425,7 +1064,7 @@
   </div>
 </section>
 
- <footer>
+<footer>
   <div class="footer-logo-text">Vela Langa SSS Alumni Association</div>
   <div class="footer-motto">"Rise &amp; Shine — Siyaphila ngesidima"</div>
   <div class="footer-divider"></div>
@@ -1500,6 +1139,5 @@
     }
   }
 </script>
-
 </body>
 </html>
