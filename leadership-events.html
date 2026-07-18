@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google-site-verification" content="W8SPVZTCoYdUsetxDQ7OZTEucwpGTrX2D7Z3v-Org0g" />
+<title>Vela Langa SSS Alumni Association | Leadership & Events</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C9A84C; --gold-light: #F0D080; --gold-dark: #8B6914;
+    --black: #0A0A0A; --black-mid: #141414; --black-soft: #1E1E1E; --black-card: #181818;
+    --white: #F5F0E8; --white-dim: #C8C0B0;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--black); color: var(--white); font-family: 'Lato', sans-serif; overflow-x: hidden; }
+
+  #particles { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; overflow: hidden; }
+  .particle { position: absolute; width: 2px; height: 2px; background: var(--gold); border-radius: 50%; opacity: 0; animation: float-up linear infinite; }
+  @keyframes float-up { 0% { opacity:0;transform:translateY(0) scale(0);} 10%{opacity:0.6;} 90%{opacity:0.2;} 100%{opacity:0;transform:translateY(-100vh) scale(1.5);} }
+
+  nav { position:fixed;top:0;width:100%;z-index:100;background:linear-gradient(180deg,rgba(10,10,10,0.98) 0%,rgba(10,10,10,0.7) 100%);backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,168,76,0.25);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:70px; }
+  .nav-logo { display:flex;align-items:center;gap:0.75rem; }
+  .nav-badge { width:44px;height:44px;background:radial-gradient(circle at 35% 35%,#F0D080,#C9A84C 50%,#8B6914);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Cinzel Decorative',serif;font-size:0.55rem;color:var(--black);font-weight:900;text-align:center;line-height:1.1;border:2px solid var(--gold-light);box-shadow:0 0 18px rgba(201,168,76,0.5);padding:4px;letter-spacing:0.02em; }
+  .nav-title { font-family:'Cinzel',serif;font-size:0.85rem;font-weight:700;color:var(--gold-light);letter-spacing:0.08em;line-height:1.3; }
+  .nav-title span { display:block;font-size:0.65rem;font-weight:400;color:var(--gold);letter-spacing:0.15em; }
+  .nav-links { display:flex;gap:1.5rem;list-style:none; }
+  .nav-links a { font-family:'Cinzel',serif;font-size:0.7rem;letter-spacing:0.12em;color:var(--white-dim);text-decoration:none;text-transform:uppercase;transition:color 0.3s;position:relative; }
+  .nav-links a::after { content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--gold);transition:width 0.3s; }
+  .nav-links a:hover { color:var(--gold-light); }
+  .nav-links a:hover::after { width:100%; }
+
+  .hero { position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;overflow:hidden;padding:6rem 2rem 4rem; }
+  .hero-photo-bg { position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,10,0.55) 0%,rgba(10,10,10,0.85) 60%,rgba(10,10,10,1) 100%),url('https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1600&q=80') center/cover no-repeat;z-index:0;filter:sepia(0.4) brightness(0.5); }
+  .hero-photo-bg::before { content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 50%,rgba(201,168,76,0.08) 0%,transparent 70%); }
+  .hero-emblem { position:relative;z-index:2;width:160px;height:160px;margin-bottom:2.5rem;animation:emblem-glow 3s ease-in-out infinite alternate; }
+  @keyframes emblem-glow { from{filter:drop-shadow(0 0 15px rgba(201,168,76,0.5));} to{filter:drop-shadow(0 0 40px rgba(201,168,76,0.9));} }
+  .hero-tagline { position:relative;z-index:2;font-family:'Cinzel',serif;font-size:0.75rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem;animation:fade-in 1s ease 0.2s both; }
+  .hero h1 { position:relative;z-index:2;font-family:'Cinzel Decorative',serif;font-size:clamp(2.2rem,6vw,4.5rem);font-weight:900;background:linear-gradient(135deg,#F0D080 0%,#C9A84C 40%,#F0D080 70%,#8B6914 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.1;margin-bottom:0.8rem;animation:fade-in 1s ease 0.4s both; }
+  .hero h2 { position:relative;z-index:2;font-family:'Cinzel',serif;font-size:clamp(0.9rem,2vw,1.2rem);font-weight:400;color:var(--white-dim);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:1.5rem;animation:fade-in 1s ease 0.6s both; }
+  .hero-motto { position:relative;z-index:2;font-family:'Cinzel',serif;font-style:italic;font-size:1rem;color:var(--gold-light);margin-bottom:3rem;animation:fade-in 1s ease 0.8s both; }
+  .hero-divider { position:relative;z-index:2;display:flex;align-items:center;gap:1rem;margin-bottom:3.5rem;animation:fade-in 1s ease 1s both; }
+  .hero-divider span { color:var(--gold);font-size:1.2rem; }
+  .hero-divider::before,.hero-divider::after { content:'';flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);width:120px; }
+  .hero-buttons { position:relative;z-index:2;display:flex;gap:1.2rem;flex-wrap:wrap;justify-content:center;animation:fade-in 1s ease 1.2s both; }
+  .btn-gold { background:linear-gradient(135deg,#C9A84C,#F0D080,#C9A84C);color:var(--black);font-family:'Cinzel',serif;font-size:0.75rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;padding:0.9rem 2.2rem;border:none;cursor:pointer;text-decoration:none;display:inline-block;transition:all 0.3s;box-shadow:0 4px 20px rgba(201,168,76,0.4);clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%); }
+  .btn-gold:hover { background:linear-gradient(135deg,#F0D080,#C9A84C,#F0D080);box-shadow:0 6px 35px rgba(201,168,76,0.7);transform:translateY(-2px); }
+  .btn-outline { background:transparent;color:var(--gold-light);font-family:'Cinzel',serif;font-size:0.75rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;padding:0.85rem 2.2rem;border:1px solid var(--gold);cursor:pointer;text-decoration:none;display:inline-block;transition:all 0.3s;clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%); }
+  .btn-outline:hover { background:rgba(201,168,76,0.12);box-shadow:0 4px 25px rgba(201,168,76,0.3);transform:translateY(-2px); }
+  .scroll-indicator { position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:0.4rem;animation:bounce 2s ease-in-out infinite;opacity:0.7; }
+  .scroll-indicator span { font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.25em;color:var(--gold);text-transform:uppercase; }
+  .scroll-arrow { width:20px;height:20px;border-right:2px solid var(--gold);border-bottom:2px solid var(--gold);transform:rotate(45deg); }
+  @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0);} 50%{transform:translateX(-50%) translateY(8px);} }
+  @keyframes fade-in { from{opacity:0;transform:translateY(30px);} to{opacity:1;transform:translateY(0);} }
+
+  .section-label { font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.4em;color:var(--gold);text-transform:uppercase;text-align:center;margin-bottom:0.8rem; }
+  .section-title { font-family:'Cinzel Decorative',serif;font-size:clamp(1.6rem,4vw,2.8rem);font-weight:700;text-align:center;background:linear-gradient(135deg,#F0D080,#C9A84C);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:3rem; }
+  .gold-rule { width:60px;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light));margin-bottom:1.5rem; }
+
+  .school-photo-section { position:relative;z-index:1;padding:5rem 2rem;background:var(--black-mid);overflow:hidden; }
+  .school-photo-section::before { content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent); }
+  .photo-frame-wrapper { max-width:1000px;margin:0 auto;position:relative; }
+  .photo-frame { position:relative;border:2px solid var(--gold-dark);padding:12px;background:var(--black-soft); }
+  .photo-frame::before { content:'';position:absolute;top:-8px;left:-8px;right:-8px;bottom:-8px;border:1px solid rgba(201,168,76,0.3); }
+  .photo-corner { position:absolute;width:20px;height:20px; }
+  .photo-corner.tl { top:4px;left:4px;border-top:2px solid var(--gold);border-left:2px solid var(--gold); }
+  .photo-corner.tr { top:4px;right:4px;border-top:2px solid var(--gold);border-right:2px solid var(--gold); }
+  .photo-corner.bl { bottom:4px;left:4px;border-bottom:2px solid var(--gold);border-left:2px solid var(--gold); }
+  .photo-corner.br { bottom:4px;right:4px;border-bottom:2px solid var(--gold);border-right:2px solid var(--gold); }
+
+  .stats-bar { position:relative;z-index:1;background:linear-gradient(135deg,#0D0D0D 0%,#1A1500 50%,#0D0D0D 100%);border-top:1px solid rgba(201,168,76,0.4);border-bottom:1px solid rgba(201,168,76,0.4);padding:3rem 2rem;display:flex;justify-content:center;gap:0;flex-wrap:wrap; }
+  .stat-item { flex:1;min-width:160px;max-width:240px;text-align:center;padding:1rem 2rem;border-right:1px solid rgba(201,168,76,0.2); }
+  .stat-item:last-child { border-right:none; }
+  .stat-number { font-family:'Cinzel Decorative',serif;font-size:2.8rem;font-weight:900;background:linear-gradient(135deg,#F0D080,#C9A84C);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;display:block;margin-bottom:0.4rem; }
+  .stat-label { font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--white-dim); }
+
+  .about-section { position:relative;z-index:1;padding:6rem 2rem;max-width:1200px;margin:0 auto; }
+  .about-grid { display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center; }
+  .about-text p { font-size:1rem;line-height:1.9;color:var(--white-dim);margin-bottom:1.2rem; }
+  .about-text p strong { color:var(--gold-light);font-weight:700; }
+  .about-card-grid { display:grid;grid-template-columns:1fr 1fr;gap:1rem; }
+  .about-card { background:var(--black-card);border:1px solid rgba(201,168,76,0.2);padding:1.5rem;position:relative;overflow:hidden;transition:all 0.3s; }
+  .about-card::before { content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:linear-gradient(180deg,var(--gold),var(--gold-dark)); }
+  .about-card:hover { border-color:rgba(201,168,76,0.5);transform:translateY(-3px);box-shadow:0 12px 30px rgba(0,0,0,0.4); }
+  .about-card-icon { font-size:1.8rem;margin-bottom:0.7rem; }
+  .about-card h4 { font-family:'Cinzel',serif;font-size:0.75rem;color:var(--gold-light);letter-spacing:0.1em;margin-bottom:0.4rem; }
+  .about-card p { font-size:0.8rem;color:var(--white-dim);line-height:1.5; }
+
+  .objectives-section { position:relative;z-index:1;background:var(--black-mid);padding:6rem 2rem;overflow:hidden; }
+  .objectives-section::before,.objectives-section::after { content:'';position:absolute;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent); }
+  .objectives-section::before { top:0; } .objectives-section::after { bottom:0; }
+  .objectives-inner { max-width:1200px;margin:0 auto; }
+  .objectives-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:1rem; }
+  .obj-card { background:var(--black-card);border:1px solid rgba(201,168,76,0.15);padding:2rem 1.5rem;position:relative;overflow:hidden;transition:all 0.4s; }
+  .obj-card::after { content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);transform:scaleX(0);transition:transform 0.4s; }
+  .obj-card:hover::after { transform:scaleX(1); }
+  .obj-card:hover { border-color:rgba(201,168,76,0.4);transform:translateY(-5px);box-shadow:0 20px 40px rgba(0,0,0,0.5); }
+  .obj-card-icon { font-size:2.2rem;margin-bottom:1rem; }
+  .obj-card h3 { font-family:'Cinzel',serif;font-size:0.85rem;color:var(--gold-light);letter-spacing:0.1em;margin-bottom:0.8rem;text-transform:uppercase; }
+  .obj-card p { font-size:0.85rem;color:var(--white-dim);line-height:1.7; }
+
+  .membership-section { position:relative;z-index:1;padding:6rem 2rem;max-width:1200px;margin:0 auto; }
+  .membership-grid { display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:1rem; }
+  .membership-block h3 { font-family:'Cinzel',serif;font-size:0.9rem;color:var(--gold-light);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1.2rem;padding-bottom:0.6rem;border-bottom:1px solid rgba(201,168,76,0.3); }
+  .fee-card { background:var(--black-card);border:1px solid rgba(201,168,76,0.2);padding:1.5rem;margin-bottom:1rem;display:flex;align-items:flex-start;gap:1rem; }
+  .fee-icon { font-size:1.5rem;min-width:36px; }
+  .fee-amount { font-family:'Cinzel Decorative',serif;font-size:1.5rem;color:var(--gold-light);margin-bottom:0.2rem; }
+  .fee-desc { font-size:0.82rem;color:var(--white-dim);line-height:1.5; }
+  .lifetime-badge { background:linear-gradient(135deg,rgba(201,168,76,0.15),rgba(201,168,76,0.05));border:1px solid var(--gold);padding:1.5rem;margin-top:1.5rem; }
+  .lifetime-badge h4 { font-family:'Cinzel',serif;font-size:0.8rem;color:var(--gold);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:1rem; }
+  .lifetime-criteria { list-style:none; }
+  .lifetime-criteria li { font-size:0.82rem;color:var(--white-dim);padding:0.35rem 0;padding-left:1.2rem;position:relative; }
+  .lifetime-criteria li::before { content:'✦';position:absolute;left:0;color:var(--gold);font-size:0.6rem;top:0.45rem; }
+  .bereavement-card { background:var(--black-card);border:1px solid rgba(201,168,76,0.2);border-left:3px solid var(--gold);padding:1.5rem; }
+  .bereavement-card h4 { font-family:'Cinzel',serif;font-size:0.8rem;color:var(--gold-light);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.8rem; }
+  .bereavement-card p { font-size:0.82rem;color:var(--white-dim);line-height:1.6;margin-bottom:0.5rem; }
+
+  .governance-section { position:relative;z-index:1;background:var(--black-mid);padding:6rem 2rem;overflow:hidden; }
+  .governance-section::before { content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent); }
+  .governance-inner { max-width:1200px;margin:0 auto; }
+  .governance-split { display:grid;grid-template-columns:1fr 1fr;gap:3rem; }
+  .gov-block { background:var(--black-card);border:1px solid rgba(201,168,76,0.15);padding:2rem; }
+  .gov-block h3 { font-family:'Cinzel',serif;font-size:0.85rem;color:var(--gold-light);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1.2rem;padding-bottom:0.6rem;border-bottom:1px solid rgba(201,168,76,0.3); }
+  .role-list { list-style:none; }
+  .role-item { display:flex;align-items:flex-start;gap:0.8rem;padding:0.75rem 0;border-bottom:1px solid rgba(201,168,76,0.08); }
+  .role-item:last-child { border-bottom:none; }
+  .role-title { font-family:'Cinzel',serif;font-size:0.75rem;color:var(--gold);letter-spacing:0.08em;min-width:150px; }
+  .role-desc { font-size:0.8rem;color:var(--white-dim);line-height:1.5; }
+  .trustees-info { background:linear-gradient(135deg,rgba(201,168,76,0.08),transparent);border:1px solid rgba(201,168,76,0.25);padding:1.5rem;margin-bottom:1.5rem; }
+  .trustees-info p { font-size:0.85rem;color:var(--white-dim);line-height:1.7; }
+  .trustees-info p strong { color:var(--gold-light); }
+  .term-badge { display:inline-block;background:rgba(201,168,76,0.1);border:1px solid var(--gold-dark);padding:0.4rem 1rem;font-family:'Cinzel',serif;font-size:0.7rem;color:var(--gold);letter-spacing:0.1em;margin-top:1rem; }
+
+  .meetings-section { position:relative;z-index:1;padding:6rem 2rem;max-width:1200px;margin:0 auto; }
+  .meetings-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem; }
+  .meeting-card { background:var(--black-card);border:1px solid rgba(201,168,76,0.15);padding:2rem;text-align:center;transition:all 0.3s;position:relative; }
+  .meeting-card:hover { border-color:rgba(201,168,76,0.4);transform:translateY(-4px);box-shadow:0 16px 35px rgba(0,0,0,0.5); }
+  .meeting-icon { font-size:2.2rem;margin-bottom:1rem; }
+  .meeting-card h3 { font-family:'Cinzel',serif;font-size:0.8rem;color:var(--gold-light);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.8rem; }
+  .meeting-card p { font-size:0.82rem;color:var(--white-dim);line-height:1.7; }
+  .meeting-detail { font-family:'Cinzel',serif;font-size:0.65rem;color:var(--gold);letter-spacing:0.15em;text-transform:uppercase;margin-top:0.8rem;padding-top:0.8rem;border-top:1px solid rgba(201,168,76,0.2); }
+  .quorum-bar { background:linear-gradient(135deg,rgba(201,168,76,0.12),rgba(201,168,76,0.04));border:1px solid rgba(201,168,76,0.3);padding:1.5rem 2rem;margin-top:2rem;display:flex;align-items:center;gap:2rem;flex-wrap:wrap; }
+  .quorum-bar-item { text-align:center;flex:1;min-width:140px; }
+  .quorum-number { font-family:'Cinzel Decorative',serif;font-size:1.8rem;background:linear-gradient(135deg,#F0D080,#C9A84C);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text; }
+  .quorum-label { font-family:'Cinzel',serif;font-size:0.65rem;color:var(--white-dim);letter-spacing:0.1em;text-transform:uppercase;margin-top:0.2rem; }
+
+  .finance-section { position:relative;z-index:1;background:var(--black-mid);padding:6rem 2rem;overflow:hidden; }
+  .finance-section::before,.finance-section::after { content:'';position:absolute;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent); }
+  .finance-section::before { top:0; } .finance-section::after { bottom:0; }
+  .finance-inner { max-width:1200px;margin:0 auto; }
+  .finance-grid { display:grid;grid-template-columns:1.2fr 1fr;gap:3rem;margin-top:1rem; }
+  .finance-rules { display:flex;flex-direction:column;gap:1rem; }
+  .finance-rule { background:var(--black-card);border:1px solid rgba(201,168,76,0.15);padding:1.2rem 1.5rem;display:flex;align-items:flex-start;gap:1rem; }
+  .finance-rule-num { font-family:'Cinzel Decorative',serif;font-size:1.2rem;color:rgba(201,168,76,0.4);min-width:32px; }
+  .finance-rule-text h4 { font-family:'Cinzel',serif;font-size:0.75rem;color:var(--gold-light);letter-spacing:0.08em;margin-bottom:0.3rem; }
+  .finance-rule-text p { font-size:0.8rem;color:var(--white-dim);line-height:1.5; }
+  .finance-aside { display:flex;flex-direction:column;gap:1.5rem; }
+  .fy-card { background:linear-gradient(135deg,rgba(201,168,76,0.1),transparent);border:1px solid var(--gold-dark);padding:1.5rem;text-align:center; }
+  .fy-card .fy-label { font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.3em;color:var(--gold);text-transform:uppercase;margin-bottom:0.5rem; }
+  .fy-card .fy-date { font-family:'Cinzel Decorative',serif;font-size:1.5rem;color:var(--gold-light); }
+  .sig-card { background:var(--black-card);border:1px solid rgba(201,168,76,0.2);padding:1.5rem; }
+  .sig-card h4 { font-family:'Cinzel',serif;font-size:0.75rem;color:var(--gold-light);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1rem; }
+  .sig-list { list-style:none; }
+  .sig-list li { font-size:0.82rem;color:var(--white-dim);padding:0.4rem 0;padding-left:1.2rem;position:relative; }
+  .sig-list li::before { content:'✦';position:absolute;left:0;color:var(--gold);font-size:0.55rem;top:0.5rem; }
+
+  .conduct-section { position:relative;z-index:1;padding:6rem 2rem;max-width:1200px;margin:0 auto; }
+  .conduct-grid { display:grid;grid-template-columns:1fr 1fr;gap:3rem; }
+  .misconduct-list { list-style:none;margin-top:1rem; }
+  .misconduct-list li { background:var(--black-card);border:1px solid rgba(201,168,76,0.12);border-left:3px solid rgba(201,168,76,0.4);padding:0.9rem 1.2rem;margin-bottom:0.6rem;font-size:0.82rem;color:var(--white-dim);line-height:1.5; }
+  .discipline-steps { display:flex;flex-direction:column;gap:0.8rem;margin-top:1rem; }
+  .discipline-step { display:flex;align-items:flex-start;gap:1rem;background:var(--black-card);border:1px solid rgba(201,168,76,0.12);padding:1rem 1.2rem; }
+  .step-badge { font-family:'Cinzel',serif;font-size:0.65rem;color:var(--gold);letter-spacing:0.1em;text-transform:uppercase;min-width:90px;padding-top:0.1rem; }
+  .step-desc { font-size:0.82rem;color:var(--white-dim);line-height:1.5; }
+  .appeal-note { background:linear-gradient(135deg,rgba(201,168,76,0.08),transparent);border:1px solid rgba(201,168,76,0.3);padding:1.2rem 1.5rem;margin-top:1.5rem;font-size:0.85rem;color:var(--white-dim);line-height:1.7; }
+  .appeal-note strong { color:var(--gold-light); }
+
+  .social-section { position:relative;z-index:1;background:var(--black-mid);padding:5rem 2rem;overflow:hidden; }
+  .social-section::before { content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent); }
+  .social-inner { max-width:1200px;margin:0 auto; }
+  .social-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:2rem; }
+  .social-rule { background:var(--black-card);border:1px solid rgba(201,168,76,0.12);padding:1.5rem;text-align:center; }
+  .social-rule-icon { font-size:1.8rem;margin-bottom:0.8rem; }
+  .social-rule h4 { font-family:'Cinzel',serif;font-size:0.75rem;color:var(--gold-light);letter-spacing:0.1em;margin-bottom:0.6rem; }
+  .social-rule p { font-size:0.8rem;color:var(--white-dim);line-height:1.6; }
+
+  .admin-section { position:relative;z-index:1;padding:6rem 2rem;max-width:1100px;margin:0 auto; }
+  .admin-grid { display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem; }
+  .admin-card { background:var(--black-card);border:1px solid rgba(201,168,76,0.15);padding:1.8rem 1.2rem;text-align:center;transition:all 0.3s; }
+  .admin-card:hover { border-color:rgba(201,168,76,0.4);transform:translateY(-3px); }
+  .admin-card-icon { font-size:2rem;margin-bottom:0.8rem; }
+  .admin-card h4 { font-family:'Cinzel',serif;font-size:0.75rem;color:var(--gold-light);letter-spacing:0.08em;margin-bottom:0.5rem; }
+  .admin-card p { font-size:0.78rem;color:var(--white-dim);line-height:1.5; }
+
+  .leadership-section { position:relative;z-index:1;background:var(--black-mid);padding:6rem 2rem;overflow:hidden; }
+  .leadership-section::before { content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent); }
+  .leadership-inner { max-width:1200px;margin:0 auto; }
+  .leadership-photo-frame { position:relative;border:2px solid var(--gold-dark);padding:10px;background:var(--black-soft);margin-bottom:2.5rem;overflow:hidden; }
+  .leadership-photo-frame::before { content:'';position:absolute;top:-7px;left:-7px;right:-7px;bottom:-7px;border:1px solid rgba(201,168,76,0.25);z-index:0; }
+  .bearers-grid { display:grid;grid-template-columns:repeat(4,1fr);gap:1rem; }
+  .bearer-card { background:var(--black-card);border:1px solid rgba(201,168,76,0.18);padding:1.2rem;text-align:center;transition:all 0.3s; }
+  .bearer-card:hover { border-color:rgba(201,168,76,0.5);transform:translateY(-3px);box-shadow:0 10px 28px rgba(0,0,0,0.5); }
+  .bearer-card--gold { border-color:rgba(201,168,76,0.45);background:linear-gradient(135deg,rgba(201,168,76,0.1),var(--black-card)); }
+  .bearer-role { font-family:'Cinzel',serif;font-size:0.62rem;letter-spacing:0.12em;color:var(--gold);text-transform:uppercase;margin-bottom:0.5rem;line-height:1.4; }
+  .bearer-name { font-family:'Cinzel Decorative',serif;font-size:0.82rem;color:var(--white);line-height:1.3; }
+
+  .committee-section { position:relative;z-index:1;padding:6rem 2rem;overflow:hidden; }
+  .committee-section::before,.committee-section::after { content:'';position:absolute;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent); }
+  .committee-section::before { top:0; } .committee-section::after { bottom:0; }
+  .committee-grid { display:grid;grid-template-columns:repeat(4,1fr);gap:1rem; }
+  .committee-card { background:var(--black-card);border:1px solid rgba(201,168,76,0.12);padding:1.1rem;transition:all 0.3s;position:relative;overflow:hidden; }
+  .committee-card::before { content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:linear-gradient(180deg,var(--gold),transparent); }
+  .committee-card:hover { border-color:rgba(201,168,76,0.4);transform:translateY(-3px); }
+  .committee-role { font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.1em;color:var(--gold);text-transform:uppercase;margin-bottom:0.4rem;line-height:1.4; }
+  .committee-name { font-family:'Cinzel',serif;font-size:0.8rem;color:var(--white);font-weight:600;padding-left:0.6rem; }
+
+  .events-section { position:relative;z-index:1;background:var(--black-mid);padding:6rem 2rem;overflow:hidden; }
+  .events-section::before { content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent); }
+  .events-inner { max-width:1200px;margin:0 auto; }
+  .events-lead { max-width:800px;margin:0 auto 3rem;text-align:center;font-size:1rem;color:var(--white-dim);line-height:1.9; }
+  .gallery-label { text-align:center;margin-bottom:1.5rem; }
+  .events-gallery { display:grid;grid-template-columns:1.6fr 1fr 1fr;grid-template-rows:280px 280px;gap:1rem;margin-bottom:2.5rem; }
+  .gallery-item { position:relative;overflow:hidden;border:1px solid rgba(201,168,76,0.18); }
+  .gallery-item--wide { grid-row:1 / span 2; }
+  .gallery-item img { width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.85);transition:filter 0.4s,transform 0.5s; }
+  .gallery-item:hover img { filter:brightness(1.05);transform:scale(1.04); }
+  .gallery-caption { position:absolute;bottom:0;left:0;right:0;padding:0.6rem 0.9rem;background:linear-gradient(0deg,rgba(10,8,0,0.92),transparent);font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.1em;color:var(--gold-light);text-transform:uppercase; }
+  .performers-strip { background:linear-gradient(135deg,rgba(201,168,76,0.12),rgba(201,168,76,0.04));border:1px solid rgba(201,168,76,0.35);padding:2rem;text-align:center;margin-top:2rem; }
+  .performers-label { font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.35em;color:var(--gold);text-transform:uppercase;margin-bottom:1.2rem; }
+  .performers-list { display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:0.8rem 1.2rem; }
+  .performer-tag { font-family:'Cinzel Decorative',serif;font-size:0.95rem;color:var(--white); }
+  .performer-sep { color:var(--gold);font-size:0.7rem; }
+
+  .progress-section { position:relative;z-index:1;padding:6rem 2rem;max-width:1200px;margin:0 auto; }
+  .progress-grid { display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1rem; }
+  .progress-card { background:var(--black-card);border:1px solid rgba(201,168,76,0.15);padding:1.8rem;position:relative;overflow:hidden;transition:all 0.3s; }
+  .progress-card::before { content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--gold),transparent); }
+  .progress-card:hover { border-color:rgba(201,168,76,0.4);transform:translateY(-4px);box-shadow:0 16px 35px rgba(0,0,0,0.5); }
+  .progress-card h4 { font-family:'Cinzel',serif;font-size:0.8rem;color:var(--gold-light);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.8rem; }
+  .progress-card p { font-size:0.82rem;color:var(--white-dim);line-height:1.7; }
+  .progress-status { display:inline-block;font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;padding:0.25rem 0.75rem;border:1px solid;margin-bottom:0.8rem; }
+  .status-active { color:#6fcf97;border-color:#6fcf97;background:rgba(111,207,151,0.08); }
+  .status-pending { color:var(--gold);border-color:var(--gold-dark);background:rgba(201,168,76,0.08); }
+  .status-achieved { color:#56ccf2;border-color:#56ccf2;background:rgba(86,204,242,0.08); }
+
+  .plans-section { position:relative;z-index:1;background:var(--black-mid);padding:6rem 2rem;overflow:hidden; }
+  .plans-section::before,.plans-section::after { content:'';position:absolute;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent); }
+  .plans-section::before { top:0; } .plans-section::after { bottom:0; }
+  .plans-inner { max-width:1200px;margin:0 auto; }
+  .plans-accordion { display:flex;flex-direction:column;gap:1rem;margin-top:1rem; }
+  .plan-item { background:var(--black-card);border:1px solid rgba(201,168,76,0.15);overflow:hidden; }
+  .plan-header { display:flex;align-items:center;gap:1.2rem;padding:1.2rem 1.5rem;cursor:pointer;transition:background 0.3s; }
+  .plan-header:hover { background:rgba(201,168,76,0.05); }
+  .plan-icon { font-size:1.6rem;min-width:36px;text-align:center; }
+  .plan-title { font-family:'Cinzel',serif;font-size:0.82rem;color:var(--gold-light);letter-spacing:0.1em;text-transform:uppercase;flex:1; }
+  .plan-chevron { color:var(--gold);font-size:0.9rem;transition:transform 0.3s; }
+  .plan-body { padding:0 1.5rem 1.5rem 1.5rem;display:none; }
+  .plan-body.open { display:block; }
+  .plan-horizon { display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:0.5rem; }
+  .horizon-card { background:var(--black-soft);border:1px solid rgba(201,168,76,0.1);padding:1rem; }
+  .horizon-label { font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.6rem; }
+  .horizon-card ul { list-style:none;padding:0; }
+  .horizon-card ul li { font-size:0.78rem;color:var(--white-dim);padding:0.25rem 0 0.25rem 1rem;position:relative;line-height:1.5; }
+  .horizon-card ul li::before { content:'✦';position:absolute;left:0;color:var(--gold);font-size:0.5rem;top:0.4rem; }
+  .plan-list { list-style:none;padding:0; }
+  .plan-list li { font-size:0.82rem;color:var(--white-dim);padding:0.4rem 0 0.4rem 1.2rem;position:relative;line-height:1.6;border-bottom:1px solid rgba(201,168,76,0.06); }
+  .plan-list li:last-child { border-bottom:none; }
+  .plan-list li::before { content:'✦';position:absolute;left:0;color:var(--gold);font-size:0.5rem;top:0.55rem; }
+
+  .choir-section { position:relative;z-index:1;padding:6rem 2rem;max-width:1100px;margin:0 auto; }
+  .choir-inner { display:grid;grid-template-columns:1fr 1.4fr;gap:3rem;align-items:start; }
+  .choir-emblem { background:linear-gradient(135deg,rgba(201,168,76,0.12),rgba(201,168,76,0.04));border:1px solid rgba(201,168,76,0.35);padding:2.5rem;text-align:center; }
+  .choir-emblem-icon { font-size:4rem;margin-bottom:1rem; }
+  .choir-emblem h3 { font-family:'Cinzel Decorative',serif;font-size:1.1rem;background:linear-gradient(135deg,#F0D080,#C9A84C);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:0.5rem; }
+  .choir-emblem p { font-family:'Cinzel',serif;font-size:0.72rem;color:var(--gold);letter-spacing:0.15em; }
+  .choir-conductor { background:var(--black-card);border:1px solid rgba(201,168,76,0.2);border-left:3px solid var(--gold);padding:1.2rem 1.5rem;margin-top:1.5rem; }
+  .choir-conductor span { font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.2em;color:var(--gold);text-transform:uppercase;display:block;margin-bottom:0.3rem; }
+  .choir-conductor strong { font-family:'Cinzel Decorative',serif;font-size:0.95rem;color:var(--white); }
+  .choir-details { display:flex;flex-direction:column;gap:1rem; }
+  .choir-detail-card { background:var(--black-card);border:1px solid rgba(201,168,76,0.12);padding:1.2rem 1.5rem; }
+  .choir-detail-card h4 { font-family:'Cinzel',serif;font-size:0.75rem;color:var(--gold-light);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.6rem; }
+  .choir-detail-card p { font-size:0.82rem;color:var(--white-dim);line-height:1.7; }
+  .competition-tags { display:flex;gap:0.8rem;flex-wrap:wrap;margin-top:0.8rem; }
+  .comp-tag { font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.1em;color:var(--gold);border:1px solid var(--gold-dark);padding:0.3rem 0.8rem;background:rgba(201,168,76,0.06); }
+
+  .elections-section { position:relative;z-index:1;background:var(--black-mid);padding:6rem 2rem;overflow:hidden; }
+  .elections-section::before { content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent); }
+  .elections-inner { max-width:1200px;margin:0 auto; }
+  .elections-split { display:grid;grid-template-columns:1fr 1fr;gap:3rem; }
+  .positions-grid { display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;margin-top:1rem; }
+  .position-card { background:var(--black-card);border:1px solid rgba(201,168,76,0.15);padding:1rem 1.2rem;display:flex;align-items:center;gap:0.8rem; }
+  .position-num { font-family:'Cinzel Decorative',serif;font-size:1.2rem;color:rgba(201,168,76,0.35);min-width:28px; }
+  .position-name { font-family:'Cinzel',serif;font-size:0.75rem;color:var(--white-dim);letter-spacing:0.06em; }
+  .elections-committee h3 { font-family:'Cinzel',serif;font-size:0.85rem;color:var(--gold-light);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1rem;padding-bottom:0.6rem;border-bottom:1px solid rgba(201,168,76,0.3); }
+  .ec-member { display:flex;align-items:center;gap:0.8rem;padding:0.6rem 0;border-bottom:1px solid rgba(201,168,76,0.07); }
+  .ec-member:last-child { border-bottom:none; }
+  .ec-dot { width:6px;height:6px;background:var(--gold);border-radius:50%;flex-shrink:0; }
+  .ec-name { font-size:0.82rem;color:var(--white-dim); }
+  .elections-note { background:linear-gradient(135deg,rgba(201,168,76,0.1),transparent);border:1px solid rgba(201,168,76,0.3);padding:1.2rem 1.5rem;margin-top:1.5rem;font-size:0.82rem;color:var(--white-dim);line-height:1.7; }
+  .elections-note strong { color:var(--gold-light); }
+  .secretariat-card { background:var(--black-card);border:1px solid rgba(201,168,76,0.2);border-top:3px solid var(--gold);padding:1.5rem;margin-bottom:1.5rem; }
+  .secretariat-card h4 { font-family:'Cinzel',serif;font-size:0.78rem;color:var(--gold-light);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.8rem; }
+
+  .adoption-section { position:relative;z-index:1;background:linear-gradient(135deg,#0D0D0D 0%,#1A1200 50%,#0D0D0D 100%);border-top:1px solid rgba(201,168,76,0.3);border-bottom:1px solid rgba(201,168,76,0.3);padding:5rem 2rem;text-align:center;overflow:hidden; }
+  .adoption-section::before { content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(201,168,76,0.08) 0%,transparent 70%);pointer-events:none; }
+  .adoption-section h2 { font-family:'Cinzel Decorative',serif;font-size:clamp(1.5rem,4vw,2.8rem);background:linear-gradient(135deg,#F0D080,#C9A84C);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:1rem;position:relative; }
+  .adoption-section p { font-size:1rem;color:var(--white-dim);max-width:600px;margin:0 auto 2.5rem;line-height:1.8; }
+  .adoption-date { display:inline-block;font-family:'Cinzel Decorative',serif;font-size:1.8rem;background:linear-gradient(135deg,#F0D080,#C9A84C);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin:1rem 0; }
+  .contact-grid { display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;margin-top:2rem; }
+  .contact-item { font-family:'Cinzel',serif;font-size:0.75rem;color:var(--gold-light);letter-spacing:0.1em;text-align:center; }
+  .contact-item span { display:block;font-size:0.65rem;color:var(--gold-dark);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:0.3rem; }
+
+  footer { position:relative;z-index:1;background:#080808;border-top:1px solid rgba(201,168,76,0.2);padding:2.5rem 2rem;text-align:center; }
+  .footer-logo-text { font-family:'Cinzel Decorative',serif;font-size:1.2rem;color:var(--gold);margin-bottom:0.5rem; }
+  .footer-motto { font-family:'Cinzel',serif;font-style:italic;color:var(--gold-dark);font-size:0.8rem;margin-bottom:1rem; }
+  .footer-copy { font-size:0.72rem;color:rgba(200,192,176,0.4);font-family:'Lato',sans-serif;letter-spacing:0.08em; }
+  .footer-divider { width:60px;height:1px;background:linear-gradient(90deg,transparent,var(--gold-dark),transparent);margin:1rem auto; }
+  .footer-reg { font-size:0.68rem;color:rgba(200,192,176,0.3);font-family:'Lato',sans-serif;letter-spacing:0.06em;margin-top:0.5rem; }
+
+  .nav-tabs { display:flex;gap:0.6rem;margin-right:2rem; }
+  .nav-tab-link { font-family:'Cinzel',serif;font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--white-dim);text-decoration:none;padding:0.5rem 1rem;border:1px solid rgba(201,168,76,0.25);transition:all 0.3s;white-space:nowrap; }
+  .nav-tab-link:hover { color:var(--gold-light);border-color:rgba(201,168,76,0.6); }
+  .nav-tab-link.active { color:var(--black);background:linear-gradient(135deg,#C9A84C,#F0D080);border-color:var(--gold-light);font-weight:700; }
+
+  .subhero { position:relative;padding:8rem 2rem 3rem;text-align:center;overflow:hidden;background:linear-gradient(180deg,rgba(201,168,76,0.06),transparent); }
+  .subhero::before { content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent); }
+  .subhero h1 { font-family:'Cinzel Decorative',serif;font-size:clamp(1.8rem,4.5vw,3rem);background:linear-gradient(135deg,#F0D080,#C9A84C);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:0.8rem; }
+  .subhero p { font-family:'Cinzel',serif;font-size:0.8rem;letter-spacing:0.15em;color:var(--white-dim);text-transform:uppercase; }
+
+  @media (max-width:900px) {
+    .about-grid,.governance-split,.finance-grid,.conduct-grid,.membership-grid,.progress-grid,.choir-inner,.elections-split { grid-template-columns:1fr;gap:2rem; }
+    .objectives-grid,.meetings-grid,.social-grid,.plan-horizon { grid-template-columns:1fr 1fr; }
+    .admin-grid { grid-template-columns:1fr 1fr; }
+    .nav-links { display:none; }
+    .bearers-grid,.committee-grid { grid-template-columns:1fr 1fr; }
+    .events-gallery { grid-template-columns:1fr 1fr;grid-template-rows:auto; }
+    .gallery-item--wide { grid-row:auto; }
+    .positions-grid { grid-template-columns:1fr; }
+  }
+  @media (max-width:600px) {
+    .objectives-grid,.meetings-grid,.social-grid,.admin-grid,.about-card-grid,.plan-horizon { grid-template-columns:1fr; }
+    .stats-bar { flex-direction:column;align-items:center; }
+    .stat-item { border-right:none;border-bottom:1px solid rgba(201,168,76,0.2); }
+    .quorum-bar { flex-direction:column; }
+    .bearers-grid,.committee-grid { grid-template-columns:1fr; }
+    .events-gallery { grid-template-columns:1fr; }
+  }
+  @media (max-width:900px){
+  .chair-cover{grid-template-columns:1fr !important;}
+  .chair-photo{min-height:380px !important;}
+  .speech-content{padding:2rem 1.2rem !important;}
+}
+</style>
+</head>
+<body>
+<div id="particles"></div>
+
+<nav>
+  <div class="nav-logo">
+    <div class="nav-badge">VELA<br>LANGA<br>SSS</div>
+    <div class="nav-title">Vela Langa SSS<span>Alumni Association</span></div>
+  </div>
+  <div class="nav-tabs">
+    <a href="index.html" class="nav-tab-link">About &amp; Governance</a>
+    <a href="leadership-events.html" class="nav-tab-link active">Leadership &amp; Events</a>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#events">Events</a></li>
+    <li><a href="#gala-gallery">Gallery</a></li>
+    <li><a href="#leadership">Leadership</a></li>
+    <li><a href="#progress">Progress</a></li>
+    <li><a href="#plans">Plans</a></li>
+    <li><a href="#choir">Choir</a></li>
+    <li><a href="#elections">Elections</a></li>
+    <li><a href="#documents">Documents</a></li>
+  </ul>
+</nav>
+
+<section class="subhero">
+  <p style="font-family:'Cinzel',serif;font-size:0.7rem;letter-spacing:0.35em;color:var(--gold);text-transform:uppercase;margin-bottom:1rem;">Vela Langa SSS Alumni Association</p>
+  <h1>Leadership, Events &amp; Reports</h1>
+  <p>Office Bearers · Committees · Progress · Elections · Gala Highlights</p>
+  <div style="margin-top:1.5rem;">
+    <a href="index.html" class="btn-outline">← Back to About &amp; Governance</a>
+  </div>
+</section>
+
+<section class="events-section" id="events">
+  <div class="events-inner">
+    <p class="section-label">Inaugural Celebration</p>
+    <h2 class="section-title">Launch &amp; Gala Dinner</h2>
+    <p class="events-lead">The Vela Langa SSS Alumni Association launched in spectacular fashion on <strong style="color:var(--gold-light)">18 December 2025</strong> with a black-tie Gala Dinner — celebrating unity, heritage, and the rise of a proud alumni community. The evening brought together alumni from across the Eastern Cape and beyond, with world-class entertainment and heartfelt fellowship.</p>
+    <div class="performers-strip">
+      <div class="performers-label">Featured Performers</div>
+      <div class="performers-list">
+        <span class="performer-tag">Nathi</span><span class="performer-sep">✦</span>
+        <span class="performer-tag">Veliswa Skeyi</span><span class="performer-sep">✦</span>
+        <span class="performer-tag">Qwabe Twins</span><span class="performer-sep">✦</span>
+        <span class="performer-tag">Sive Majozi</span><span class="performer-sep">✦</span>
+        <span class="performer-tag">Shenge</span><span class="performer-sep">✦</span>
+        <span class="performer-tag">Putco Mafani</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gala-gallery-section" id="gala-gallery" style="position:relative;z-index:1;background:var(--black-mid);padding:6rem 2rem;overflow:hidden;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <p class="section-label">18 December 2025 · Black-Tie Gala</p>
+    <h2 class="section-title">Gala Dinner Gallery</h2>
+
+    <div class="events-gallery">
+      <div class="gallery-item gallery-item--wide">
+        <img src="1.jpeg" alt="Gala Dinner venue - black and gold table settings with ghost chairs">
+        <div class="gallery-caption">Venue Setup · Gold &amp; Black Theme</div>
+      </div>
+      <div class="gallery-item">
+        <img src="4.jpeg" alt="2025 Gala Dinner poster - Nathi, Veliswa Skeyi, Qwabe Twins, Sive Majozi, Shenge, Putco Mafani">
+        <div class="gallery-caption">2025 Gala Lineup</div>
+      </div>
+      <div class="gallery-item">
+        <img src="6.jpeg" alt="Alumni member addressing Gala Dinner audience">
+        <div class="gallery-caption">Keynote Address</div>
+      </div>
+      <div class="gallery-item">
+        <img src="2.jpeg" alt="Alumni members networking at Gala Dinner">
+        <div class="gallery-caption">Alumni Fellowship</div>
+      </div>
+      <div class="gallery-item">
+        <img src="3.jpeg" alt="Vela Langa SSS Alumni leadership at Gala Dinner">
+        <div class="gallery-caption">Executive Committee</div>
+      </div>
+      <div class="gallery-item">
+        <img src="5.jpeg" alt="Alumni celebrating at Gala Dinner">
+        <div class="gallery-caption">Rise &amp; Shine · 2025</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="leadership-section" id="leadership">
+  <div class="leadership-inner">
+    <p class="section-label">Executive Leadership</p>
+    <h2 class="section-title">Office Bearers</h2>
+
+    <div class="leadership-photo-frame">
+      <img src="office_bearers.jpeg" alt="Vela Langa SSS Alumni Office Bearers 2025-2026" style="width:100%;display:block;">
+      <div class="photo-corner tl"></div><div class="photo-corner tr"></div>
+      <div class="photo-corner bl"></div><div class="photo-corner br"></div>
+    </div>
+
+    <div class="bearers-grid">
+      <div class="bearer-card"><div class="bearer-role">Chairperson</div><div class="bearer-name">Mphumzi Mdekazi</div></div>
+      <div class="bearer-card"><div class="bearer-role">Deputy Chairperson / Legal Subcommittee</div><div class="bearer-name">Ntombekaya Mtelekiso</div></div>
+      <div class="bearer-card"><div class="bearer-role">Secretary / Deputy Chair, Disciplinary</div><div class="bearer-name">Lebo Maduna</div></div>
+      <div class="bearer-card"><div class="bearer-role">1st Deputy Secretary / Monitoring &amp; Evaluation</div><div class="bearer-name">Nobahle Mjamba</div></div>
+      <div class="bearer-card"><div class="bearer-role">2nd Deputy Secretary / Economic Development</div><div class="bearer-name">Dr Thembinkosi Twalo</div></div>
+      <div class="bearer-card"><div class="bearer-role">Spokesperson / Marketing &amp; Events</div><div class="bearer-name">Nontembeko "NTESH" Nomala</div></div>
+      <div class="bearer-card bearer-card--gold"><div class="bearer-role">Treasurer</div><div class="bearer-name">Monde Mvana</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="committee-section">
+  <div class="leadership-inner">
+    <p class="section-label">Subcommittee Structure</p>
+    <h2 class="section-title">Committee Leaders</h2>
+
+    <div class="leadership-photo-frame" style="margin-bottom:2.5rem;">
+      <img src="commitee_member.jpeg" alt="Vela Langa SSS Alumni Committee Leaders" style="width:100%;display:block;">
+      <div class="photo-corner tl"></div><div class="photo-corner tr"></div>
+      <div class="photo-corner bl"></div><div class="photo-corner br"></div>
+    </div>
+
+    <div class="committee-grid">
+      <div class="committee-card"><div class="committee-role">Security &amp; Infrastructure (Chair)</div><div class="committee-name">Simon Viwe Jongile</div></div>
+      <div class="committee-card"><div class="committee-role">Security &amp; Infrastructure (Deputy)</div><div class="committee-name">Nokwanda "Squash" Twalo</div></div>
+      <div class="committee-card"><div class="committee-role">Early Childhood &amp; Development (Chair)</div><div class="committee-name">Ntombekhaya Mthelekiso</div></div>
+      <div class="committee-card"><div class="committee-role">Early Childhood Development (Deputy)</div><div class="committee-name">Mandisa Nxumalo</div></div>
+      <div class="committee-card"><div class="committee-role">Monitoring &amp; Evaluation (Deputy)</div><div class="committee-name">Sinawo Bakubaku</div></div>
+      <div class="committee-card"><div class="committee-role">Fundraising (Chairwoman)</div><div class="committee-name">Faith Majozi</div></div>
+      <div class="committee-card"><div class="committee-role">Fundraising (Deputy)</div><div class="committee-name">Thobile Vumazonke</div></div>
+      <div class="committee-card"><div class="committee-role">Economic Development (Deputy)</div><div class="committee-name">Thuliswa Mankune Khondlo</div></div>
+      <div class="committee-card"><div class="committee-role">Legal Affairs (Chairman)</div><div class="committee-name">Zolani Nomala</div></div>
+      <div class="committee-card"><div class="committee-role">Marketing &amp; Events (Chairman)</div><div class="committee-name">Bantu Mahali</div></div>
+      <div class="committee-card"><div class="committee-role">Bereavement &amp; Burial Support (Chair)</div><div class="committee-name">Kholekile Mzi</div></div>
+      <div class="committee-card"><div class="committee-role">Bereavement &amp; Burial Support (Deputy)</div><div class="committee-name">Popi Nduna</div></div>
+      <div class="committee-card"><div class="committee-role">Disciplinary Committee (Chairman)</div><div class="committee-name">Vuyani Ndarha</div></div>
+      <div class="committee-card"><div class="committee-role">Special Envoy to the Great Palace / Komkhulu</div><div class="committee-name">Zolile Chulayo</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="progress-section" id="progress">
+  <p class="section-label">VSSS Progress Report · 30 March 2026</p>
+  <h2 class="section-title">Strategic Progress</h2>
+  <div class="progress-grid">
+    <div class="progress-card">
+      <span class="progress-status status-active">In Progress</span>
+      <h4>🎓 Walter Sisulu University</h4>
+      <p>A preliminary draft proposal has been successfully submitted to WSU for a satellite campus at Velalanga (Lower Didimana). The Association is awaiting an invitation for a formal presentation and defence — format (physical or virtual) is yet to be confirmed.</p>
+    </div>
+    <div class="progress-card">
+      <span class="progress-status status-active">In Progress</span>
+      <h4>🏚️ Land Acquisition</h4>
+      <p>A dedicated task team is making good progress with landowners regarding extra land needed for additional campus buildings. The team — comprising Zolile Chulayo, Nobahle Mjamba, Popi Nduna and Simon Jongile — will meet the legal team to draft a pre-contract for finalisation.</p>
+    </div>
+    <div class="progress-card">
+      <span class="progress-status status-pending">Awaiting Feedback</span>
+      <h4>⚡ Eskom &amp; Sasol</h4>
+      <p>Meetings were successfully held with both Eskom and Sasol. Infrastructural and construction proposals have been submitted to both potential partners. Feedback is awaited, acknowledging some delay due to the timing of submissions.</p>
+    </div>
+    <div class="progress-card">
+      <span class="progress-status status-pending">Diary Alignment</span>
+      <h4>🛣️ SANRAL</h4>
+      <p>SANRAL has reconnected and diary alignment with their CEO is underway, led by Simon Jongile. A tar-road proposal will be submitted as soon as a meeting can be secured and diaries synchronised.</p>
+    </div>
+    <div class="progress-card">
+      <span class="progress-status status-achieved">Positive Outcome</span>
+      <h4>💰 NFSAS</h4>
+      <p>A meeting with the NFSAS CEO yielded a positive commitment: NFSAS will fund every needy student who enrols at the satellite WSU campus at Velalanga, ensuring access to higher education for the community.</p>
+    </div>
+    <div class="progress-card">
+      <span class="progress-status status-achieved">Endorsement Received</span>
+      <h4>🤝 Sisulu Family</h4>
+      <p>A VSSS delegation led by Simon Jongile met with the Sisulu family to notify them of plans to extend Walter Sisulu University's name to the satellite campus. The family fully endorsed the initiative and issued a written commitment letter, stating their support for rural education benefits.</p>
+    </div>
+    <div class="progress-card">
+      <span class="progress-status status-achieved">Go-Ahead Given</span>
+      <h4>🏛️ Parliament</h4>
+      <p>Our delegation met with the Parliamentary Portfolio Committee Chairperson on Higher Education in Cape Town. He granted a full go-ahead and committed to arranging a meeting with the Minister of Higher Education — who may also assist with student accommodation construction through the Ministry.</p>
+    </div>
+    <div class="progress-card">
+      <span class="progress-status status-active">Action Required</span>
+      <h4>📋 Committee Engagement</h4>
+      <p>Some committees — ECD, Economic Development and Bereavement &amp; Burial Support — had not yet met with office bearers as of March 2026. MANCO is calling on all members to help persuade outstanding committees to engage. Legal Affairs agreed to meet on 27 March 2026, and the Fundraising Committee has begun connecting and holding preliminary meetings, with reinforcements added: Mxolisi Twalo, Zodidi Mdzeke, Mluleki Matiwane, Mandisa Nxumalo and Bongani Mfobela.</p>
+    </div>
+  </div>
+</section>
+
+<section class="plans-section" id="plans">
+  <div class="plans-inner">
+    <p class="section-label">Alumni Quarterly Report · 15 May 2026</p>
+    <h2 class="section-title">Committee Annual Plans</h2>
+    <p style="text-align:center;max-width:800px;margin:0 auto 2rem;font-size:0.9rem;color:var(--white-dim);line-height:1.8;">Administrative oversight by <strong style="color:var(--gold-light);">Ms Nobahle Mjamba</strong>. Members are requested to review their committee's plan and flag any inaccuracies or additions.</p>
+    <div class="plans-accordion">
+
+      <div class="plan-item">
+        <div class="plan-header" onclick="togglePlan(this)">
+          <div class="plan-icon">👶</div>
+          <div class="plan-title">Early Childhood Development Committee</div>
+          <div class="plan-chevron">▼</div>
+        </div>
+        <div class="plan-body">
+          <div class="plan-horizon">
+            <div class="horizon-card"><div class="horizon-label">🟢 Short Term</div><ul><li>Establish relationships with local primary schools</li><li>Source sanitary materials for pupils/learners</li><li>Tree planting from McBride to Lower Didimana</li></ul></div>
+            <div class="horizon-card"><div class="horizon-label">🟡 Medium Term</div><ul><li>Partnerships with Clover, Blue Ribbon, Spar/Pick n Pay, Coca-Cola, ToysRUs</li><li>Recreational equipment/apparatus retail partnerships</li></ul></div>
+            <div class="horizon-card"><div class="horizon-label">🔵 Long Term</div><ul><li>Construct/build a modern ECD facility through Social Development Infrastructure Grants</li><li>Secure assistance from SETAs</li></ul></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="plan-item">
+        <div class="plan-header" onclick="togglePlan(this)">
+          <div class="plan-icon">🏗️</div>
+          <div class="plan-title">Infrastructure &amp; Security Integrated Committee</div>
+          <div class="plan-chevron">▼</div>
+        </div>
+        <div class="plan-body">
+          <ul class="plan-list">
+            <li>Conduct Local Imbizo to deal with substance abuse</li>
+            <li>Facilitate, manage and monitor all infrastructure-related projects</li>
+            <li>Ensure continued safety of future alumni events</li>
+            <li>Establish a regular maintenance schedule for the venue to reduce pre-event preparation time</li>
+            <li>Develop standardized safety operating procedures for events setup and breakdown</li>
+            <li>Consider installing permanent electrical hook-ups at common event locations</li>
+            <li>Maintain relationships with reliable vendors for economic empowerment opportunities</li>
+            <li>Develop and distribute safety protocols manuals to all alumni members</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="plan-item">
+        <div class="plan-header" onclick="togglePlan(this)">
+          <div class="plan-icon">📣</div>
+          <div class="plan-title">Marketing &amp; Events Committee</div>
+          <div class="plan-chevron">▼</div>
+        </div>
+        <div class="plan-body">
+          <ul class="plan-list">
+            <li>Reconnect alumni and position Velalanga as a success story rooted in the Hewu community</li>
+            <li>Create platforms for alumni networking, professional growth, and collaboration</li>
+            <li>Mobilize alumni support towards organizational sustainability and community development</li>
+            <li>Strengthen the visibility and long-term sustainability of VSSSA Alumni Programs, including annual reunion events</li>
+            <li>Position the programme as a platform for connection, career development, and community impact</li>
+            <li>Drive consistent alumni storytelling across WhatsApp, Instagram, Facebook, LinkedIn, and the website</li>
+            <li>Website updates and alumni content integration</li>
+            <li>Formal adoption and management of the VSSA Choir as an Alumni asset</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="plan-item">
+        <div class="plan-header" onclick="togglePlan(this)">
+          <div class="plan-icon">🕊️</div>
+          <div class="plan-title">Bereavement &amp; Burial Support Committee</div>
+          <div class="plan-chevron">▼</div>
+        </div>
+        <div class="plan-body">
+          <div class="plan-horizon">
+            <div class="horizon-card"><div class="horizon-label">🟢 Short Term</div><ul><li>Develop an official register to administer individual member contributions during bereavements</li><li>Establish alliances with ECD and Fundraising Committee for psychological support funding</li><li>Immediately send electricity, scones, tea and coffee to bereaved alumni homes</li></ul></div>
+            <div class="horizon-card"><div class="horizon-label">🟡 Medium Term</div><ul><li>Build Alumni asset base: purchase tent, chairs, fridges, table cloths, and gazebos branded with VSSS colours</li></ul></div>
+            <div class="horizon-card"><div class="horizon-label">🔵 Long Term</div><ul><li>Form strategic partnerships with insurance companies: Old Mutual, Sanlam, Metropolitan, Clientele, Hollard, Assupol, Avbob</li></ul></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="plan-item">
+        <div class="plan-header" onclick="togglePlan(this)">
+          <div class="plan-icon">⚖️</div>
+          <div class="plan-title">Disciplinary Committee</div>
+          <div class="plan-chevron">▼</div>
+        </div>
+        <div class="plan-body">
+          <ul class="plan-list">
+            <li>Deal with misconduct as per Section 10 of the Alumni's Constitution</li>
+            <li>Investigate alleged breaches and recommend appropriate actions</li>
+            <li>Maintain order and decorum of the constitution at all times</li>
+            <li>Encourage collegiality and constructive relations among Alumni members to avoid animosities</li>
+            <li>Uphold the Alumni's Code of Conduct through fair hearings and appropriate sanctions</li>
+            <li>Protect the reputational image, harm and dignity of the Alumni Association</li>
+            <li>Carry out workshops to maintain order and professionalism of the Alumni</li>
+            <li>Promote accountability, transparency, fairness, impartiality, and unity among members</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="plan-item">
+        <div class="plan-header" onclick="togglePlan(this)">
+          <div class="plan-icon">📊</div>
+          <div class="plan-title">Monitoring &amp; Evaluation Committee</div>
+          <div class="plan-chevron">▼</div>
+        </div>
+        <div class="plan-body">
+          <ul class="plan-list">
+            <li>Establish a Price Giving Awards Ceremony for best-performing committees and outstanding individuals</li>
+            <li>Formalise an evaluation framework (traffic light system: green/amber/red) aligned with goals, aims and objectives</li>
+            <li>Implement the M&amp;E framework across all committees to assess progress on a quarterly basis</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="plan-item">
+        <div class="plan-header" onclick="togglePlan(this)">
+          <div class="plan-icon">💼</div>
+          <div class="plan-title">Economic Development Committee</div>
+          <div class="plan-chevron">▼</div>
+        </div>
+        <div class="plan-body">
+          <div class="plan-horizon">
+            <div class="horizon-card"><div class="horizon-label">Q1 · Lay the Groundwork</div><ul><li>Formally constitute EDC with signed ToR by 31 January</li><li>Enrol first EOP cohort of 20+ participants by end February</li><li>Establish demonstration vegetable garden &amp; 50 broiler chicks by 31 March</li><li>Complete Aloe feasibility study by 31 March</li><li>Social media accounts live with first posts by 31 March</li><li>Stakeholder roundtable with 2+ government department representatives</li></ul></div>
+            <div class="horizon-card"><div class="horizon-label">Q3 · Go to Market</div><ul><li>Launch tourism activity with first guided trail and cultural tour</li><li>Scale manufacturing to 30 producers</li><li>Host first public Farmers &amp; Craft Market</li><li>Establish real market presence and grow revenue streams</li></ul></div>
+            <div class="horizon-card"><div class="horizon-label">Q4 · Consolidate &amp; Look Forward</div><ul><li>Consolidate revenue streams</li><li>Formalise retail partnerships</li><li>Host first Harvest Festival to position Velalanga on the regional tourism map</li><li>Document lessons and plan 2027 with a sustainability mindset</li></ul></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="plan-item">
+        <div class="plan-header" onclick="togglePlan(this)">
+          <div class="plan-icon">💛</div>
+          <div class="plan-title">Fundraising Committee</div>
+          <div class="plan-chevron">▼</div>
+        </div>
+        <div class="plan-body">
+          <ul class="plan-list">
+            <li><strong style="color:var(--gold-light);">Goal 1 — Short Term:</strong> Conduct Imbizo for Security Committee needs</li>
+            <li><strong style="color:var(--gold-light);">Goal 1 — Long Term:</strong> Raise approximately R60 to 70 million for a WSU satellite campus building at Lower Didimana; engage a professional Fundraising Consultant or Company to open doors</li>
+            <li><strong style="color:var(--gold-light);">Goal 2 — Core Annual Target:</strong> Raise R2 million at the mid-December Annual Event, aligned with the Price Giving Ceremony for best-performing committees</li>
+            <li><strong style="color:var(--gold-light);">Goal 3 (Mid-term) — ECD Support:</strong> Primarily non-financial interventions — solicit donations from various donors and funders on behalf of ECD</li>
+            <li><strong style="color:var(--gold-light);">Goal 4 — Reporting &amp; Accountability:</strong> Monthly reports to M&amp;E Committee; track donor data in CRM; review strategy for each activity</li>
+            <li><strong style="color:var(--gold-light);">Goal 5 — Strategy Development:</strong> Draft a formal fundraising strategy document; develop a database including Absa, NEF, FNB, Spar, Blue Ribbon, Engine, Social Infrastructure, and MTN</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="choir-section" id="choir">
+  <p class="section-label" style="text-align:left;">Alumni Asset</p>
+  <h2 class="section-title" style="text-align:left;">VSSSA Alumni Choir</h2>
+  <div class="choir-inner">
+    <div>
+      <div class="choir-emblem">
+        <div class="choir-emblem-icon">🎶</div>
+        <h3>Alumni Choir</h3>
+        <p>AN ALUMNI ASSET · VSSSA</p>
+      </div>
+      <div class="choir-conductor">
+        <span>Conductor</span>
+        <strong>Mr Lewis Bakubaku</strong>
+      </div>
+    </div>
+    <div class="choir-details">
+      <div class="choir-detail-card">
+        <h4>Governance Task Team</h4>
+        <p>MANCO resolved to establish a Task Team to develop the governance, structure and direction of the Choir. The Task Team consists of 6 members — 2 selected from each of the following committees: Marketing &amp; Events, Security &amp; Infrastructure Integrated, and Fundraising Committee.</p>
+      </div>
+      <div class="choir-detail-card">
+        <h4>Task Team Responsibilities</h4>
+        <p>The Task Team will oversee competition participation, manage indemnity agreements with parents of choir members, procure and brand attire/uniform, and coordinate the planned choir tour spearheaded by the Fundraising Committee Chairperson.</p>
+      </div>
+      <div class="choir-detail-card">
+        <h4>Upcoming Competitions</h4>
+        <p>The Alumni Choir will participate in two prestigious competitions:</p>
+        <div class="competition-tags">
+          <span class="comp-tag">Imilonji Kantu</span>
+          <span class="comp-tag">Battle of Municipality (BOM) — September, East London</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="elections-section" id="elections">
+  <div class="elections-inner">
+    <p class="section-label">Democratic Renewal</p>
+    <h2 class="section-title">Roadmap to Elections</h2>
+    <div class="elections-split">
+      <div>
+        <div class="secretariat-card">
+          <h4>Secretariat Driving the Process</h4>
+          <ul class="plan-list">
+            <li>Ms Lebo Maduna-Twalo</li>
+            <li>Ms Nobahle Mjamba</li>
+            <li>Dr Thembinkosi Twalo</li>
+          </ul>
+          <p style="font-size:0.8rem;color:var(--white-dim);margin-top:0.8rem;line-height:1.6;">The Secretariat will develop the guiding election document — covering process, rules, eligibility, dates and participation guidelines — and present it to the General Membership.</p>
+        </div>
+        <h3 style="font-family:'Cinzel',serif;font-size:0.85rem;color:var(--gold-light);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.8rem;padding-bottom:0.5rem;border-bottom:1px solid rgba(201,168,76,0.3);">Positions Open for Election</h3>
+        <div class="positions-grid">
+          <div class="position-card"><div class="position-num">1</div><div class="position-name">President</div></div>
+          <div class="position-card"><div class="position-num">2</div><div class="position-name">Deputy President</div></div>
+          <div class="position-card"><div class="position-num">3</div><div class="position-name">Chairperson</div></div>
+          <div class="position-card"><div class="position-num">4</div><div class="position-name">Secretary</div></div>
+          <div class="position-card"><div class="position-num">5</div><div class="position-name">1st Deputy Secretary</div></div>
+          <div class="position-card"><div class="position-num">6</div><div class="position-name">2nd Deputy Secretary</div></div>
+          <div class="position-card"><div class="position-num">7</div><div class="position-name">Treasurer</div></div>
+          <div class="position-card"><div class="position-num">8</div><div class="position-name">Spokesperson</div></div>
+        </div>
+        <div class="elections-note" style="margin-top:1rem;">
+          <strong>Gender Parity:</strong> There will be a deliberate effort to appoint 2 capable female leaders to address the vacancy left by Mr Sebebenzile Bakubaku and to enforce the Association's gender parity policy. Elected, not selected.
+        </div>
+      </div>
+      <div>
+        <div class="elections-committee">
+          <h3>Proposed Elections Committee (5 of 8)</h3>
+          <div class="ec-member"><div class="ec-dot"></div><div class="ec-name">Zinziswa Mdatyulwa</div></div>
+          <div class="ec-member"><div class="ec-dot"></div><div class="ec-name">Lewis Bakubaku</div></div>
+          <div class="ec-member"><div class="ec-dot"></div><div class="ec-name">Thomas Mayekiso</div></div>
+          <div class="ec-member"><div class="ec-dot"></div><div class="ec-name">Veliswa Xhayiya</div></div>
+          <div class="ec-member"><div class="ec-dot"></div><div class="ec-name">Yoliswa Vumazonke</div></div>
+          <div class="ec-member"><div class="ec-dot"></div><div class="ec-name">Nosabelo Vumazonke</div></div>
+          <div class="ec-member"><div class="ec-dot"></div><div class="ec-name">Fikile Limane</div></div>
+          <div class="ec-member"><div class="ec-dot"></div><div class="ec-name">Zolile Chulayo</div></div>
+        </div>
+        <div class="elections-note" style="margin-top:1.5rem;">
+          <strong>No rejections recorded</strong> for any of the 8 proposed Elections Committee names. A final committee of 5 will be constituted from this list.
+        </div>
+        <div class="elections-note" style="margin-top:1rem;">
+          <strong>Open Campaigning:</strong> Alumni members who wish to openly campaign, influence, or lobby for positions will be permitted to do so freely — once the Secretariat has issued formal guidelines to ensure a smooth and constructive process.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="documents-section" id="documents" style="position:relative;z-index:1;padding:6rem 2rem;max-width:1200px;margin:0 auto;">
+  <p class="section-label">Transparency &amp; Governance</p>
+  <h2 class="section-title">Official Documents</h2>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1rem;">
+    <div class="obj-card" style="text-align:center;">
+      <div class="obj-card-icon">📊</div>
+      <h3>Financial Report 2025</h3>
+      <p>Annual financial statements, income &amp; expenditure, asset register, and Treasurer's report for the year ended 28 February 2025.</p>
+      <div style="margin-top:1.5rem;">
+        <a href="VSSS_financial_report_2025.pdf" target="_blank" class="btn-gold" style="display:inline-block;">View PDF</a>
+      </div>
+      <div style="margin-top:0.8rem;font-family:'Cinzel',serif;font-size:0.65rem;color:var(--gold);letter-spacing:0.15em;text-transform:uppercase;">Audited · FY 2024/25</div>
+    </div>
+    <div class="obj-card" style="text-align:center;">
+      <div class="obj-card-icon">⚖️</div>
+      <h3>Governance Framework</h3>
+      <p>Constitutional framework, Board of Trustees charter, Executive Committee mandates, subcommittee terms of reference, and code of conduct.</p>
+      <div style="margin-top:1.5rem;">
+        <a href="VSSS_Governance_frame_work_1.pdf" target="_blank" class="btn-gold" style="display:inline-block;">View PDF</a>
+      </div>
+      <div style="margin-top:0.8rem;font-family:'Cinzel',serif;font-size:0.65rem;color:var(--gold);letter-spacing:0.15em;text-transform:uppercase;">Adopted 25 Oct 2025</div>
+    </div>
+  </div>
+
+  <div style="background:linear-gradient(135deg,rgba(201,168,76,0.1),transparent);border:1px solid rgba(201,168,76,0.3);padding:1.2rem 1.5rem;margin-top:2rem;text-align:center;font-size:0.82rem;color:var(--white-dim);line-height:1.7;">
+    <strong style="color:var(--gold-light);">Note:</strong> All documents are made available in terms of our commitment to transparency and compliance with the Companies Act 71 of 2008. Members may request printed copies from the Secretariat.
+  </div>
+</section>
+
+<section class="anniversary-section" id="anniversary-address" style="position:relative;z-index:1;padding:6rem 2rem;background:var(--black);overflow:hidden;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <p class="section-label">17 July 2026 · 1st Anniversary Reflections</p>
+    <h2 class="section-title">Address by the Outgoing Chairperson</h2>
+
+    <div class="chair-cover" style="position:relative;display:grid;grid-template-columns:380px 1fr;gap:0;background:var(--black-card);border:1px solid rgba(201,168,76,0.3);overflow:hidden;margin-bottom:3rem;">
+      <div class="chair-photo" style="position:relative;background:#0A0A0A;min-height:480px;">
+        <img src="chair.jpeg" alt="Mr Mphumzi Mdekazi - Outgoing Chairperson" style="width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.9) sepia(0.1);">
+        <div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(10,8,0,0.85) 0%,transparent 40%,rgba(201,168,76,0.08) 100%);"></div>
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:1.2rem 1.5rem;background:linear-gradient(0deg,rgba(10,8,0,0.95),transparent);">
+          <div style="font-family:'Cinzel Decorative',serif;font-size:1.1rem;color:var(--gold-light);line-height:1.2;">Mphumzi Mdekazi</div>
+          <div style="font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.2em;color:var(--gold);text-transform:uppercase;margin-top:0.3rem;">Outgoing Chairperson · Vela Langa SSS Alumni</div>
+        </div>
+        <div class="photo-corner tl" style="position:absolute;top:8px;left:8px;width:20px;height:20px;border-top:2px solid var(--gold);border-left:2px solid var(--gold);"></div>
+        <div class="photo-corner tr" style="position:absolute;top:8px;right:8px;width:20px;height:20px;border-top:2px solid var(--gold);border-right:2px solid var(--gold);"></div>
+        <div class="photo-corner bl" style="position:absolute;bottom:8px;left:8px;width:20px;height:20px;border-bottom:2px solid var(--gold);border-left:2px solid var(--gold);"></div>
+        <div class="photo-corner br" style="position:absolute;bottom:8px;right:8px;width:20px;height:20px;border-bottom:2px solid var(--gold);border-right:2px solid var(--gold);"></div>
+      </div>
+      <div style="padding:2.5rem 2.5rem 2rem;position:relative;">
+        <div style="position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--gold),transparent);"></div>
+        <div style="font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.3em;color:var(--gold);text-transform:uppercase;margin-bottom:0.8rem;">Official Address · Lower Didimana Village · Whittlesea</div>
+        <h3 style="font-family:'Cinzel Decorative',serif;font-size:1.6rem;color:var(--white);line-height:1.25;margin-bottom:1rem;">1st Alumni Anniversary Reflections<br><span style="background:linear-gradient(135deg,#F0D080,#C9A84C);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">17th July 2026</span></h3>
+        <div style="width:50px;height:2px;background:var(--gold);margin-bottom:1.2rem;"></div>
+        <p style="font-family:'Cinzel',serif;font-style:italic;font-size:0.9rem;color:var(--gold-light);line-height:1.6;margin-bottom:1.5rem;">"Until now God has been with us (Ebenezer), kude kwalapha u Thixo enathi."</p>
+        <div style="display:flex;gap:0.8rem;flex-wrap:wrap;margin-bottom:1.5rem;">
+          <span style="font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.15em;color:var(--gold);border:1px solid rgba(201,168,76,0.3);padding:0.35rem 0.9rem;background:rgba(201,168,76,0.06);">To Former Teachers &amp; SGB Members</span>
+          <span style="font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.15em;color:var(--gold);border:1px solid rgba(201,168,76,0.3);padding:0.35rem 0.9rem;background:rgba(201,168,76,0.06);">To MANCO &amp; Alumni Members</span>
+          <span style="font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.15em;color:var(--gold);border:1px solid rgba(201,168,76,0.3);padding:0.35rem 0.9rem;background:rgba(201,168,76,0.06);">Friends &amp; Colleagues</span>
+        </div>
+        <div style="display:inline-flex;align-items:center;gap:0.6rem;background:linear-gradient(135deg,rgba(201,168,76,0.15),rgba(201,168,76,0.05));border:1px solid var(--gold-dark);padding:0.6rem 1.2rem;">
+          <span style="font-size:1.2rem;">✦</span>
+          <span style="font-family:'Cinzel',serif;font-size:0.7rem;letter-spacing:0.15em;color:var(--gold-light);">Rise &amp; Shine — Siyaphila ngesidima</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="speech-content" style="max-width:900px;margin:0 auto;background:var(--black-mid);border:1px solid rgba(201,168,76,0.15);padding:3rem 2.5rem;position:relative;">
+      <div style="position:absolute;top:0;left:0;width:3px;height:100%;background:linear-gradient(180deg,var(--gold),var(--gold-dark));"></div>
+
+      <p style="font-size:0.95rem;line-height:1.9;color:var(--white-dim);margin-bottom:1.2rem;"><strong style="color:var(--white);">To our former Teachers and former SGB Members,</strong><br>
+      <strong style="color:var(--white);">Members of Management Executive Committee (MANCO),</strong><br>
+      <strong style="color:var(--white);">Alumni Members Friends and Colleagues,</strong><br>
+      <strong style="color:var(--white);">Ladies and Gentlemen,</strong></p>
+
+      <p style="font-size:0.95rem;line-height:1.9;color:var(--white-dim);margin-bottom:1.2rem;">I bring you special greetings from the out-going interim leadership of Velalanga Alumni Association (VAA), on this momentous occasion of our 1st official Alumni Anniversary, the 17th July 2026.</p>
+
+      <p style="font-size:0.95rem;line-height:1.9;color:var(--white-dim);margin-bottom:1.2rem;">This is to thank all of you, more-so the Almighty for being able to travel together under difficult circumstances.</p>
+
+      <p style="font-size:0.95rem;line-height:1.9;color:var(--gold-light);margin-bottom:1.2rem;font-family:'Cinzel',serif;font-style:italic;">Until now God has been with us (Ebenezer), kude kwalapha u Thixo enathi.</p>
+
+      <p style="font-size:0.95rem;line-height:1.9;color:var(--white-dim);margin-bottom:1.2rem;">Today marks the 1st Velalanga Alumni Anniversary since we started last year on the 17th July 2025.</p>
+
+      <p style="font-size:0.95rem;line-height:1.9;color:var(--white-dim);margin-bottom:1.2rem;">You may all be aware of the internal strides we made in attempting to lay a solid ground, and a firm foundation by constituting Committee Structures precisely to confront the socio-economic challenges that are facing our communities today.</p>
+
+      <div style="background:var(--black-card);border:1px solid rgba(201,168,76,0.15);border-left:3px solid var(--gold);padding:1.5rem;margin:1.5rem 0;">
+        <h4 style="font-family:'Cinzel',serif;font-size:0.8rem;color:var(--gold-light);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:1rem;">For the benefit of those who have recently joined us, these Committees are as follows:</h4>
+        <ol style="list-style:none;padding:0;">
+          <li style="font-size:0.85rem;color:var(--white-dim);padding:0.3rem 0 0.3rem 1.5rem;position:relative;"><span style="position:absolute;left:0;color:var(--gold);font-family:'Cinzel Decorative',serif;">1.</span> Economic Development Committee,</li>
+          <li style="font-size:0.85rem;color:var(--white-dim);padding:0.3rem 0 0.3rem 1.5rem;position:relative;"><span style="position:absolute;left:0;color:var(--gold);font-family:'Cinzel Decorative',serif;">2.</span> Early Childhood Development Committee,</li>
+          <li style="font-size:0.85rem;color:var(--white-dim);padding:0.3rem 0 0.3rem 1.5rem;position:relative;"><span style="position:absolute;left:0;color:var(--gold);font-family:'Cinzel Decorative',serif;">3.</span> Infrastructure &amp; Security Integrated Committee,</li>
+          <li style="font-size:0.85rem;color:var(--white-dim);padding:0.3rem 0 0.3rem 1.5rem;position:relative;"><span style="position:absolute;left:0;color:var(--gold);font-family:'Cinzel Decorative',serif;">4.</span> Marketing &amp; Events Committee,</li>
+          <li style="font-size:0.85rem;color:var(--white-dim);padding:0.3rem 0 0.3rem 1.5rem;position:relative;"><span style="position:absolute;left:0;color:var(--gold);font-family:'Cinzel Decorative',serif;">5.</span> Monitoring &amp; Evaluation Committee,</li>
+          <li style="font-size:0.85rem;color:var(--white-dim);padding:0.3rem 0 0.3rem 1.5rem;position:relative;"><span style="position:absolute;left:0;color:var(--gold);font-family:'Cinzel Decorative',serif;">6.</span> Bereavement &amp; Funeral Support Committee</li>
+          <li style="font-size:0.85rem;color:var(--white-dim);padding:0.3rem 0 0.3rem 1.5rem;position:relative;"><span style="position:absolute;left:0;color:var(--gold);font-family:'Cinzel Decorative',serif;">7.</span> Elections Management Committee</li>
+          <li style="font-size:0.85rem;color:var(--white-dim);padding:0.3rem 0 0.3rem 1.5rem;position:relative;"><span style="position:absolute;left:0;color:var(--gold);font-family:'Cinzel Decorative',serif;">8.</span> Disciplinary Committee</li>
+          <li style="font-size:0.85rem;color:var(--white-dim);padding:0.3rem 0 0.3rem 1.5rem;position:relative;"><span style="position:absolute;left:0;color:var(--gold);font-family:'Cinzel Decorative',serif;">9.</span> Fundraising Committee</li>
+          <li style="font-size:0.85rem;color:var(--white-dim);padding:0.3rem 0 0.3rem 1.5rem;position:relative;"><span style="position:absolute;left:0;color:var(--gold);font-family:'Cinzel Decorative',serif;">10.</span> Election Appeals Committee</li>
+        </ol>
+        <p style="font-size:0.85rem;color:var(--gold-light);margin-top:1rem;font-style:italic;">The above Committees are our fighting machines to get us out of the socio-economic quagmire we find ourselves in today.</p>
+      </div>
+
+      <p style="font-size:0.95rem;line-height:1.9;color:var(--white-dim);margin-bottom:1.2rem;">In the same year under review, we have managed to build crucial fraternal relationships which now exists between the Velalanga Alumni Association, Walter Sisulu University (WSU), Ikhala TVET College, Government Entities, Parliament and the Private Sector companies.</p>
+
+      <p style="font-size:0.95rem;line-height:1.9;color:var(--white-dim);margin-bottom:1.2rem;">This is what is exciting about this journey, because it is full of potential opportunities and possibilities, despite the open skepticism from the doubting Thomases whose hearts were never part of this initiative, in spite of their pretentious presence from the onset amongst our ranks, something which is understandable and forgiven.</p>
+
+      <div style="background:linear-gradient(135deg,rgba(201,168,76,0.08),transparent);border:1px solid rgba(201,168,76,0.25);padding:1.5rem;margin:1.5rem 0;">
+        <p style="font-size:0.9rem;line-height:1.8;color:var(--white-dim);">It is for this reason that, I would like to make a direct call and an open frank challenge to those with open skepticism and those who continue to bad mouth the Alumni, to please play their part and contribute in their own little corners and change the socio-economic conditions of our people, than the obsession to criticize those who are trying their best in getting our people out of unemployment, poverty and de-developmental trajectory.</p>
+        <p style="font-size:0.9rem;line-height:1.8;color:var(--white-dim);margin-top:0.8rem;">This is by no means to suggest that we should be immunized and sanitized from criticism, but such should be constructive and meaningful with substance than lousy-empty rhetorics.</p>
+      </div>
+
+      <p style="font-size:0.95rem;line-height:1.9;color:var(--white-dim);margin-bottom:1.2rem;">So, on behalf of the entire interim and outgoing leadership of Velalanga Alumni Association (VAA), please do accept our warm gratitude for being granted the privilege to serve and to have played our part in laying the foundation. We are grateful to have been entrusted with an opportunity and responsibility to serve. It was not our birth right to lead you, but a serious privilege, which we will never forget.</p>
+
+      <p style="font-size:0.95rem;line-height:1.9;color:var(--white-dim);margin-bottom:1.2rem;">Despite its inherent minor challenges, this tenure has been good and educational so far; and because of that I must say, with polite and measured confidence we shall definitely overcome.<br>
+      <strong style="color:var(--gold-light);">The face of Velalanga will ultimately change no matter how long it will take, but it will and must change as long as some of us are still alive. It will happen during our life time too and there is no doubt about that.</strong></p>
+
+      <p style="font-size:0.95rem;line-height:1.9;color:var(--white-dim);margin-bottom:1.2rem;">Further to this, it would have been remiss of me if I don't thank and acknowledge all former Principals, Parents and Teachers of this institution for their dedication, foresight and hard work, that have successively brought all of us together thus far. It is them who came before us who laid their hands to build and bequethed this Velalanga to us. A Velalanga that was destroyed by some "walking disasters".</p>
+
+      <p style="font-size:0.95rem;line-height:1.9;color:var(--white-dim);margin-bottom:1.2rem;">History tells us that, this school was built by our parents, with their moneys. This should never escape our minds. Little did our parents anticipate that some "lost souls, and malcontents" who never built it, would come to destroy this precious educational asset (Velalanga).</p>
+
+      <div style="background:var(--black-card);border:1px solid rgba(201,168,76,0.2);border-left:3px solid var(--gold);padding:1.5rem;margin:1.5rem 0;">
+        <p style="font-size:0.9rem;line-height:1.8;color:var(--white-dim);">In this context, a special mention in the reconstruction of the legacy of our forbearers goes to our enduring Pan Africanist Legendary English Teacher, <strong style="color:var(--gold-light);">Mr Cyril Muwonge</strong>, the Founding Patron of the Velalanga Alumni Association.</p>
+        <p style="font-size:0.9rem;line-height:1.8;color:var(--white-dim);margin-top:0.8rem;">In the words of Isaac Newton, <em style="color:var(--gold-light);">"if I have seen further, it is by standing on the shoulders of giants"</em> and so the current generation is able to look into the future with much optimism, because we can stand on your shoulders as giants Mr Muwonge together with the founding parents and principals of our dear school. We are duly indebted to all the generations that came before us, especially those who were at the forefront of building this school in the mid 70s.</p>
+      </div>
+
+      <p style="font-size:0.95rem;line-height:1.9;color:var(--white-dim);margin-bottom:1.2rem;">Ours is to make them proud during our lifetime through the reconstruction and building of a modern University Satellite Campus.</p>
+
+      <p style="font-size:0.9rem;line-height:1.9;color:var(--white-dim);margin-bottom:1.2rem;">The Eastern Cape, our Province as a developing economy is faced with a lot of challenges in all sectors and that of education is no exception. Over the years, accessibility to higher education in the public institutions has been a challenge; lack of modern infrastructure including libraries and ICT facilities, lecture rooms, teaching and learning materials such as modern technological text books, studios, workshops and student accommodation, inadequate staff in terms of quality and quantity resulting in large class sizes with unfavourable student-teacher ratio, high staff turnover/staff exodus in some places, frequent industrial actions, challenging working environments and conditions of service, funding gaps, graduate unemployment, student ill-discipline and low female enrolment, among others.</p>
+
+      <p style="font-size:0.9rem;line-height:1.9;color:var(--white-dim);margin-bottom:1.2rem;">In a large measure, many of these problems apply to both private and public academic institutions as well, but for whose effort to help bridge the gap would have made the critical situation of lack of accessibility, even worse.</p>
+
+      <p style="font-size:0.95rem;line-height:1.9;color:var(--white-dim);margin-bottom:1.2rem;">Velalanga Alumni Association rises to be counted as an equal opposing force to these challenges in the Eastern Cape Province.</p>
+
+      <div style="background:linear-gradient(135deg,rgba(201,168,76,0.12),rgba(201,168,76,0.04));border:1px solid rgba(201,168,76,0.35);padding:2rem;text-align:center;margin:2rem 0;">
+        <p style="font-family:'Cinzel Decorative',serif;font-size:1.1rem;color:var(--gold-light);line-height:1.6;margin-bottom:0.8rem;">We rise to be counted as the 1st example to build a rural modern University Satellite Campus.</p>
+        <p style="font-size:0.9rem;color:var(--white-dim);line-height:1.7;">This is a commitment we are iron ringing ourselves with. It is our historical pledge. It is going to happen, doubting Thomases or no doubting Thomases, it is going to happen in our life time.</p>
+        <div style="margin-top:1.2rem;display:flex;flex-wrap:wrap;justify-content:center;gap:0.6rem;">
+          <span style="font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.1em;color:var(--gold);border:1px solid var(--gold-dark);padding:0.3rem 0.8rem;">School of Engineering</span>
+          <span style="font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.1em;color:var(--gold);border:1px solid var(--gold-dark);padding:0.3rem 0.8rem;">Medical School</span>
+          <span style="font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.1em;color:var(--gold);border:1px solid var(--gold-dark);padding:0.3rem 0.8rem;">School of Commerce</span>
+          <span style="font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.1em;color:var(--gold);border:1px solid var(--gold-dark);padding:0.3rem 0.8rem;">Admin Building</span>
+          <span style="font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.1em;color:var(--gold);border:1px solid var(--gold-dark);padding:0.3rem 0.8rem;">Student Center</span>
+          <span style="font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.1em;color:var(--gold);border:1px solid var(--gold-dark);padding:0.3rem 0.8rem;">ICT &amp; Library</span>
+          <span style="font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.1em;color:var(--gold);border:1px solid var(--gold-dark);padding:0.3rem 0.8rem;background:rgba(201,168,76,0.1);">Student Residence · 2,000+ Students</span>
+        </div>
+        <p style="font-family:'Cinzel',serif;font-size:0.85rem;color:var(--gold-light);margin-top:1.2rem;letter-spacing:0.1em;">It shall happen and it must happen.</p>
+      </div>
+
+      <p style="font-size:0.95rem;line-height:1.9;color:var(--white-dim);margin-bottom:1.2rem;">Of course this will make the running or management of our Alumni difficult somehow; requiring good and capable leadership with good hearts, with good and clean intentions, with well established administrative structures and skills, with lots of creativity and innovation.</p>
+
+      <p style="font-size:0.95rem;line-height:1.9;color:var(--white-dim);margin-bottom:1.2rem;">For Velalanga Alumni in particular, a team that understands to a larger extent, the dynamics of the current educational landscape and terrain will be more important than ever before. We are going to be the 1st Rural Tertiary Education success story in the half a century. My emphasis.</p>
+
+      <p style="font-size:0.95rem;line-height:1.9;color:var(--white-dim);margin-bottom:1.2rem;">From now onwards, we should exude ethical uprightness, and passion to serve and transform society. This is what we expect from the incoming new leadership once the election operation is concluded.</p>
+
+      <p style="font-size:0.95rem;line-height:1.9;color:var(--white-dim);margin-bottom:1.2rem;">To all of you alumni members, you must be models and agencies of change you seek to achieve. I know it is not easy to maintain this feat without compromising on excellence and integrity as others are doing, but I know it is doable, its something all of us can do and should do.</p>
+
+      <p style="font-size:0.95rem;line-height:1.9;color:var(--gold-light);margin-bottom:1.2rem;font-weight:700;">This should make you unique and this you must squarely live up to.</p>
+
+      <p style="font-size:0.95rem;line-height:1.9;color:var(--white-dim);margin-bottom:1.2rem;">I also want to charge the Committee Chairpersons and their Deputies, as Nehemiah charged the children of Israel, <strong style="color:var(--gold-light);">"Rise up and Build"</strong> for we are going in a new dispensation.</p>
+
+      <p style="font-size:0.95rem;line-height:1.9;color:var(--white-dim);margin-bottom:1.2rem;">Please let us be true to ourselves and committed to the vision and heritage of our forefathers we are trying to rebuild and modernise.</p>
+
+      <p style="font-size:0.95rem;line-height:1.9;color:var(--white-dim);margin-bottom:1.2rem;">This can only be achieved through team work. A good example of team work which always challenges me in the Holy Bible is that of the battle between the Israelites and the Amalekites at Rephidim (Exodus 17:8-14).</p>
+
+      <p style="font-size:0.95rem;line-height:1.9;color:var(--white-dim);margin-bottom:1.2rem;">Joshua was asked to go into battle with his own select army whilst Moses went to the top of the Hill with the Rod of God in hand with Aaron and Hur.</p>
+
+      <p style="font-size:0.95rem;line-height:1.9;color:var(--white-dim);margin-bottom:1.2rem;">When the going got tough in verse 12, they both held Moses' hands high till victory was achieved.</p>
+
+      <p style="font-size:0.95rem;line-height:1.9;color:var(--white-dim);margin-bottom:1.2rem;">As I bring my speech to a close, we need to open the net a bit wider by establishing strategic enabling relationships with all the local stakeholder teams through our special envoy (Mr Zolile Chulayo), namely; the religious (church) entities, farmers, taxi industry, sport fraternity, local schools, traditional and cultural groups.</p>
+
+      <p style="font-size:0.95rem;line-height:1.9;color:var(--white-dim);margin-bottom:1.2rem;">We must do all of this with the following question at the back of our minds ---what type of community and society do we seek to become in the near future?</p>
+
+      <div style="border-top:1px solid rgba(201,168,76,0.3);margin-top:2rem;padding-top:1.5rem;">
+        <p style="font-size:0.95rem;line-height:1.9;color:var(--white-dim);margin-bottom:1.2rem;">In conclusion,</p>
+        <p style="font-size:0.95rem;line-height:1.9;color:var(--white-dim);margin-bottom:1.2rem;">All of you as members of the Alumni, at least should know and appreciate at all times that the out-going interim leadership has been honestly solid behind every task and responsibility you gave them and we trust that the incoming elected and legitimate leadership will continue with the culture of ethical, sacrificial and selfless leadership.</p>
+        <p style="font-size:0.95rem;line-height:1.9;color:var(--white-dim);margin-bottom:1.2rem;">Please keep your vision before you at all times (Habakkuk 2:2). Your vision is the road map for the work that still lies ahead. Happy 1st Anniversary.</p>
+        <p style="font-family:'Cinzel Decorative',serif;font-size:1rem;color:var(--gold-light);margin-top:1.5rem;">God bless and keep you.</p>
+        <p style="font-size:0.95rem;color:var(--white);margin-top:0.5rem;">I thank you.</p>
+      </div>
+
+      <div style="margin-top:2.5rem;padding:1.2rem 1.5rem;background:var(--black-card);border:1px solid rgba(201,168,76,0.2);display:flex;align-items:center;gap:1rem;">
+        <div style="width:48px;height:48px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#F0D080,#C9A84C 50%,#8B6914);display:flex;align-items:center;justify-content:center;font-family:'Cinzel Decorative',serif;font-size:0.6rem;color:var(--black);font-weight:900;text-align:center;line-height:1.1;border:2px solid var(--gold-light);">M<br>M</div>
+        <div>
+          <div style="font-family:'Cinzel',serif;font-size:0.85rem;color:var(--gold-light);">Mphumzi Mdekazi</div>
+          <div style="font-family:'Lato',sans-serif;font-size:0.75rem;color:var(--white-dim);">Outgoing Chairperson · Vela Langa SSS Alumni Association · 17 July 2026</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo-text">Vela Langa SSS Alumni Association</div>
+  <div class="footer-motto">"Rise &amp; Shine — Siyaphila ngesidima"</div>
+  <div class="footer-divider"></div>
+  <p class="footer-copy">© 2025–2026 Vela Langa SSS Alumni Club · Non-Profit Company · Eastern Cape, South Africa</p>
+  <p class="footer-reg">Incorporated in terms of the Companies Act 71 of 2008 · Tax Exempt under s10(1)(cN) of the Income Tax Act · Constitution adopted 25 October 2025 · Updated May 2026</p>
+</footer>
+
+<script>
+  const container = document.getElementById('particles');
+  for (let i = 0; i < 40; i++) {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    p.style.left = Math.random() * 100 + '%';
+    p.style.top = Math.random() * 100 + '%';
+    p.style.animationDuration = (6 + Math.random() * 14) + 's';
+    p.style.animationDelay = (Math.random() * 10) + 's';
+    p.style.width = p.style.height = (1 + Math.random() * 3) + 'px';
+    container.appendChild(p);
+  }
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && entry.target.dataset.target) {
+        entry.target.textContent = entry.target.dataset.target;
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll('[data-target]').forEach(el => io.observe(el));
+
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 100) current = s.id; });
+    navLinks.forEach(a => { a.style.color = a.getAttribute('href') === '#' + current ? 'var(--gold-light)' : ''; });
+  });
+
+  function togglePlan(header) {
+    const body = header.nextElementSibling;
+    const chevron = header.querySelector('.plan-chevron');
+    const isOpen = body.classList.contains('open');
+    document.querySelectorAll('.plan-body').forEach(b => b.classList.remove('open'));
+    document.querySelectorAll('.plan-chevron').forEach(c => { c.style.transform = ''; });
+    if (!isOpen) {
+      body.classList.add('open');
+      chevron.style.transform = 'rotate(180deg)';
+    }
+  }
+</script>
+
+</body>
+</html>
